@@ -34,7 +34,6 @@ module.exports = function (app) {
         res.redirect('/');
       })
     });
-
 };
 
 router.use(function(req, res, next){
