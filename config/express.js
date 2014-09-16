@@ -43,6 +43,7 @@ module.exports = function(app, config) {
         title: 'error'
       });
     });
+    app.locals.pretty = true;
   }
 
   app.use(function (err, req, res) {
