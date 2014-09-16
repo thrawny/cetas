@@ -22,7 +22,10 @@ module.exports = function (app) {
 
   app.route('/article/:articleId')
     .get(function (req, res, next) {
-      res.send(req.params.articleId);
+      Article.findOne({ _id: req.params.articleId } ).exec(function (err, article) {
+        if (err) next(err);
+        res.render('article', { article: article });
+      });
   });
 
   app.route('/delete/:articleId')
