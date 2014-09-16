@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 Testing stuff  
+
+  each article in articles
+    div
+      a(href='article/'+article.id)
+        h3 
+          = article.title + ' - ' + article.id
+      = article.text
+      p
+        a(href='/delete/'+article.id) DELETE
+
+  form(method="post")
+    input(type="text" name="title")
+    br
+    textarea(name="text")
+    input(type="submit")
