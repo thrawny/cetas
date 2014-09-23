@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+  h1
+    span.fa.fa-sign-in  Skapa konto
+  div.container
+    form(action="/signup", method="post")
+      div.form-group
+        label Email
+        input.form-control(type="text", name="email")
+      div.form-group
+        label Password
+        input.form-control(type="password", name="password")
+      button.btn.btn-warning.btn-lg(type="submit") Skapa konto

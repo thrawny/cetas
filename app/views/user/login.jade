@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  h1
+    span.fa.fa-sign-in  Logga in
+  div.container
+    form(action="/login", method="post")
+      div.form-group
+        label Email
+        input.form-control(type="text", name="email")
+      div.form-group
+        label Password
+        input.form-control(type="password", name="password")
+      button.btn.btn-warning.btn-lg(type="submit") Logga in
+
+    h3 #[a(href="/signup") Skapa konto]
