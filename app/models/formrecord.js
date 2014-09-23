@@ -4,9 +4,11 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var FormRecordSchema = new Schema({
-  patientId: Number,
-  question1: Number,
-  question2: Number
+  patientId: String,
+  pain: String,
+  painKillers: String,
+  nausea: String,
+  narcosis: String
 });
 
 FormRecordSchema.virtual('date')

@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
     Article = mongoose.model('Article'),
+    FormRecord = mongoose.model('FormRecord'),
     Enum = require('enum');
 
 
@@ -19,7 +20,7 @@ module.exports.view = function (req, res, next) {
 };
 
 module.exports.create = function (req, res, next) {
-  Article.create(req.body, function(err) {
+	FormRecord.create([{ title: myEnum.get('A').value, text: myEnum.get('B').value}, function(err) {
     if (err) next(err);
     res.redirect('/');  
   });
