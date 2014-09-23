@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compress = require('compression');
 var methodOverride = require('method-override');
+var errorHandler = require('errorhandler');
 
 module.exports = function(app, config) {
   app.set('views', config.root + '/app/views');
@@ -23,36 +24,37 @@ module.exports = function(app, config) {
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
 
-  var controllers = glob.sync(config.root + '/app/controllers/*.js');
-  controllers.forEach(function (controller) {
-    require(controller)(app);
-  });
+  require('./routes')(app);
 
-  app.use(function (req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-  });
 
-  if(app.get('env') === 'development'){
+  // Use config/router.js to handle routes, use callback from controller
+
+  // var controllers = glob.sync(config.root + '/app/controllers/*.js');
+  // controllers.forEach(function (controller) {
+  //   require(controller)(app);
+  // });
+
+
+  if(app.get('env') === 'development') {
+    app.locals.pretty = true;
+
+    app.use(function (req, res, next) {
+      var err = new Error('Not Found');
+      err.status = 404;
+      next(err);
+    });
+
     app.use(function (err, req, res) {
       res.status(err.status || 500);
       res.render('error', {
         message: err.message,
-        error: err,
+        error: {},
         title: 'error'
       });
     });
-    app.locals.pretty = true;
+    
+    app.use(errorHandler());
   }
 
-  app.use(function (err, req, res) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: {},
-      title: 'error'
-    });
-  });
 
 };
