@@ -1,0 +1,104 @@
+extends layout
+
+block content
+ h2
+  .panel-heading.text-center Vänligen svara på följande frågor
+  
+  h3
+    div(style="margin-left:2%")
+     p 1. Hur har din smärta varit senaste timman? 
+      br
+      h4
+        div(style="margin-left:2%")
+         input(type="radio", name="pain_level", value="1", checked=gender=="Värsta_tänkbara")
+         | Värsta tänkbara
+         input(type="radio", name="pain_level", value="0", checked=gender=="Ingen_smärta")
+         | Ingen smärta
+      br
+     p 2. Har du tagit smärtstillande senaste timmarna?
+      br
+      h4
+        div(style="margin-left:2%")
+         input(type="radio", name="painkillers", value="1", checked=gender=="Ja")
+         | Ja
+         input(type="radio", name="painkillers", value="0", checked=gender=="Nej")
+         | Nej
+
+       br
+     p 3. Har du haft illamående/kräkning senaste timman?
+      br
+      h4
+        div(style="margin-left:2%")
+         input(type="radio", name="nausea-vomiting", value="1", checked=gender=="Flertal_kräkninga")
+         | Flertal kräkninga
+         input(type="radio", name="nausea-vomiting", value="0", checked=gender=="Inget_illamående")
+         | Inget illamående  
+
+       br
+     p 4. Är du påverkad av narkos/bedövning?
+      br
+      h4
+        div(style="margin-left:2%")
+         input(type="radio", name="anesthesia", value="1", checked=gender=="Kraftigt_påverkad")
+         | Kraftigt påverkad
+         input(type="radio", name="anesthesia", value="0", checked=gender=="Inte_alls_påverkad")
+         | Inte alls påverkad
+
+       br
+     p 5. Har du kunnat återuppta dina vanliga vardagsaktiviteter?
+      br
+      h4
+        div(style="margin-left:2%")
+         input(type="radio", name="daily_activities", value="1", checked=gender=="Nej")
+         | Nej, inte alls
+         input(type="radio", name="daily_activities", value="0", checked=gender=="Ja")
+         | Ja, fullt ut
+
+
+       br
+     p 6. Har du återgått till arbete eller annan vardagsrutin?
+      br
+      h4
+        div(style="margin-left:2%")
+         input(type="radio", name="routine", value="1", checked=gender=="Nej")
+         | Nej, inte alls
+         input(type="radio", name="routine", value="0", checked=gender=="Ja")
+         | Ja, fullt ut 
+
+       br
+     p 7. Hur nöjd är du med återhämtningen?
+      br
+      h4
+        div(style="margin-left:2%")
+         input(type="radio", name="satisfied", value="1", checked=gender=="Mycket_missnöjd")
+         | Mycket missnöjd
+         input(type="radio", name="satisfied", value="0", checked=gender=="Mycket_nöjd")
+         | Mycket nöjd  
+
+       br
+     p 8. Markera det besvär som är värst?
+      br
+      h4
+        div(style="margin-left:2%")
+         input(type="radio", name="Highlight", value="pain", checked=gender=="Smärta")
+         | Smärta
+         input(type="radio", name="Highlight", value="nausea", checked=gender=="Illamående")
+         | Illamående    
+         input(type="radio", name="Highlight", value="immobility", checked=gender=="Orörlighet")
+         | Orörlighet  
+         input(type="radio", name="Highlight", value="insomnia", checked=gender=="Sömnbesvär")
+         | Sömnbesvär 
+         input(type="radio", name="Highlight", value="fever", checked=gender=="Feber")
+         | Feber 
+         input(type="radio", name="Highlight", value="no_symptoms ", checked=gender=="Inget_besvär")
+         | Inget besvär
+       br
+
+     p 9. Bedöm ”appens” användarvänlighet
+      br
+      h4
+        div(style="margin-left:2%")
+         input(type="radio", name="assess", value="1", checked=gender=="Mycket_svåranvänd")
+         | Mycket svåranvänd
+         input(type="radio", name="assess", value="0", checked=gender==" Lätt_att_använda")
+         |  Lätt att använda 
