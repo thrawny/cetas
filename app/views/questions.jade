@@ -1,27 +1,33 @@
 extends layout
 
 block content
+
+ - var min_value = 0
+ - var max_value = 100
+
  h2
   .panel-heading.text-center Vänligen svara på följande frågor
-  
+ form(method='post',action='')
   h3
     div(style="margin-left:2%")
      p 1. Hur har din smärta varit senaste timman? 
       br
-      h4
-        div(style="margin-left:2%")
-         input(type="radio", name="pain_level", value="1", checked=gender=="Värsta_tänkbara")
-         | Värsta tänkbara
-         input(type="radio", name="pain_level", value="0", checked=gender=="Ingen_smärta")
-         | Ingen smärta
+      div(style="margin-left:2%")
+       | Ingen smärta
+       output(id="painValue")
+         | #{max_value/2}
+       input(type="range", name="pain", onchange="painValue.value=value", value=max_value/2, min=min_value, max=max_value)         
+       | Värsta tänkbara
+        
+         
       br
      p 2. Har du tagit smärtstillande senaste timmarna?
       br
       h4
         div(style="margin-left:2%")
-         input(type="radio", name="painkillers", value="1", checked=gender=="Ja")
+         input(type="radio", name="painkillers", value="yes")
          | Ja
-         input(type="radio", name="painkillers", value="0", checked=gender=="Nej")
+         input(type="radio", name="painkillers", value="no")
          | Nej
 
        br
@@ -29,50 +35,54 @@ block content
       br
       h4
         div(style="margin-left:2%")
-         input(type="radio", name="nausea-vomiting", value="1", checked=gender=="Flertal_kräkninga")
-         | Flertal kräkninga
-         input(type="radio", name="nausea-vomiting", value="0", checked=gender=="Inget_illamående")
-         | Inget illamående  
+         | Inget illamående
+         output(id="nauseaValue")
+           | #{max_value/2}
+         input(type="range", name="nausea", onchange="nauseaValue.value=value", value=max_value/2, min=min_value, max=max_value)
+         | Flertal kräkningar
 
        br
      p 4. Är du påverkad av narkos/bedövning?
       br
       h4
         div(style="margin-left:2%")
-         input(type="radio", name="anesthesia", value="1", checked=gender=="Kraftigt_påverkad")
-         | Kraftigt påverkad
-         input(type="radio", name="anesthesia", value="0", checked=gender=="Inte_alls_påverkad")
          | Inte alls påverkad
-
+         output(id="narcosisValue")
+           | #{max_value/2}
+         input(type="range", name="narcosis", onchange="narcosisValue.value=value", value=max_value/2, min=min_value, max=max_value)
+         | Kraftigt påverkad
        br
-     p 5. Har du kunnat återuppta dina vanliga vardagsaktiviteter?
+     p 5. Har du kunnat Återuppta dina vanliga vardagsaktiviteter?
       br
       h4
         div(style="margin-left:2%")
-         input(type="radio", name="daily_activities", value="1", checked=gender=="Nej")
          | Nej, inte alls
-         input(type="radio", name="daily_activities", value="0", checked=gender=="Ja")
+         output(id="dailyActivitiesValue")
+           | #{max_value/2}
+         input(type="range", name="dailyActivities", onchange="dailyActivitiesValue.value=value", value=max_value/2, min=min_value, max=max_value)
          | Ja, fullt ut
 
 
        br
-     p 6. Har du återgått till arbete eller annan vardagsrutin?
+     p 6. Har du Återgått till arbete eller annan vardagsrutin?
       br
       h4
         div(style="margin-left:2%")
-         input(type="radio", name="routine", value="1", checked=gender=="Nej")
          | Nej, inte alls
-         input(type="radio", name="routine", value="0", checked=gender=="Ja")
+         output(id="routineValue")
+           | #{max_value/2}
+         input(type="range", name="routine", onchange="routineValue.value=value", value=max_value/2, min=min_value, max=max_value)
          | Ja, fullt ut 
 
        br
-     p 7. Hur nöjd är du med återhämtningen?
+     p 7. Hur nöjd Är du med återhämtningen?
       br
       h4
         div(style="margin-left:2%")
-         input(type="radio", name="satisfied", value="1", checked=gender=="Mycket_missnöjd")
          | Mycket missnöjd
-         input(type="radio", name="satisfied", value="0", checked=gender=="Mycket_nöjd")
+         output(id="satisfiedValue")
+           | #{max_value/2}
+         input(type="range", name="satisfied", onchange="satisfiedValue.value=value", value=max_value/2, min=min_value, max=max_value)
          | Mycket nöjd  
 
        br
@@ -80,25 +90,28 @@ block content
       br
       h4
         div(style="margin-left:2%")
-         input(type="radio", name="Highlight", value="pain", checked=gender=="Smärta")
+         input(type="radio", name="worstThing", value="pain")
          | Smärta
-         input(type="radio", name="Highlight", value="nausea", checked=gender=="Illamående")
+         input(type="radio", name="worstThing", value="nausea")
          | Illamående    
-         input(type="radio", name="Highlight", value="immobility", checked=gender=="Orörlighet")
+         input(type="radio", name="worstThing", value="immobility")
          | Orörlighet  
-         input(type="radio", name="Highlight", value="insomnia", checked=gender=="Sömnbesvär")
+         input(type="radio", name="worstThing", value="insomnia")
          | Sömnbesvär 
-         input(type="radio", name="Highlight", value="fever", checked=gender=="Feber")
+         input(type="radio", name="worstThing", value="fever")
          | Feber 
-         input(type="radio", name="Highlight", value="no_symptoms ", checked=gender=="Inget_besvär")
+         input(type="radio", name="worstThing", value="noSymptoms")
          | Inget besvär
        br
 
-     p 9. Bedöm ”appens” användarvänlighet
+     p 9. Bedöm appens användarvänlighet
       br
       h4
         div(style="margin-left:2%")
-         input(type="radio", name="assess", value="1", checked=gender=="Mycket_svåranvänd")
          | Mycket svåranvänd
-         input(type="radio", name="assess", value="0", checked=gender==" Lätt_att_använda")
-         |  Lätt att använda 
+         output(id="assessValue")
+           | #{max_value/2}
+         input(type="range", name="assess", onchange="assessValue.value=value", value=max_value/2, min=min_value, max=max_value)
+         |  Lätt att använda
+         br
+     input(type="submit")
