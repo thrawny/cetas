@@ -4,7 +4,7 @@ var user = require('../app/controllers/user');
 module.exports = function (app, passport) {
 
 	app.route('/').get(home.list).post(home.create);
-	app.route('/form').get(home.form).post(home.create);
+	app.route('/form').get(isLoggedIn, home.form).post(isLoggedIn, home.create);
 
   app.route('/article/:articleId')
     .get(home.view);
