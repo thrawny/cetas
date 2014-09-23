@@ -21,7 +21,8 @@ module.exports.view = function (req, res, next) {
 };
 
 module.exports.create = function (req, res, next) {
-	FormRecord.create([{ patientId: Enums.pain.get('1').value, 
+	FormRecord.create([{ 
+		patientId: Enums.pain.get('1').value, 
 		pain: Enums.pain.get(req.body.pain).value,
 		painKillers: Enums.pain.get('1').value,
 		nausea: Enums.pain.get('1').value,
