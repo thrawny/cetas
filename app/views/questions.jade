@@ -1,6 +1,9 @@
 extends layout
 
 block content
+ - var min_value = 0
+ - var max_value = 100
+
  h2
   .panel-heading.text-center VÃ¤nligen svara pÃ¥ fÃ¶ljande frÃ¥gor
  form(method='post',action='')
@@ -9,11 +12,11 @@ block content
      p 1. Hur har din smÃ¤rta varit senaste timman? 
       br
       div(style="margin-left:2%")
-       | Ingen smÃ¤rta
+       | Ingen sm�rta
        output(id="painvalue")
-         | 50
-       input(type="range", name="pain", onchange="painvalue.value=value", value="50")         
-       | VÃ¤rsta tÃ¤nkbara
+         | #{max_value/2}
+       input(type="range", name="pain", onchange="painvalue.value=value", value=max_value/2, min=min_value, max=max_value)         
+       | V�rsta t�nkbara
         
          
       br
@@ -31,22 +34,22 @@ block content
       br
       h4
         div(style="margin-left:2%")
-         | Flertal krÃ¤kninga
+         | Inget illam�ende
          output(id="nauseavalue")
-           | 50
-         input(type="range", name="nausea", onchange="nauseavalue.value=value", value="50", min="0", max="100")
-         | Inget illamÃ¥ende  
+           | #{max_value/2}
+         input(type="range", name="nausea", onchange="nauseavalue.value=value", value=max_value/2, min=min_value, max=max_value)
+         | Flertal kr�kningar
 
        br
      p 4. Ã„r du pÃ¥verkad av narkos/bedÃ¶vning?
       br
       h4
         div(style="margin-left:2%")
-         input(type="radio", name="anesthesia", value="1", checked=gender=="Kraftigt_pÃ¥verkad")
-         | Kraftigt pÃ¥verkad
-         input(type="radio", name="anesthesia", value="0", checked=gender=="Inte_alls_pÃ¥verkad")
          | Inte alls pÃ¥verkad
-
+         output(id="narcosisvalue")
+           | #{max_value/2}
+         input(type="range", name="narcosis", onchange="narcosisvalue.value=value", value=max_value/2, min=min_value, max=max_value)
+         | Kraftigt p�verkad
        br
      p 5. Har du kunnat Ã¥teruppta dina vanliga vardagsaktiviteter?
       br
