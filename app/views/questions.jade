@@ -5,22 +5,22 @@ block content
  - var max_value = 100
 
  h2
-  .panel-heading.text-center VÃ¤nligen svara pÃ¥ fÃ¶ljande frÃ¥gor
+  .panel-heading.text-center Vänligen svara på följande frågor
  form(method='post',action='')
   h3
     div(style="margin-left:2%")
-     p 1. Hur har din smÃ¤rta varit senaste timman? 
+     p 1. Hur har din smärta varit senaste timman? 
       br
       div(style="margin-left:2%")
-       | Ingen sm�rta
-       output(id="painvalue")
+       | Ingen smärta
+       output(id="painValue")
          | #{max_value/2}
-       input(type="range", name="pain", onchange="painvalue.value=value", value=max_value/2, min=min_value, max=max_value)         
-       | V�rsta t�nkbara
+       input(type="range", name="pain", onchange="painValue.value=value", value=max_value/2, min=min_value, max=max_value)         
+       | Värsta tänkbara
         
          
       br
-     p 2. Har du tagit smÃ¤rtstillande senaste timmarna?
+     p 2. Har du tagit smärtstillande senaste timmarna?
       br
       h4
         div(style="margin-left:2%")
@@ -30,83 +30,87 @@ block content
          | Nej
 
        br
-     p 3. Har du haft illamÃ¥ende/krÃ¤kning senaste timman?
+     p 3. Har du haft illamående/kräkning senaste timman?
       br
       h4
         div(style="margin-left:2%")
-         | Inget illam�ende
-         output(id="nauseavalue")
+         | Inget illamående
+         output(id="nauseaValue")
            | #{max_value/2}
-         input(type="range", name="nausea", onchange="nauseavalue.value=value", value=max_value/2, min=min_value, max=max_value)
-         | Flertal kr�kningar
+         input(type="range", name="nausea", onchange="nauseaValue.value=value", value=max_value/2, min=min_value, max=max_value)
+         | Flertal kräkningar
 
        br
-     p 4. Ã„r du pÃ¥verkad av narkos/bedÃ¶vning?
+     p 4. Är du påverkad av narkos/bedövning?
       br
       h4
         div(style="margin-left:2%")
-         | Inte alls pÃ¥verkad
-         output(id="narcosisvalue")
+         | Inte alls påverkad
+         output(id="narcosisValue")
            | #{max_value/2}
-         input(type="range", name="narcosis", onchange="narcosisvalue.value=value", value=max_value/2, min=min_value, max=max_value)
-         | Kraftigt p�verkad
+         input(type="range", name="narcosis", onchange="narcosisValue.value=value", value=max_value/2, min=min_value, max=max_value)
+         | Kraftigt påverkad
        br
-     p 5. Har du kunnat Ã¥teruppta dina vanliga vardagsaktiviteter?
+     p 5. Har du kunnat Återuppta dina vanliga vardagsaktiviteter?
       br
       h4
         div(style="margin-left:2%")
-         input(type="radio", name="daily_activities", value="1", checked=gender=="Nej")
          | Nej, inte alls
-         input(type="radio", name="daily_activities", value="0", checked=gender=="Ja")
+         output(id="dailyActivitiesValue")
+           | #{max_value/2}
+         input(type="range", name="dailyActivities", onchange="dailyActivitiesValue.value=value", value=max_value/2, min=min_value, max=max_value)
          | Ja, fullt ut
 
 
        br
-     p 6. Har du Ã¥tergÃ¥tt till arbete eller annan vardagsrutin?
+     p 6. Har du Återgått till arbete eller annan vardagsrutin?
       br
       h4
         div(style="margin-left:2%")
-         input(type="radio", name="routine", value="1", checked=gender=="Nej")
          | Nej, inte alls
-         input(type="radio", name="routine", value="0", checked=gender=="Ja")
+         output(id="routineValue")
+           | #{max_value/2}
+         input(type="range", name="routine", onchange="routineValue.value=value", value=max_value/2, min=min_value, max=max_value)
          | Ja, fullt ut 
 
        br
-     p 7. Hur nÃ¶jd Ã¤r du med Ã¥terhÃ¤mtningen?
+     p 7. Hur nöjd Är du med återhämtningen?
       br
       h4
         div(style="margin-left:2%")
-         input(type="radio", name="satisfied", value="1", checked=gender=="Mycket_missnÃ¶jd")
-         | Mycket missnÃ¶jd
-         input(type="radio", name="satisfied", value="0", checked=gender=="Mycket_nÃ¶jd")
-         | Mycket nÃ¶jd  
+         | Mycket missnöjd
+         output(id="satisfiedValue")
+           | #{max_value/2}
+         input(type="range", name="satisfied", onchange="satisfiedValue.value=value", value=max_value/2, min=min_value, max=max_value)
+         | Mycket nöjd  
 
        br
-     p 8. Markera det besvÃ¤r som Ã¤r vÃ¤rst?
+     p 8. Markera det besvär som är värst?
       br
       h4
         div(style="margin-left:2%")
          input(type="radio", name="Highlight", value="pain", checked=gender=="SmÃ¤rta")
-         | SmÃ¤rta
+         | Smärta
          input(type="radio", name="Highlight", value="nausea", checked=gender=="IllamÃ¥ende")
-         | IllamÃ¥ende    
+         | Illamående    
          input(type="radio", name="Highlight", value="immobility", checked=gender=="OrÃ¶rlighet")
-         | OrÃ¶rlighet  
+         | Orörlighet  
          input(type="radio", name="Highlight", value="insomnia", checked=gender=="SÃ¶mnbesvÃ¤r")
-         | SÃ¶mnbesvÃ¤r 
+         | Sömnbesvär 
          input(type="radio", name="Highlight", value="fever", checked=gender=="Feber")
          | Feber 
          input(type="radio", name="Highlight", value="no_symptoms ", checked=gender=="Inget_besvÃ¤r")
-         | Inget besvÃ¤r
+         | Inget besvär
        br
 
-     p 9. BedÃ¶m â€�appensâ€� anvÃ¤ndarvÃ¤nlighet
+     p 9. Bedöm appens användarvänlighet
       br
       h4
         div(style="margin-left:2%")
-         input(type="radio", name="assess", value="1", checked=gender=="Mycket_svÃ¥ranvÃ¤nd")
-         | Mycket svÃ¥ranvÃ¤nd
-         input(type="radio", name="assess", value="0", checked=gender==" LÃ¤tt_att_anvÃ¤nda")
-         |  LÃ¤tt att anvÃ¤nda 
+         | Mycket svåranvänd
+         output(id="assessValue")
+           | #{max_value/2}
+         input(type="range", name="assess", onchange="assessValue.value=value", value=max_value/2, min=min_value, max=max_value)
+         |  Lätt att använda
          br
      input(type="submit")
