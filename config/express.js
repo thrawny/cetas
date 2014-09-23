@@ -9,6 +9,10 @@ var compress = require('compression');
 var methodOverride = require('method-override');
 var errorHandler = require('errorhandler');
 
+var passport = require('passport');
+var flash    = require('connect-flash');
+var session  = require('express-session');
+
 module.exports = function(app, config) {
   app.set('views', config.root + '/app/views');
   app.set('view engine', 'jade');
@@ -24,7 +28,15 @@ module.exports = function(app, config) {
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
 
-  require('./routes')(app);
+  require('./passport')(passport); // pass passport for configuration
+
+  // required for passport
+  app.use(session({ secret: 'itsfridayfriday' })); // session secret
+  app.use(passport.initialize());
+  app.use(passport.session()); // persistent login sessions
+  app.use(flash()); // use connect-flash for flash messages stored in session
+
+  require('./routes')(app, passport);
 
 
   // Use config/router.js to handle routes, use callback from controller
@@ -33,7 +45,6 @@ module.exports = function(app, config) {
   // controllers.forEach(function (controller) {
   //   require(controller)(app);
   // });
-
 
   if(app.get('env') === 'development') {
     app.locals.pretty = true;

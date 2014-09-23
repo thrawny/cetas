@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 module.exports.list = function (req, res, next) {
   Article.find().exec(function (err, articles) {
     if (err) next(err);
-    res.render('index', { articles: articles });
+    res.render('index', { articles: articles, messages: req.flash('notLoggedIn') });
   });
 };
 
