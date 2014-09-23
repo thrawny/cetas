@@ -26,13 +26,18 @@ module.exports.form = function (req, res, next) {
 	};
 
 module.exports.create = function (req, res, next) {
-	console.log('kånsoll');
 	FormRecord.create([{ 
-		patientId: Enums.pain.get('1').value, 
-		pain: Enums.pain.get(req.body.pain).value,
-		painKillers: Enums.pain.get('1').value,
-		nausea: Enums.pain.get('1').value,
-		narcosis: Enums.pain.get('1').value}],
+		patientId: Enums.yesOrNo.get('yes').value, 
+		pain: req.body.pain,
+		painKillers: Enums.yesOrNo.get(req.body.painkillers).value,
+		nausea: req.body.nausea,
+		narcosis: req.body.narcosis,
+		dailyActivities: req.body.dailyActivities,
+		routine: req.body.routine,
+		satisfied: req.body.satisfied,
+		worstThing: Enums.worstThing.get(req.body.worstThing).value,
+		assess: req.body.assess
+	}],
 		
 	                   function(err) {
     if (err) next(err);

@@ -2,13 +2,18 @@
 
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
-
+//TODO: patientId = number
 var FormRecordSchema = new Schema({
   patientId: String,
-  pain: String,
+  pain: Number,
   painKillers: String,
-  nausea: String,
-  narcosis: String
+  nausea: Number,
+  narcosis: Number,
+  dailyActivities: Number,
+  routine: Number,
+  satisfied: Number,
+  worstThing: String,
+  assess: Number
 });
 
 FormRecordSchema.virtual('date')

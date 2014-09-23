@@ -24,9 +24,9 @@ block content
       br
       h4
         div(style="margin-left:2%")
-         input(type="radio", name="painkillers", value="1", checked=gender=="Ja")
+         input(type="radio", name="painkillers", value="yes")
          | Ja
-         input(type="radio", name="painkillers", value="0", checked=gender=="Nej")
+         input(type="radio", name="painkillers", value="no")
          | Nej
 
        br
@@ -89,17 +89,17 @@ block content
       br
       h4
         div(style="margin-left:2%")
-         input(type="radio", name="Highlight", value="pain", checked=gender=="SmÃ¤rta")
+         input(type="radio", name="worstThing", value="pain")
          | Smärta
-         input(type="radio", name="Highlight", value="nausea", checked=gender=="IllamÃ¥ende")
+         input(type="radio", name="worstThing", value="nausea")
          | Illamående    
-         input(type="radio", name="Highlight", value="immobility", checked=gender=="OrÃ¶rlighet")
+         input(type="radio", name="worstThing", value="immobility")
          | Orörlighet  
-         input(type="radio", name="Highlight", value="insomnia", checked=gender=="SÃ¶mnbesvÃ¤r")
+         input(type="radio", name="worstThing", value="insomnia")
          | Sömnbesvär 
-         input(type="radio", name="Highlight", value="fever", checked=gender=="Feber")
+         input(type="radio", name="worstThing", value="fever")
          | Feber 
-         input(type="radio", name="Highlight", value="no_symptoms ", checked=gender=="Inget_besvÃ¤r")
+         input(type="radio", name="worstThing", value="noSymptoms")
          | Inget besvär
        br
 

@@ -10,22 +10,14 @@ var yesOrNo = new Enum({
 	'no' : 'No'
 });
 
-var pain = new Enum({
-	'1' : 'Ingen sm‰rta',
-	'2' : 'Neutral',
-	'3' : 'V‰rsta t‰nkbara'
+var worstThing = new Enum({
+	'pain' : 'Sm√§rta',
+	'nausea' : 'Illam√•ende',
+	'immobility' : 'Or√∂rlighet',
+	'insomnina' : 'S√∂mnbesv√§r',
+	'fever' : 'Feber',
+	'noSymptoms' : 'Inget',
 });
 
-exports.pain = pain;
-
-var nausea = new Enum({
-	'1' : 'Inget',
-	'2' : 'Netrul',
-	'3' : 'Flertal kr‰kningar'
-});
-
-var narcosis = new Enum({
-	'1' : 'Inte alls pÂ verkad',
-	'2' : 'Neutral',
-	'3' : 'Kraftigt pÂverkad'
-});
+exports.yesOrNo = yesOrNo;
+exports.worstThing = worstThing;
