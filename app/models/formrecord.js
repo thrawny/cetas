@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var FormRecordSchema = new Schema({
-  patientId: Number,
+  patientId: String,
   question1: Number,
   question2: Number
 });
