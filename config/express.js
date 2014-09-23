@@ -36,6 +36,11 @@ module.exports = function(app, config) {
   app.use(passport.session()); // persistent login sessions
   app.use(flash()); // use connect-flash for flash messages stored in session
 
+  app.use(function (req, res, next) {
+    res.locals.user = req.user;
+    next();
+  });
+
   require('./routes')(app, passport);
 
 
@@ -45,6 +50,8 @@ module.exports = function(app, config) {
   // controllers.forEach(function (controller) {
   //   require(controller)(app);
   // });
+
+  
 
   if(app.get('env') === 'development') {
     app.locals.pretty = true;
