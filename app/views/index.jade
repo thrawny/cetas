@@ -13,6 +13,7 @@ block content
           a.btn.btn-default(href="/login") #[span.fa.fa-user Logga in]
           a.btn.btn-default(href="/signup") #[span.fa.fa-user Registrering]
         else
-          p Inloggad som: #{user.firstname} #{user.local.email}
+          p Inloggad som: #{user.firstname + ' ' + user.lastname} - #{user.local.email}
+          a.btn.btn-default(href="/form") #[span.fa.fa-user Fyll i ett formulär]
           a.btn.btn-default(href="/logout") #[span.fa.fa-user Logga ut]
 
