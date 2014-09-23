@@ -1,42 +1,31 @@
-var express = require('express'),
-  router = express.Router(),
-  mongoose = require('mongoose'),
-  Article = mongoose.model('Article');
+var mongoose = require('mongoose'),
+    Article = mongoose.model('Article');
 
-module.exports = function (app) {
-  app.use('/', router);
 
-  app.route('/')
-    .get(function (req, res, text){
-      Article.find().exec(function (err, articles) {
-        if (err) next(err);
-        res.render('index', { articles: articles });
-      });
-    })
-    .post(function (req, res, next) {
-      Article.create(req.body, function(err) {
-        if (err) next(err);
-        res.redirect('/');  
-      });
-    });
-
-  app.route('/article/:articleId')
-    .get(function (req, res, next) {
-      Article.findOne({ _id: req.params.articleId } ).exec(function (err, article) {
-        if (err) next(err);
-        res.render('article', { article: article });
-      });
+module.exports.list = function (req, res, next) {
+  Article.find().exec(function (err, articles) {
+    if (err) next(err);
+    res.render('index', { articles: articles });
   });
-
-  app.route('/delete/:articleId')
-    .get(function (req, res, next) {
-      Article.remove({ _id: req.params.articleId }, function (err) {
-        res.redirect('/');
-      })
-    });
 };
 
-router.use(function(req, res, next){
-  console.log(req.method);
-  next();
-});
+
+module.exports.view = function (req, res, next) {
+  Article.findOne({ _id: req.params.articleId } ).exec(function (err, article) {
+    if (err) next(err);
+    res.render('article', { article: article });
+  });
+};
+
+module.exports.create = function (req, res, next) {
+  Article.create(req.body, function(err) {
+    if (err) next(err);
+    res.redirect('/');  
+  });
+};
+
+module.exports.destroy = function (req, res, next) {
+  Article.remove({ _id: req.params.articleId }, function (err) {
+    res.redirect('/');
+  })
+};
