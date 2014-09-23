@@ -1,7 +1,8 @@
 var mongoose = require('mongoose'),
     Article = mongoose.model('Article'),
     FormRecord = mongoose.model('FormRecord'),
-    Enum = require('enum');
+    Enum = require('enum'),
+    Enums = require('../models/enums.js');
 
 
 module.exports.list = function (req, res, next) {
@@ -20,7 +21,13 @@ module.exports.view = function (req, res, next) {
 };
 
 module.exports.create = function (req, res, next) {
-	FormRecord.create([{ title: myEnum.get('A').value, text: myEnum.get('B').value}, function(err) {
+	FormRecord.create([{ patientId: Enums.pain.get('1').value, 
+		pain: Enums.pain.get(req.body.pain).value,
+		painKillers: Enums.pain.get('1').value,
+		nausea: Enums.pain.get('1').value,
+		narcosis: Enums.pain.get('1').value}],
+		
+	                   function(err) {
     if (err) next(err);
     res.redirect('/');  
   });

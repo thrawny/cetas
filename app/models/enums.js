@@ -16,6 +16,8 @@ var pain = new Enum({
 	'3' : 'Värsta tänkbara'
 });
 
+exports.pain = pain;
+
 var myEnum = new Enum({
 	'A' : '1',
 	'B' : '2',
