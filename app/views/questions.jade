@@ -5,18 +5,18 @@ block content
  - var max_value = 100
 
  h2
-  .panel-heading.text-center VÃ¤nligen svara pÃ¥ fÃ¶ljande frÃ¥gor
+  .panel-heading.text-center Vänligen svara på följande frågor
  form(method='post',action='')
   h3
     div(style="margin-left:2%")
      p 1. Hur har din smÃ¤rta varit senaste timman? 
       br
       div(style="margin-left:2%")
-       | Ingen sm�rta
+       | Ingen sm�rta
        output(id="painvalue")
          | #{max_value/2}
        input(type="range", name="pain", onchange="painvalue.value=value", value=max_value/2, min=min_value, max=max_value)         
-       | V�rsta t�nkbara
+       | V�rsta t�nkbara
         
          
       br
@@ -34,11 +34,11 @@ block content
       br
       h4
         div(style="margin-left:2%")
-         | Inget illam�ende
+         | Inget illam�ende
          output(id="nauseavalue")
            | #{max_value/2}
          input(type="range", name="nausea", onchange="nauseavalue.value=value", value=max_value/2, min=min_value, max=max_value)
-         | Flertal kr�kningar
+         | Flertal kr�kningar
 
        br
      p 4. Ã„r du pÃ¥verkad av narkos/bedÃ¶vning?
@@ -49,7 +49,7 @@ block content
          output(id="narcosisvalue")
            | #{max_value/2}
          input(type="range", name="narcosis", onchange="narcosisvalue.value=value", value=max_value/2, min=min_value, max=max_value)
-         | Kraftigt p�verkad
+         | Kraftigt p�verkad
        br
      p 5. Har du kunnat Ã¥teruppta dina vanliga vardagsaktiviteter?
       br
