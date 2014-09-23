@@ -18,14 +18,14 @@ var pain = new Enum({
 
 exports.pain = pain;
 
-var myEnum = new Enum({
-	'A' : '1',
-	'B' : '2',
-	'C' : 4
+var nausea = new Enum({
+	'1' : 'Inget',
+	'2' : 'Netrul',
+	'3' : 'Flertal kräkningar'
 });
 
-var myEnum = new Enum({
-	'A' : '1',
-	'B' : '2',
-	'C' : 4
+var narcosis = new Enum({
+	'1' : 'Inte alls på verkad',
+	'2' : 'Neutral',
+	'3' : 'Kraftigt påverkad'
 });

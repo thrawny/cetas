@@ -20,7 +20,13 @@ module.exports.view = function (req, res, next) {
   });
 };
 
+module.exports.form = function (req, res, next) {
+	  
+	    res.render('questions');
+	};
+
 module.exports.create = function (req, res, next) {
+	console.log('kånsoll');
 	FormRecord.create([{ 
 		patientId: Enums.pain.get('1').value, 
 		pain: Enums.pain.get(req.body.pain).value,

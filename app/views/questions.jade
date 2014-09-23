@@ -1,0 +1,106 @@
+extends layout
+
+block content
+ h2
+  .panel-heading.text-center VÃ¤nligen svara pÃ¥ fÃ¶ljande frÃ¥gor
+ form(method='post',action='')
+  h3
+    div(style="margin-left:2%")
+     p 1. Hur har din smÃ¤rta varit senaste timman? 
+      br
+      h4
+        div(style="margin-left:2%")
+         input(type="radio", name="pain", value="3", checked=gender=="VÃ¤rsta_tÃ¤nkbara")
+         | VÃ¤rsta tÃ¤nkbara
+         input(type="radio", name="pain", value="1", checked=gender=="Ingen_smÃ¤rta")
+         | Ingen smÃ¤rta
+      br
+     p 2. Har du tagit smÃ¤rtstillande senaste timmarna?
+      br
+      h4
+        div(style="margin-left:2%")
+         input(type="radio", name="painkillers", value="1", checked=gender=="Ja")
+         | Ja
+         input(type="radio", name="painkillers", value="0", checked=gender=="Nej")
+         | Nej
+
+       br
+     p 3. Har du haft illamÃ¥ende/krÃ¤kning senaste timman?
+      br
+      h4
+        div(style="margin-left:2%")
+         input(type="radio", name="nausea-vomiting", value="1", checked=gender=="Flertal_krÃ¤kninga")
+         | Flertal krÃ¤kninga
+         input(type="radio", name="nausea-vomiting", value="0", checked=gender=="Inget_illamÃ¥ende")
+         | Inget illamÃ¥ende  
+
+       br
+     p 4. Ã„r du pÃ¥verkad av narkos/bedÃ¶vning?
+      br
+      h4
+        div(style="margin-left:2%")
+         input(type="radio", name="anesthesia", value="1", checked=gender=="Kraftigt_pÃ¥verkad")
+         | Kraftigt pÃ¥verkad
+         input(type="radio", name="anesthesia", value="0", checked=gender=="Inte_alls_pÃ¥verkad")
+         | Inte alls pÃ¥verkad
+
+       br
+     p 5. Har du kunnat Ã¥teruppta dina vanliga vardagsaktiviteter?
+      br
+      h4
+        div(style="margin-left:2%")
+         input(type="radio", name="daily_activities", value="1", checked=gender=="Nej")
+         | Nej, inte alls
+         input(type="radio", name="daily_activities", value="0", checked=gender=="Ja")
+         | Ja, fullt ut
+
+
+       br
+     p 6. Har du Ã¥tergÃ¥tt till arbete eller annan vardagsrutin?
+      br
+      h4
+        div(style="margin-left:2%")
+         input(type="radio", name="routine", value="1", checked=gender=="Nej")
+         | Nej, inte alls
+         input(type="radio", name="routine", value="0", checked=gender=="Ja")
+         | Ja, fullt ut 
+
+       br
+     p 7. Hur nÃ¶jd Ã¤r du med Ã¥terhÃ¤mtningen?
+      br
+      h4
+        div(style="margin-left:2%")
+         input(type="radio", name="satisfied", value="1", checked=gender=="Mycket_missnÃ¶jd")
+         | Mycket missnÃ¶jd
+         input(type="radio", name="satisfied", value="0", checked=gender=="Mycket_nÃ¶jd")
+         | Mycket nÃ¶jd  
+
+       br
+     p 8. Markera det besvÃ¤r som Ã¤r vÃ¤rst?
+      br
+      h4
+        div(style="margin-left:2%")
+         input(type="radio", name="Highlight", value="pain", checked=gender=="SmÃ¤rta")
+         | SmÃ¤rta
+         input(type="radio", name="Highlight", value="nausea", checked=gender=="IllamÃ¥ende")
+         | IllamÃ¥ende    
+         input(type="radio", name="Highlight", value="immobility", checked=gender=="OrÃ¶rlighet")
+         | OrÃ¶rlighet  
+         input(type="radio", name="Highlight", value="insomnia", checked=gender=="SÃ¶mnbesvÃ¤r")
+         | SÃ¶mnbesvÃ¤r 
+         input(type="radio", name="Highlight", value="fever", checked=gender=="Feber")
+         | Feber 
+         input(type="radio", name="Highlight", value="no_symptoms ", checked=gender=="Inget_besvÃ¤r")
+         | Inget besvÃ¤r
+       br
+
+     p 9. BedÃ¶m â€�appensâ€� anvÃ¤ndarvÃ¤nlighet
+      br
+      h4
+        div(style="margin-left:2%")
+         input(type="radio", name="assess", value="1", checked=gender=="Mycket_svÃ¥ranvÃ¤nd")
+         | Mycket svÃ¥ranvÃ¤nd
+         input(type="radio", name="assess", value="0", checked=gender==" LÃ¤tt_att_anvÃ¤nda")
+         |  LÃ¤tt att anvÃ¤nda 
+         br
+     input(type="submit")

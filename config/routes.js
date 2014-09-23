@@ -1,15 +1,10 @@
-
 var home = require('../app/controllers/home');
 
-module.exports = function (app) {
+module.exports = function(app) {
 
-  app.route('/')
-    .get(home.list)
-    .post(home.create);
+	app.route('/').get(home.list).post(home.create);
+	app.route('/form').get(home.form).post(home.create);
+	app.route('/article/:articleId').get(home.view);
 
-  app.route('/article/:articleId')
-    .get(home.view);
-
-  app.route('/delete/:articleId')
-    .get(home.destroy);
+	app.route('/delete/:articleId').get(home.destroy);
 };
