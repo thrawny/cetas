@@ -1,0 +1,3 @@
+		console.log(myEnum.get('A').value);
+		console.log('postdata');
+		Article.create([{ title: myEnum.get('A').value, text: myEnum.get('B').value}],

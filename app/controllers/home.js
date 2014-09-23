@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
-    Article = mongoose.model('Article');
+    Article = mongoose.model('Article'),
+    Enum = require('enum');
 
 
 module.exports.list = function (req, res, next) {
