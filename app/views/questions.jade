@@ -8,14 +8,12 @@ block content
     div(style="margin-left:2%")
      p 1. Hur har din smÃ¤rta varit senaste timman? 
       br
-      h4
-        div(style="margin-left:2%")
-         | Ingen smÃ¤rta
-         output(id="painvalue")
-           | 50
-         input(type="range", name="pain", onchange="painvalue.value=value", value="50")
-         
-         | VÃ¤rsta tÃ¤nkbara
+      div(style="margin-left:2%")
+       | Ingen smÃ¤rta
+       output(id="painvalue")
+         | 50
+       input(type="range", name="pain", onchange="painvalue.value=value", value="50")         
+       | VÃ¤rsta tÃ¤nkbara
         
          
       br
@@ -33,9 +31,10 @@ block content
       br
       h4
         div(style="margin-left:2%")
-         input(type="radio", name="nausea-vomiting", value="1", checked=gender=="Flertal_krÃ¤kninga")
          | Flertal krÃ¤kninga
-         input(type="radio", name="nausea-vomiting", value="0", checked=gender=="Inget_illamÃ¥ende")
+         output(id="nauseavalue")
+           | 50
+         input(type="range", name="nausea", onchange="nauseavalue.value=value", value="50", min="0", max="100")
          | Inget illamÃ¥ende  
 
        br
