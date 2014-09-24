@@ -1,5 +1,6 @@
 
 var home = require('../app/controllers/home');
+var mypatients = require('../app/controllers/mypatients');
 
 module.exports = function (app) {
 
@@ -12,4 +13,7 @@ module.exports = function (app) {
 
   app.route('/delete/:articleId')
     .get(home.destroy);
+    
+  app.route('/mypatients')
+    .get(mypatients.list);
 };
