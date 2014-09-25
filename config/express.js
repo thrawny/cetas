@@ -28,7 +28,7 @@ module.exports = function(app, config) {
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
 
-  require('./passport')(passport); // pass passport for configuration
+  
 
   // required for passport
   app.use(session({ secret: 'itsfridayfriday' })); // session secret
@@ -36,12 +36,14 @@ module.exports = function(app, config) {
   app.use(passport.session()); // persistent login sessions
   app.use(flash()); // use connect-flash for flash messages stored in session
 
+  // exposing the user object to all jade templates
   app.use(function (req, res, next) {
     res.locals.user = req.user;
     next();
   });
 
   require('./routes')(app, passport);
+  require('./passport')(passport); // pass passport for configuration
 
 
   // Use config/router.js to handle routes, use callback from controller
@@ -73,6 +75,8 @@ module.exports = function(app, config) {
     
     app.use(errorHandler());
   }
+
+
 
 
 };
