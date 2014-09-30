@@ -69,4 +69,11 @@ describe('GET /api/patients by doctor.', function() {
       .expect(200)
       .expect('Content-Type', /json/, done)
   });
+
+  it('should respond with json', function(done) {
+    agent
+      .get('/api/patients/1')
+      .expect(200)
+      .expect('Content-Type', /json/, done)
+  });
 })

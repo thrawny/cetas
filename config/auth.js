@@ -10,7 +10,7 @@ var access = {
 }
 
 var api_access = {
-  '/patients': [roles.doctor]
+  'patients': [roles.doctor]
 }
 // Check if a user is permitted to access the page.
 module.exports.check = function(req) {
@@ -29,6 +29,6 @@ module.exports.checkAPI = function(req) {
 }
 
 function getBaseUrl(path) {
-  var paths = path.split(path.sep);
+  paths = path.replace('/','').split('/');
   return paths[0];
 }
