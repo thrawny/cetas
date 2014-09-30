@@ -33,7 +33,6 @@ module.exports.adminUser = function() {
   adminUser.role = roles.admin;
   return adminUser;
 }
-
 module.exports.adminUserPassword = 'password1';
 
 module.exports.patientUser = function() {
@@ -43,15 +42,13 @@ module.exports.patientUser = function() {
   patientUser.role = roles.patient;
   return patientUser;
 }
-
 module.exports.patientUserPassword = 'password2';
 
 module.exports.doctorUser = function() {
   var doctorUser = new User();
-  doctorUser.local.email = 'patient@hej.se';
-  doctorUser.local.password = doctorUser.generateHash('password2');
+  doctorUser.local.email = 'doctor@hej.se';
+  doctorUser.local.password = doctorUser.generateHash('password3');
   doctorUser.role = roles.doctor;
   return doctorUser;
 }
-
 module.exports.doctorUserPassword = 'password3';

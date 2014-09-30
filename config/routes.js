@@ -56,7 +56,7 @@ module.exports = function (app, passport) {
   app.route('/api/patients/:id')
     .get(function(req, res) {
       var data = { patient: 'name'+req.params.id }
-      res.json(data)
+      res.json(data);
     });
 
   app.route('/api/patients')
@@ -64,7 +64,7 @@ module.exports = function (app, passport) {
       var data = {
         patients: ['patient1', 'patient2', 'patient3']
       };
-      res.json(data)
+      res.json(data);
     });
 
   app.post('/signup', passport.authenticate('local-signup', {
