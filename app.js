@@ -19,4 +19,7 @@ require('./config/express')(app, config);
 
 app.listen(config.port);
 
-console.log('The magic happens on port ' + config.port);
+if (process.env.NODE_ENV !== 'test')
+  console.log('The magic happens on port ' + config.port);
+
+module.exports = app;

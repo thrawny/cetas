@@ -28,8 +28,6 @@ module.exports = function(app, config) {
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
 
-  
-
   // required for passport
   app.use(session({ secret: 'itsfridayfriday' })); // session secret
   app.use(passport.initialize());
