@@ -11,7 +11,8 @@ var userSchema = mongoose.Schema({
         password     : String,
     },
     firstname: String,
-    lastname: String
+    lastname: String,
+    role: { type: Number, min: 0, max: 2 }
 });
 
 // methods ======================
