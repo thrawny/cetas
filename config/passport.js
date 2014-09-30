@@ -5,6 +5,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 // load up the user model
 var User = require('../app/models/user');
+var roles = require('../app/models/enums').roles;
 
 // expose this function to our app using module.exports
 module.exports = function(passport) {
@@ -68,6 +69,7 @@ module.exports = function(passport) {
             newUser.local.password = newUser.generateHash(password);
             newUser.firstname = req.body.firstname;
             newUser.lastname = req.body.lastname;
+            newUser.role = roles.patient;
 
             // save the user
             newUser.save(function(err) {
