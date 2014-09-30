@@ -21,7 +21,6 @@ module.exports.view = function (req, res, next) {
 };
 
 module.exports.form = function (req, res, next) {
-	  
 	    res.render('questions');
 	};
 

@@ -12,6 +12,15 @@ module.exports = function (app, passport) {
       next();  
     }
     else {
+      res.status(403).end('Access denied. NOT API.');
+    }
+  });
+
+  app.use('/api', function (req, res, next) {
+    if(auth.checkAPI(req)) {
+      next();
+    }
+    else {
       res.status(403).end('Access denied.');
     }
   });
@@ -42,6 +51,21 @@ module.exports = function (app, passport) {
 
   app.route('/signup')
     .get(user.signup);
+
+  // Dummy api routes. Replace these with the real stuff. The '/api' middleware will handle authorization. Check line 18 in this file.
+  app.route('/api/patients/:id')
+    .get(function(req, res) {
+      var data = { patient: 'name'+req.params.id }
+      res.json(data)
+    });
+
+  app.route('/api/patients')
+    .get(function(req, res) {
+      var data = {
+        patients: ['patient1', 'patient2', 'patient3']
+      };
+      res.json(data)
+    });
 
   app.post('/signup', passport.authenticate('local-signup', {
     successRedirect : '/', // redirect to the secure profile section
