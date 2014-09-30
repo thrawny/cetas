@@ -39,7 +39,7 @@ module.exports = function(app, config) {
     res.locals.user = req.user;
     next();
   });
-
+  
   require('./routes')(app, passport);
   require('./passport')(passport); // pass passport for configuration
 

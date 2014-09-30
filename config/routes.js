@@ -1,11 +1,28 @@
 var home = require('../app/controllers/home');
 var user = require('../app/controllers/user');
 var mypatients = require('../app/controllers/mypatients');
+var auth = require('./auth');
 
 module.exports = function (app, passport) {
 
-	app.route('/').get(home.list).post(home.create);
-	app.route('/form').get(isLoggedIn, home.form).post(isLoggedIn, home.create);
+
+  // Authorize user to a route. Check auth.js for logic.
+  app.use(function(req, res, next) {
+    if (auth.check(req)) {
+      next();  
+    }
+    else {
+      res.status(403).end('Access denied.');
+    }
+  });
+
+	app.route('/')
+    .get(home.list)
+    .post(home.create);
+
+	app.route('/form')
+    .get(home.form)
+    .post(home.create);
 
   app.route('/article/:articleId')
     .get(home.view);
@@ -16,16 +33,12 @@ module.exports = function (app, passport) {
   app.route('/mypatients')
     .get(mypatients.list);
 
-
   // User routes
   app.route('/login')
     .get(user.login)
 
   app.route('/logout')
     .get(user.logout);
-
-  app.route('/profile')
-    .get(isLoggedIn, user.view);
 
   app.route('/signup')
     .get(user.signup);
@@ -45,13 +58,3 @@ module.exports = function (app, passport) {
 
 };
 
-function isLoggedIn(req, res, next) {
-
-  // if user is authenticated in the session, carry on 
-  if (req.isAuthenticated())
-    return next();
-
-  // if they aren't redirect them to the home page
-  req.flash('notLoggedIn', 'Du är inte inloggad.');
-  res.redirect('/');
-}
