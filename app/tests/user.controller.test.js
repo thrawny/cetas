@@ -24,25 +24,19 @@ describe('GET /form', function(){
   it('should redirect to home if not logged in', function(done){
     request(app)
       .get('/form')
-      .expect('location', '/', done);
+      .expect(403, done);
   });
 })
 
 
 describe('POST /login', function(){
 
-  var email = 'hej@hej.se';
-  var password = 'hejhej';
-
   before(function(done) {
     utils.clearDB(done);
   });
 
   before(function(done) {
-    var user1 = new User();
-    user1.local.email = email;
-    user1.local.password = user1.generateHash(password);
-    user1.save(done);
+    utils.patientUser().save(done);
   });
 
   it('should redirect back to login with no credentials', function(done){
@@ -54,7 +48,7 @@ describe('POST /login', function(){
   it('should redirect to / with correct credentials', function(done){
     request(app)
       .post('/login')
-      .send({email: email, password: password})
+      .send({email: utils.patientUser().local.email, password: utils.patientUserPassword})
       .expect(302)
       .expect('Location', '/', done);
   });
