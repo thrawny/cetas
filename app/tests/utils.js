@@ -1,6 +1,5 @@
 'use strict';
 
-
 // ensure the NODE_ENV is set to 'test'
 process.env.NODE_ENV = 'test';
 
@@ -45,7 +44,7 @@ module.exports.patientUser = function() {
   return patientUser;
 }
 
-module.exports.patientUserPassword = 'password3';
+module.exports.patientUserPassword = 'password2';
 
 module.exports.doctorUser = function() {
   var doctorUser = new User();
@@ -55,4 +54,4 @@ module.exports.doctorUser = function() {
   return doctorUser;
 }
 
-module.exports.patientUserPassword = 'password3';
+module.exports.doctorUserPassword = 'password3';
