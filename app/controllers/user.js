@@ -49,3 +49,19 @@ module.exports.editprofile = function (req, res, next) {
 module.exports.password = function(req, res, next) {
   res.render('user/password');
 }
+
+module.exports.changepassword = function (req, res, next) {
+  
+ User.findById(req.body.id, function (err, cp) {
+  if (err) return next(err);
+    if (req.body.password != req.body.confirmpassword) return next('Bekräftelse Lösenord är inte korrekt!');
+
+     cp.local.password = cp.generateHash(req.body.password);
+
+    cp.save(function(err){
+    if (err) next(err)
+    else res.redirect('/myprofile')
+   });
+  
+ });
+};
