@@ -1,0 +1,56 @@
+extends ../layout
+
+block content
+ div.container
+  div.col-sm-6.col-sm-offset-3 
+  h2  
+   span.fa.fa-sign-in  Patientens profil -  
+   span= user.local.email   
+
+ table(border="1", bordercolor="darkblue", style="width:700px")
+  h3
+  form(action='', method="post", style="margin-left:2%")
+   tr
+     input(type="hidden", name="id", value=user.id)
+     td      
+        div.form-group
+          label personnummer
+          input.form-control(type="text", name="personal_number", value=user.personal_number, maxlength="10", style="width:100px")
+          input.form-control(type="button" value="Ändra lösenord" style="float: right" onclick="location.href = '/password';")
+    td
+        table(style="width:100%")     
+         tr
+          div.form-group
+           td
+            label Förnamn
+            input.form-control(type="text", name="firstname", value=user.firstname style="width:160px")
+           td 
+            label(style="margin-left:5%") Efternamn
+            input.form-control(type="text", name="lastname" , value=user.lastname) 
+   tr       
+    td     
+        table(style="width:100%")
+         tr    
+          div.form-group
+           td
+            label adress1
+            input.form-control(type="text", name="address1", value=user.address1)          
+           td
+            label adress2
+            input.form-control(type="text", name="address2", value=user.address2)
+         tr        
+          div.form-group
+           td
+            label POSTNR
+            input.form-control(type="text", name="postalno", value=user.postalno style="width:160px") 
+           td
+            label POSTORT
+            input.form-control(type="text", name="city", value=user.city style="width:150px") 
+         tr  
+          div.form-group
+           td
+            label mobiltelefon
+            input.form-control(type="text", name="mobile", value=user.mobile style="width:140px")   
+
+        button.btn.btn-default(style="float: right", type="submit") Inkomma
+        input.form-control(type="button" value="Tillbaka" style="float: right" onclick="location.href = '/';")
