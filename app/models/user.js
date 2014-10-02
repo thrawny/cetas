@@ -17,7 +17,7 @@ var userSchema = mongoose.Schema({
     address2: String,
     postalno: Number,
     city: String,
-    mobile: String
+    mobile: String,
     role: { type: Number, min: 0, max: 2 }
 });
 
