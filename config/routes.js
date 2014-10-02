@@ -28,6 +28,8 @@ module.exports = function(app, passport) {
 	app.route('/logout').get(user.logout);
 	app.route('/signup').get(user.signup);
 	app.route('/profile').get(user.view);
+	app.route('/myprofile').get(isLoggedIn, user.myprofile).post(isLoggedIn, user.editprofile);  
+        app.route('/password').get(isLoggedIn, user.password);  
 	app.route('/').get(home.list).post(home.create);
 
 	
