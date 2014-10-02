@@ -19,3 +19,33 @@ module.exports.logout = function(req, res) {
 module.exports.signup = function(req, res) {
   res.render('user/signup');
 }
+
+module.exports.myprofile = function(req, res, next) {
+  res.render('user/myprofile');
+}
+
+module.exports.editprofile = function (req, res, next) {
+  
+ User.findById(req.body.id, function (err, ep) {
+  if (err) return next(err);
+
+   ep.firstname = req.body.firstname;
+   ep.lastname = req.body.lastname;
+   ep.personal_number = req.body.personal_number;
+   ep.address1 = req.body.address1;
+   ep.address2 = req.body.address2;
+   ep.postalno = req.body.postalno;
+   ep.city = req.body.city;
+   ep.mobile = req.body.mobile;
+
+    ep.save(function(err){
+    if (err) next(err)
+    else res.redirect('/myprofile')
+   });
+  
+ });
+};
+
+module.exports.password = function(req, res, next) {
+  res.render('user/password');
+}
