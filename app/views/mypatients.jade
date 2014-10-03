@@ -7,11 +7,7 @@ block content
         each patient in patients
             li.patient 
                 h2
-                    = patient.id
-                p
-                    = patient.sex
-                
-                
+                    = patient.firstname                         
                 ul.recordList  
                     h3.recordListTitle Inlämnade formulär
                     each record in patient.records

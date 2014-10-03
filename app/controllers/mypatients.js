@@ -1,11 +1,48 @@
-﻿var data = {
-    "patients": [
-        {"id": "910411-0573", "sex": "Man", "records": [{"id":"Form1", "1": "5.23", "2": "8.81"}, {"id": "Form2", "1": "4.32"}]},
-        {"id": "910411-0574", "sex": "Kvinna", "records": [{"id":"Form1", "1": "3.33"}]},
-        {"id": "910411-0575", "sex": "Kvinna", "records": []}
-    ]
-};
+﻿var mongoose = require('mongoose'),
+    User = mongoose.model('User'),
+    FormRecord = mongoose.model('FormRecord');
+
+/*   
+module.exports.list = function(req, res, next){
+    user_map = function(){
+        emit(this.id, {"patientId" : this.id})
+    }
+
+    Users.mapReduce();
+    
+}*/
+    
 
 module.exports.list = function(req, res, next){
-    res.render('mypatients', {"patients": data.patients});
+    console.log("START")
+    var _users, _records;
+
+    User.find().exec(function(err, users){
+        if(err) next(err);
+        _users = users;
+        complete();
+    });
+    FormRecord.find().exec(function(err, records){
+        if(err) next(err);
+        _records = records;
+        complete()
+    });
+    
+    function complete(){
+        if(_users !== null && _records !== null){
+            var patients = _users;
+            for(var i in patients){
+                for(var j in _records){
+                    patients[i].records = [];
+                    if(patients[i].id == _records[j].patientId){
+                        patients[i].records.push(_records[j]);
+                    }
+                }
+            }
+            res.render('mypatients', {"patients": patients});
+        }
+        else{
+            console.log("SKIP");
+        }
+    }
 };

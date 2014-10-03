@@ -1,4 +1,5 @@
 var mongoose = require('mongoose'),
+    User = require('../models/user'),
     Article = mongoose.model('Article'),
     FormRecord = mongoose.model('FormRecord'),
     Enum = require('enum'),
@@ -20,14 +21,13 @@ module.exports.view = function (req, res, next) {
   });
 };
 
-module.exports.form = function (req, res, next) {
-	  
+module.exports.form = function (req, res, next) {       
 	    res.render('questions');
 	};
 
 module.exports.create = function (req, res, next) {
 	FormRecord.create([{ 
-		patientId: Enums.yesOrNo.get('yes').value, 
+		patientId: req.session.passport.user, 
 		pain: req.body.pain,
 		painKillers: Enums.yesOrNo.get(req.body.painkillers).value,
 		nausea: req.body.nausea,
