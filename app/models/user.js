@@ -12,6 +12,12 @@ var userSchema = mongoose.Schema({
     },
     firstname: String,
     lastname: String,
+    personal_number: String,
+    address1: String,
+    address2: String,
+    postalno: Number,
+    city: String,
+    mobile: String,
     role: { type: Number, min: 0, max: 2 }
 });
 
