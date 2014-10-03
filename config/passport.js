@@ -69,7 +69,10 @@ module.exports = function(passport) {
             newUser.local.password = newUser.generateHash(password);
             newUser.firstname = req.body.firstname;
             newUser.lastname = req.body.lastname;
-            newUser.role = req.body.role;
+            if (req.user.role == 1)
+                newUser.role = roles.patient;
+            if (req.user.role == 2)
+                newUser.role = req.body.role;
 
             // save the user
             newUser.save(function(err) {
