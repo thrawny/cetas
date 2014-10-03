@@ -13,7 +13,7 @@ block content
      input(type="hidden", name="id", value=user.id)
      td      
         div.form-group
-          label personnummer
+          label Personnummer
           input.form-control(type="text", name="personal_number", value=user.personal_number, maxlength="10", style="width:100px")
           input.form-control(type="button" value="Ändra lösenord" style="float: right" onclick="location.href = '/password';")
     td
@@ -32,10 +32,10 @@ block content
          tr    
           div.form-group
            td
-            label adress1
+            label Adressfält 1
             input.form-control(type="text", name="address1", value=user.address1)          
            td
-            label adress2
+            label Adressfält 2
             input.form-control(type="text", name="address2", value=user.address2)
          tr        
           div.form-group
@@ -51,5 +51,5 @@ block content
             label mobiltelefon
             input.form-control(type="text", name="mobile", value=user.mobile style="width:140px")   
 
-        button.btn.btn-default(style="float: right", type="submit") Inkomma
+        button.btn.btn-default(style="float: right", type="submit") Spara
         input.form-control(type="button" value="Tillbaka" style="float: right" onclick="location.href = '/';")
