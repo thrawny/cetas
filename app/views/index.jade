@@ -12,10 +12,17 @@ block content
         if (!user)
           a.btn.btn-default(href="/login") #[span.fa.fa-user Logga in]
         else
-          p Inloggad som: #{user.firstname + ' ' + user.lastname} - #{user.local.email} och är #{user.role}
-          a.btn.btn-default(href="/form") #[span.fa.fa-user Fyll i ett formulär]
-             if (user.role > 0)
-                  a.btn.btn-default(href="/signup") #[span.fa.fa-user Registrering]
+          p Inloggad som: #{user.firstname + ' ' + user.lastname + ' ' + user.personal_number} - #{user.local.email} och är #{user.role}
+          //- If you are patient you should be able to edit your profile and fill in forms
+          if (user.role == 0)
+              a.btn.btn-default(href="/myprofile") #[span.fa.fa-user Redigera min profil]
+              a.btn.btn-default(href="/form") #[span.fa.fa-user Fyll i ett formulär]
+          //- If you are a doctor you should be able to create patient accounts    
+          if (user.role == 1)
+              a.btn.btn-default(href="/signup") #[span.fa.fa-user Registrering]
+              a.btn.btn-default(href="/api/patients") #[span.fa.fa-user Mina patienter]
+          //- If you are an administrator you should be able to create all kinds of accounts
+          if (user.role ==2)
+              a.btn.btn-default(href="/signup") #[span.fa.fa-user Registrering]
           a.btn.btn-default(href="/logout") #[span.fa.fa-user Logga ut]
-          a.btn.btn-default(href="/myprofile") #[span.fa.fa-user Redigera min profil]
 
