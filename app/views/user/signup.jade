@@ -13,8 +13,12 @@ block content
           label Efternamn
           input.form-control(type="text", name="lastname") 
         div.form-group
-          label Ockupation
-          input.form-control(type="number", name="role")   
+          label Personnummer
+          input.form-control(type="text", name="personal_number") 
+        if (user.role == 2)
+            div.form-group
+              label Ockupation
+              input.form-control(type="integer", name="role")   
         div.form-group
           label Email
           input.form-control(type="text", name="email")
