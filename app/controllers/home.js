@@ -28,7 +28,7 @@ module.exports.create = function (req, res, next) {
 	FormRecord.create([{ 
 		patientId: Enums.yesOrNo.get('yes').value, 
 		pain: req.body.pain,
-		painKillers: Enums.yesOrNo.get(req.body.painkillers).value,
+		painKillers: Enums.yesOrNo.get(req.body.painkillers).value ,
 		nausea: req.body.nausea,
 		narcosis: req.body.narcosis,
 		dailyActivities: req.body.dailyActivities,
@@ -37,11 +37,10 @@ module.exports.create = function (req, res, next) {
 		worstThing: Enums.worstThing.get(req.body.worstThing).value,
 		assess: req.body.assess
 	}],
-		
-	                   function(err) {
-    if (err) next(err);
-    res.redirect('/');  
-  });
+    function(err) {
+      if (err) next(err);
+      res.redirect('/');  
+    });
 };
 
 module.exports.destroy = function (req, res, next) {

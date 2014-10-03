@@ -16,6 +16,12 @@ module.exports.clearDB = function (done) {
   return done();
 }
 
+module.exports.clearDB2 = function () {
+  for (var i in mongoose.connection.collections) {
+    mongoose.connection.collections[i].remove(function() {});
+  }
+}
+
 module.exports.connectDB = function(done) {
   if (mongoose.connection.db) return done();
   mongoose.connect(config.db, done);
@@ -52,3 +58,16 @@ module.exports.doctorUser = function() {
   return doctorUser;
 }
 module.exports.doctorUserPassword = 'password3';
+
+module.exports.exampleFormRecord = {  
+  pain: 50,
+  painkillers: 'yes',
+  nausea: 50,
+  narcosis: 50,
+  dailyActivities: 50,
+  routine: 50,
+  satisfied: 50,
+  worstThing: 'pain',
+  assess: 50
+};
+  

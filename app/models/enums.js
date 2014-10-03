@@ -19,10 +19,6 @@ var worstThing = new Enum({
 	'noSymptoms' : 'Inget',
 });
 
-var worstThing = {
-  pain: 'Smärta'
-}
-
 var roles = Object.freeze({
     patient: 0,
     doctor: 1,
