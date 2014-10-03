@@ -4,18 +4,21 @@ block content
   div.container
     div.col-sm-6.col-sm-offset-3
       h1
-        span.fa.fa-sign-in  Skapa konto
+        span.fa.fa-sign-in  Registrering
       form(action="/signup", method="post")
         div.form-group
           label Förnamn
           input.form-control(type="text", name="firstname")
         div.form-group
           label Efternamn
-          input.form-control(type="text", name="lastname")    
+          input.form-control(type="text", name="lastname") 
+        div.form-group
+          label Ockupation
+          input.form-control(type="number", name="role")   
         div.form-group
           label Email
           input.form-control(type="text", name="email")
         div.form-group
           label Lösenord
           input.form-control(type="password", name="password")   
-        button.btn.btn-warning.btn-lg(type="submit") Skapa konto
+        button.btn.btn-warning.btn-lg(type="submit") Skapa Konto
