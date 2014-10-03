@@ -34,8 +34,6 @@ module.exports = function(app, passport) {
 
 	
 	app.route('/form').get(home.form).post(home.create);
-	app.route('/article/:articleId').get(home.view);
-	app.route('/delete/:articleId').get(home.destroy);
 
 	
 	/******* API CALLS **********/
