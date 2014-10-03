@@ -13,9 +13,9 @@ block content
      input(type="hidden", name="id", value=user.id)
      td      
         div.form-group
-          label personnummer
-          input.form-control(type="text", name="personal_number", value=user.personal_number, maxlength="10", style="width:150px")
-          input.form-control(type="button" value="Ändra lösenord" style="float: right; width:150px; background-color:lightgray" onclick="location.href = '/password';")
+          label Personnummer
+          input.form-control(type="text", name="personal_number", value=user.personal_number, maxlength="10", style="width:100px")
+          input.form-control(type="button" value="Ändra lösenord" style="float: right" onclick="location.href = '/password';")
     td
         table(style="width:100%")     
          tr
@@ -32,11 +32,11 @@ block content
          tr    
           div.form-group
            td
-            label adress1
-            input.form-control(type="text", name="address1", value=user.address1,  style="width:200px")          
+            label Adressfält 1
+            input.form-control(type="text", name="address1", value=user.address1)          
            td
-            label adress2
-            input.form-control(type="text", name="address2", value=user.address2, style="width:200px")
+            label Adressfält 2
+            input.form-control(type="text", name="address2", value=user.address2)
          tr        
           div.form-group
            td
@@ -50,6 +50,5 @@ block content
            td
             label mobiltelefon
             input.form-control(type="text", name="mobile", value=user.mobile style="width:200px")   
-
-        button.btn.btn-default(style="float: right", type="submit") Inkomma
-        input.form-control(type="button" value="Tillbaka" style="float: right; width:100px; background-color:lightgray" onclick="location.href = '/';")
+        button.btn.btn-default(style="float: right", type="submit") Spara
+        input.form-control(type="button" value="Tillbaka" style="float: right" onclick="location.href = '/';")
