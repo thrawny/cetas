@@ -10,7 +10,7 @@ block content
           span.fa.fa-medkit  CETAS
         p
         if (!user)
-          a.btn.btn-default(href="/login") #[span.fa.fa-user Logga in]
+          a.btn.btn-default(href="/login") #[span.fa.fa-user #{language.index.login}]
         else
           p Inloggad som: #{user.firstname + ' ' + user.lastname} - #{user.local.email} och är #{user.role}
           a.btn.btn-default(href="/form") #[span.fa.fa-user Fyll i ett formulär]

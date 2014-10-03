@@ -36,6 +36,13 @@ module.exports = function (grunt) {
           'app/views/**/*.jade'
         ],
         options: { livereload: reloadPort }
+      },
+      languages: {
+    	  files: [
+    	    'language/*.json'
+    	  ],
+    	  options: { livereload: reloadPort },
+    	  tasks: ['read-lang-files']
       }
     }
   });
@@ -59,4 +66,9 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('default', ['develop', 'watch']);
+  
+  grunt.registerTask('read-lang-files', 'Tell express.js to reload the language files.', function() {
+	  var express = require('./config/express.js');
+	  express.readLanguageFile();
+	});
 };

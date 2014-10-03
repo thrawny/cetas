@@ -15,7 +15,8 @@ models.forEach(function (model) {
 });
 var app = express();
 
-require('./config/express')(app, config);
+var express = require('./config/express')
+express.init(app, config);
 
 app.listen(config.port);
 
