@@ -12,13 +12,10 @@ var FormRecordSchema = new Schema({
   routine: Number,
   satisfied: Number,
   worstThing: String,
-  assess: Number
+  assess: Number,
+  comments: String,
+  date: { type: Date, default: Date.now }
 });
-
-FormRecordSchema.virtual('date')
-  .get(function(){
-    return this._id.getTimestamp();
-  });
 
 module.exports.FormRecordSchema = FormRecordSchema;
 

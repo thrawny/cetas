@@ -3,7 +3,8 @@ var user = require('../app/controllers/user');
 var mypatients = require('../app/controllers/mypatients');
 var auth = require('./auth');
 
-var patient_api = require('../app/controllers/api.patients'); 
+var patient_api = require('../app/controllers/api.patients');
+var formrecord_api = require('../app/controllers/api.formrecord'); 
 
 module.exports = function(app, passport) {
 
@@ -31,11 +32,12 @@ module.exports = function(app, passport) {
 	app.route('/signup').get(user.signup);
 	app.route('/profile').get(user.view);
 	app.route('/myprofile').get(user.myprofile).post(user.editprofile);  
-        app.route('/password').get(user.password).post(user.changepassword);    
-	app.route('/').get(home.list).post(home.create);
+  app.route('/password').get(user.password).post(user.changepassword);    
+	app.route('/').get(home.list);
 
 	
-	app.route('/form').get(home.form).post(home.create);
+	app.route('/form').get(home.form);
+
 
 	
 	/******* API CALLS **********/
@@ -43,8 +45,11 @@ module.exports = function(app, passport) {
  		.get(patient_api.list)
  		.post(patient_api.create);
 
-	app.route('/api/patients/:id').
-		get(patient_api.view);
+	app.route('/api/patients/:id')
+		.get(patient_api.view);
+
+	app.route('/api/formrecord')
+		.post(formrecord_api.create);
 
 
 	app.post('/signup', passport.authenticate('local-signup', {

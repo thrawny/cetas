@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var roles = require('../models/enums').roles;
 
+
 // Lists all patients
 module.exports.list = function(req, res, next) {
   User.find({role: 0}, 'local.email firstname lastname formrecords', function(err, users) {

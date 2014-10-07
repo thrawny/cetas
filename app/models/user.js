@@ -3,7 +3,9 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
 
-var formrecordSchema = require('./formrecord').formrecordSchema;
+var FormrecordSchema = require('./formrecord').formrecordSchema;
+
+
 
 // define the schema for our user model
 var userSchema = mongoose.Schema({
@@ -21,7 +23,15 @@ var userSchema = mongoose.Schema({
     city: String,
     mobile: String,
     role: { type: Number, min: 0, max: 2 },
-    formrecords: [formrecordSchema]
+    formrecords: [FormrecordSchema],
+    surgeries: [SurgerySchema],
+    date: { type: Date, default: Date.now }
+});
+
+var SurgerySchema = mongoose.Schema({
+    title: String,
+    text: String,
+    date: { type: Date, default: Date.now }
 });
 
 // methods ======================

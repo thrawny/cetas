@@ -25,16 +25,3 @@ block content
               a.btn.btn-default(href="/signup") #[span.fa.fa-user #{language.index.register}]
           a.btn.btn-default(href="/logout") #[span.fa.fa-user #{language.index.logout}]
 
-
-  script.
-    $.get('/api/patients', function(data, status) {
-      console.log(data);
-      var ul = $('<ul/>');
-      data.forEach(function(elem) {
-        ul.append('<li>'+elem.firstname+'</li>')
-      })
-
-      $('.container').append(ul);
-
-    });
-
