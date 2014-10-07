@@ -14,8 +14,6 @@ var passport = require('passport');
 var flash    = require('connect-flash');
 var session  = require('express-session');
 
-var language; // Stores a JSON objects with all the strings used by the system
-
 var init = function(app, config) {
   app.set('views', config.root + '/app/views');
   app.set('view engine', 'jade');
@@ -39,10 +37,13 @@ var init = function(app, config) {
 
   // exposing the user and language object to all jade templates
   app.use(function (req, res, next) {
+    
     res.locals.user = req.user;
     res.locals.language = language;
     res.locals.successes = req.flash('success');
     res.locals.errors = req.flash('error');
+    res.locals.language = readLanguageFile();
+
     next();
   });
   
@@ -78,24 +79,15 @@ var init = function(app, config) {
   }
 };
 
-// Reads the language file and stores the strings in the variable language
+// Reads the language file and returns JSON objects with all the strings used by the system.
 // TODO: dynamically find the current language file
 var readLanguageFile = function() {
 	var file = './language/swedish.json';
-	fs.readFile(file, 'utf8', function (err, data) {
-	  if (err) {
-	    console.log('Error: ' + err);
-	    return;
-	  }
-	  language = JSON.parse(data);
-	});
-	console.log('reloading');
+	var data = fs.readFileSync(file, 'utf8');
+	return JSON.parse(data);
 };
-
-readLanguageFile();
 
 // Making these functions globally visible
 module.exports = {
-		init: init,
-		readLanguageFile: readLanguageFile
+		init: init
 }
