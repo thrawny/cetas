@@ -3,6 +3,8 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
 
+var formrecordSchema = require('./formrecord').formrecordSchema;
+
 // define the schema for our user model
 var userSchema = mongoose.Schema({
 
@@ -18,7 +20,8 @@ var userSchema = mongoose.Schema({
     postalno: Number,
     city: String,
     mobile: String,
-    role: { type: Number, min: 0, max: 2 }
+    role: { type: Number, min: 0, max: 2 },
+    formrecords: [formrecordSchema]
 });
 
 // methods ======================

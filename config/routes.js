@@ -3,6 +3,8 @@ var user = require('../app/controllers/user');
 var mypatients = require('../app/controllers/mypatients');
 var auth = require('./auth');
 
+var patient_api = require('../app/controllers/api.patients'); 
+
 module.exports = function(app, passport) {
 
 	// Authorize user to a route. Check auth.js for logic.
@@ -37,7 +39,7 @@ module.exports = function(app, passport) {
 
 	
 	/******* API CALLS **********/
-	app.route('/api/patients').get(mypatients.list);
+	app.route('/api/patients').get(patient_api.list);
 	app.route('/api/patients/:id').get(mypatients.showPatient);
 
 

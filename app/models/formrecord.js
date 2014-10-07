@@ -4,7 +4,6 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 //TODO: patientId = number
 var FormRecordSchema = new Schema({
-  patientId: String,
   pain: Number,
   painKillers: String,
   nausea: Number,
@@ -20,5 +19,7 @@ FormRecordSchema.virtual('date')
   .get(function(){
     return this._id.getTimestamp();
   });
+
+module.exports.FormRecordSchema = FormRecordSchema;
 
 mongoose.model('FormRecord', FormRecordSchema);
