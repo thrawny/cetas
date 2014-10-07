@@ -26,7 +26,8 @@ module.exports = function (grunt) {
         files: [
           'app.js',
           'app/**/*.js',
-          'config/*.js'
+          'config/*.js',
+          'language/*.json'
         ],
         tasks: ['develop', 'delayed-livereload']
       },
@@ -36,13 +37,6 @@ module.exports = function (grunt) {
           'app/views/**/*.jade'
         ],
         options: { livereload: reloadPort }
-      },
-      languages: {
-    	  files: [
-    	    'language/*.json'
-    	  ],
-    	  options: { livereload: reloadPort },
-    	  tasks: ['read-lang-files']
       }
     }
   });
@@ -54,6 +48,7 @@ module.exports = function (grunt) {
   grunt.registerTask('delayed-livereload', 'Live reload after the node server has restarted.', function () {
     var done = this.async();
     setTimeout(function () {
+    	console.log(JSON.stringify(files));
       request.get('http://localhost:' + reloadPort + '/changed?files=' + files.join(','),  function(err, res) {
           var reloaded = !err && res.statusCode === 200;
           if (reloaded)
@@ -66,9 +61,4 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('default', ['develop', 'watch']);
-  
-  grunt.registerTask('read-lang-files', 'Tell express.js to reload the language files.', function() {
-	  var express = require('./config/express.js');
-	  express.readLanguageFile();
-	});
 };
