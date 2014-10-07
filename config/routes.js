@@ -39,8 +39,12 @@ module.exports = function(app, passport) {
 
 	
 	/******* API CALLS **********/
-	app.route('/api/patients').get(patient_api.list);
-	app.route('/api/patients/:id').get(mypatients.showPatient);
+	app.route('/api/patients')
+ 		.get(patient_api.list)
+ 		.post(patient_api.create);
+
+	app.route('/api/patients/:id').
+		get(patient_api.view);
 
 
 	app.post('/signup', passport.authenticate('local-signup', {
@@ -49,7 +53,7 @@ module.exports = function(app, passport) {
 										// there is an error
 		failureFlash : true
 	// allow flash messages
-	}));
+	}));	
 
 	// process the login form
 	app.post('/login', passport.authenticate('local-login', {
