@@ -9,12 +9,14 @@ var compress = require('compression');
 var methodOverride = require('method-override');
 var errorHandler = require('errorhandler');
 var fs = require('fs'); // Used for reading language file
+var config = require('./config');
 
 var passport = require('passport');
 var flash    = require('connect-flash');
 var session  = require('express-session');
+var MongoStore = require('connect-mongo')(session);
 
-var init = function(app, config) {
+var init = function(app, config, conn) {
   app.set('views', config.root + '/app/views');
   app.set('view engine', 'jade');
 
@@ -29,8 +31,16 @@ var init = function(app, config) {
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
 
+  var sessionStore = new MongoStore({mongoose_connection: conn});
+
   // required for passport
-  app.use(session({ secret: 'itsfridayfriday' })); // session secret
+  app.use(session({
+    store: sessionStore,
+    secret: 'itsfridayfriday' 
+  })); // session secret
+  
+
+  
   app.use(passport.initialize());
   app.use(passport.session()); // persistent login sessions
   app.use(flash()); // use connect-flash for flash messages stored in session

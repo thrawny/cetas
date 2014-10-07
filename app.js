@@ -3,7 +3,7 @@ var express = require('express'),
   glob = require('glob'),
   mongoose = require('mongoose');
 
-mongoose.connect(config.db);
+mongoose.connect(config.db, config.options);
 var db = mongoose.connection;
 db.on('error', function () {
   throw new Error('unable to connect to database at ' + config.db);
@@ -16,7 +16,7 @@ models.forEach(function (model) {
 var app = express();
 
 var express = require('./config/express')
-express.init(app, config);
+express.init(app, config, db);
 
 app.listen(config.port);
 
