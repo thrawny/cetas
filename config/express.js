@@ -90,8 +90,9 @@ var readLanguageFile = function() {
 	console.log('reloading');
 };
 
-
 readLanguageFile();
+
+// Making these functions globally visible
 module.exports = {
 		init: init,
 		readLanguageFile: readLanguageFile

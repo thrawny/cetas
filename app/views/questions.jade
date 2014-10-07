@@ -31,7 +31,7 @@ block content
          | Nej
 
        br
-     p 3. Har du haft illamående/kräkning senaste timman?
+     p 3. #{language.form.questionNausea}
       br
       h4
         div(style="margin-left:2%")
@@ -42,7 +42,7 @@ block content
          | Flertal kräkningar
 
        br
-     p 4. Är du påverkad av narkos/bedövning?
+     p 4. #{language.form.questionNarcosis}
       br
       h4
         div(style="margin-left:2%")
@@ -52,7 +52,7 @@ block content
          input(type="range", name="narcosis", onchange="narcosisValue.value=value", value=max_value/2, min=min_value, max=max_value)
          | Kraftigt påverkad
        br
-     p 5. Har du kunnat Återuppta dina vanliga vardagsaktiviteter?
+     p 5. #{language.form.questionDaily}
       br
       h4
         div(style="margin-left:2%")
@@ -64,7 +64,7 @@ block content
 
 
        br
-     p 6. Har du Återgått till arbete eller annan vardagsrutin?
+     p 6. #{language.form.questionRoutine}
       br
       h4
         div(style="margin-left:2%")
@@ -75,7 +75,7 @@ block content
          | Ja, fullt ut 
 
        br
-     p 7. Hur nöjd Är du med återhämtningen?
+     p 7. #{language.form.questionSatisfied}
       br
       h4
         div(style="margin-left:2%")
@@ -86,25 +86,25 @@ block content
          | Mycket nöjd  
 
        br
-     p 8. Markera det besvär som är värst?
+     p 8. #{language.form.questionWorst}
       br
       h4
         div(style="margin-left:2%")
          input(type="radio", name="worstThing", value="pain")
-         | Smärta
+         | #{language.form.worst.pain}
          input(type="radio", name="worstThing", value="nausea")
-         | Illamående    
+         | #{language.form.worst.nausea}    
          input(type="radio", name="worstThing", value="immobility")
-         | Orörlighet  
+         | #{language.form.worst.immobility}  
          input(type="radio", name="worstThing", value="insomnia")
-         | Sömnbesvär 
+         | #{language.form.worst.insomnia}  
          input(type="radio", name="worstThing", value="fever")
-         | Feber 
+         | #{language.form.worst.fever}  
          input(type="radio", name="worstThing", value="noSymptoms")
-         | Inget besvär
+         | #{language.form.worst.noSymptoms} 
        br
 
-     p 9. Bedöm appens användarvänlighet
+     p 9. #{language.form.questionAssess}
       br
       h4
         div(style="margin-left:2%")
