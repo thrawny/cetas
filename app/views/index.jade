@@ -8,21 +8,35 @@ block content
     div.jumbotron.text-center
         h1
           span.fa.fa-medkit  CETAS
-        p
         if (!user)
           a.btn.btn-default(href="/login") #[span.fa.fa-user #{language.index.login}]
         else
           p Inloggad som: #{user.firstname + ' ' + user.lastname + '  -' +  user.local.email} och är #{user.role}
           //- If you are patient you should be able to edit your profile and fill in forms
           if (user.role == 0)
-              a.btn.btn-default(href="/myprofile") #[span.fa.fa-user #{language.index.myprofile}]
               a.btn.btn-default(href="/form") #[span.fa.fa-user #{language.index.form}]
+              a.btn.btn-default(href="/myprofile") #[span.fa.fa-user #{language.index.myprofile}]
           //- If you are a doctor you should be able to create patient accounts    
           if (user.role == 1)
               a.btn.btn-default(href="/signup") #[span.fa.fa-user #{language.index.register}]
               a.btn.btn-default(href="/api/patients") #[span.fa.fa-user #{language.index.mypatients}]
+              a.btn.btn-default(href="/password") #[span.fa.fa-user #{language.index.password}]
           //- If you are an administrator you should be able to create all kinds of accounts
           if (user.role ==2)
               a.btn.btn-default(href="/signup") #[span.fa.fa-user #{language.index.register}]
+              a.btn.btn-default(href="/password") #[span.fa.fa-user #{language.index.password}]
           a.btn.btn-default(href="/logout") #[span.fa.fa-user #{language.index.logout}]
+
+
+  script.
+    $.get('/api/patients', function(data, status) {
+      console.log(data);
+      var ul = $('<ul/>');
+      data.forEach(function(elem) {
+        ul.append('<li>'+elem.firstname+'</li>')
+      })
+
+      $('.container').append(ul);
+
+    });
 

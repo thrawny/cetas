@@ -59,9 +59,9 @@ describe('POST and GET of /form', function() {
       .send(utils.exampleFormRecord)
       .end(function(err, res) {
         if (err) return done(err);
-        FormRecord.find({}, function(err, data) {
+        User.findOne({'local.email': utils.patientUser().local.email}, function(err, user) {
           if (err) return done(err);
-          data.length.should.equal(1);
+          user.formrecords.length.should.equal(1);
           done();
         });
       });

@@ -5,6 +5,7 @@
 		"form": "Fyll i ett formulär",
 		"register": "Registrering",
 		"mypatients": "Mina patienter",
+		"password": "Byta lösenord",
 		"logout": "Logga ut"
 	},
 	
@@ -27,5 +28,11 @@
 			"noSymptoms": "Inget besvär"
 		},
 		"questionAssess": "Bedöm appens användarvänlighet"
+	},
+	
+	"loginPage": {
+		"login": "Logga in",
+		"email": "Epost",
+		"password": "Lösenord"
 	}
 }   

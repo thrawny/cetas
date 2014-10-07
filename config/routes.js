@@ -31,7 +31,7 @@ module.exports = function(app, passport) {
 	app.route('/signup').get(user.signup);
 	app.route('/profile').get(user.view);
 	app.route('/myprofile').get(user.myprofile).post(user.editprofile);  
-        app.route('/password').get(user.password).post(user.changepassword);    
+    app.route('/password').get(user.password).post(user.changepassword);    
 	app.route('/').get(home.list).post(home.create);
 
 	
@@ -39,8 +39,12 @@ module.exports = function(app, passport) {
 
 	
 	/******* API CALLS **********/
-	app.route('/api/patients').get(patient_api.list);
-	app.route('/api/patients/:id').get(mypatients.showPatient);
+	app.route('/api/patients')
+ 		.get(patient_api.list)
+ 		.post(patient_api.create);
+
+	app.route('/api/patients/:id').
+		get(patient_api.view);
 
 
 	app.post('/signup', passport.authenticate('local-signup', {
@@ -49,7 +53,7 @@ module.exports = function(app, passport) {
 										// there is an error
 		failureFlash : true
 	// allow flash messages
-	}));
+	}));	
 
 	// process the login form
 	app.post('/login', passport.authenticate('local-login', {

@@ -5,7 +5,7 @@ block content
     div.col-sm-6.col-sm-offset-3
       h1
         span.fa.fa-sign-in  Registrering
-      form(action="/signup", method="post")
+      form(action="/api/patients", method="post")
         div.form-group
           label Förnamn
           input.form-control(type="text", name="firstname")
@@ -23,3 +23,4 @@ block content
           label Lösenord
           input.form-control(type="password", name="password")   
         button.btn.btn-warning.btn-lg(type="submit") Skapa Konto
+
