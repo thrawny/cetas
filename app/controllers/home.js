@@ -39,7 +39,7 @@ module.exports.create = function(req, res, next) {
 	for (var int = 0; int < fields.length; int++) {
 		if (req.body[fields[int]] === '' || req.body[fields[int]] === undefined
 				|| req.body[fields[int]] < 0 || req.body[fields[int]] > 100) {
-			console.log("kommer hit");
+			console.log("kommer hit1");
 			pageError = true; // Throw some error
 			// Checks if someone is trying to input other values then 0>=x<=100
 		}
@@ -49,6 +49,8 @@ module.exports.create = function(req, res, next) {
 	if (req.body.painkillers === '' || req.body.painkillers === undefined) {
 		painkillers = "0";
 		pageError = true;
+		console.log("kommer hit2");
+		console.log(req.body.painkillers);
 	} else {
 		painkillers = Enums.yesOrNo.get(req.body.painkillers).value;
 	}
@@ -57,6 +59,7 @@ module.exports.create = function(req, res, next) {
 		// if worstThing is unanswered
 		worstThing = "0";
 		pageError = true;
+		console.log("kommer hit3");
 	} else {
 		worstThing = Enums.worstThing.get(req.body.worstThing).value;
 	}
