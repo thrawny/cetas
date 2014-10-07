@@ -60,7 +60,9 @@ module.exports.changepassword = function (req, res, next) {
 
     cp.save(function(err){
     if (err) next(err)
-    else res.redirect('/myprofile')
+    else 
+      if (req.user.role >0) res.redirect('/')
+      else res.redirect('/myprofile')
    });
   
  });

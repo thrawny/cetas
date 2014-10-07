@@ -32,7 +32,7 @@ module.exports = function(app, passport) {
 	app.route('/signup').get(user.signup);
 	app.route('/profile').get(user.view);
 	app.route('/myprofile').get(user.myprofile).post(user.editprofile);  
-  app.route('/password').get(user.password).post(user.changepassword);    
+ 	app.route('/password').get(user.password).post(user.changepassword);    
 	app.route('/').get(home.list);
 	app.route('/form').get(home.form).post(home.create);
 

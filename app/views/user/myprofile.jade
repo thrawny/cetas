@@ -4,7 +4,7 @@ block content
  div.container
   div.col-sm-6.col-sm-offset-3 
    h2  
-     span.fa.fa-sign-in  Redigering profil - #{user.personal_number} 
+     span.fa.fa-sign-in  Redigera profil - #{user.personal_number} 
 
  
    h3
@@ -22,10 +22,10 @@ block content
             label Efternamn
             input.form-control(type="text", name="lastname" , value=user.lastname) 
           div.form-group          
-            label adress1
+            label Adressfält 1
             input.form-control(type="text", name="address1", value=user.address1)  
            div.form-group 
-            label adress2
+            label Adressfält 2
             input.form-control(type="text", name="address2", value=user.address2) 
           div.form-group           
             label POSTNR
@@ -34,7 +34,7 @@ block content
             label POSTORT
             input.form-control(type="text", name="city", value=user.city)          
           div.form-group           
-            label mobiltelefon
+            label Mobiltelefonnr
             input.form-control(type="text", name="mobile", value=user.mobile)   
 
            button.btn.btn-warning.btn-lg(style="float: right;  margin-left:2%", type="submit") Spara
