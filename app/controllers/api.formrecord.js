@@ -9,33 +9,65 @@ module.exports.create = function(req, res, next) {
     res.redirect('/form');
   }
 
-  var fields = ['pain', 'painkillers', 'nausea', 'dailyActivities', 'routine', 'satisfied', 'worstThing', 'assess'];
-  fields.forEach(function(elem) {
-    if (req.body[elem] === '' || req.body[elem] === undefined) {
-      res.redirect('/form');
+  var fields = [ 'pain', 'nausea', 'dailyActivities', 'routine', 'satisfied',
+      'assess' ];
+
+  // fields.forEach(function(elem) {
+  for (var int = 0; int < fields.length; int++) {
+    if (req.body[fields[int]] === '' || req.body[fields[int]] === undefined
+        || req.body[fields[int]] < 0 || req.body[fields[int]] > 100) {
+      console.log("kommer hit1");
+      pageError = true; // Throw some error
+      // Checks if someone is trying to input other values then 0>=x<=100
     }
-  });
+  }
+
+  // if painkillers is unanswered
+  if (req.body.painkillers === '' || req.body.painkillers === undefined) {
+    painkillers = "0";
+    pageError = true;
+    console.log("kommer hit2");
+    console.log(req.body.painkillers);
+  } else {
+    painkillers = Enums.yesOrNo.get(req.body.painkillers).value;
+  }
+
+  if (req.body.worstThing === '' || req.body.worstThing === undefined) {
+    // if worstThing is unanswered
+    worstThing = "0";
+    pageError = true;
+    console.log("kommer hit3");
+  } else {
+    worstThing = Enums.worstThing.get(req.body.worstThing).value;
+  }
 
   var record = {
     pain : req.body.pain,
-    painKillers : Enums.yesOrNo.get(req.body.painkillers).value,
+    painKillers : painkillers,
     nausea : req.body.nausea,
     narcosis : req.body.narcosis,
     dailyActivities : req.body.dailyActivities,
     routine : req.body.routine,
     satisfied : req.body.satisfied,
-    worstThing : Enums.worstThing.get(req.body.worstThing).value,
-    assess : req.body.assess
+    worstThing : worstThing,
+    assess : req.body.assess,
   };
+  if (pageError === true) {
+    record["pageError"] = true;
+    return res.render('questions', record);
+  }
 
-  User.findOne({ _id: req.user.id }, function(err, user) {
-    if (err) next(err);
+  User.findOne({
+    _id : req.user.id
+  }, function(err, user) {
+    if (err)
+      next(err);
     user.formrecords.push(record);
     user.save(function(err) {
-      if (err) next(err);
-      req.flash('success', 'Form filled in successfully.')
+      if (err)
+        next(err);
       res.redirect('/');
     });
   })
-  
+
 };

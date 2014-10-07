@@ -34,9 +34,7 @@ module.exports = function(app, passport) {
 	app.route('/myprofile').get(user.myprofile).post(user.editprofile);  
   app.route('/password').get(user.password).post(user.changepassword);    
 	app.route('/').get(home.list);
-
-	
-	app.route('/form').get(home.form);
+	app.route('/form').get(home.form).post(home.create);
 
 
 	

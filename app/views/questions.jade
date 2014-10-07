@@ -7,83 +7,85 @@ block content
 
  h2
   .panel-heading.text-center #{language.form.pleaseAnswer}
- form(method='post',action='/api/formrecord')
+
+ form(method='post',action='')
+  if pageError
+    p Något blev fel!
   h3
     div(style="margin-left:2%")
      p 1. #{language.form.questionPain} 
       br
       div(style="margin-left:2%")
-       | Ingen smärta
+       | #{language.form.noPain} 
        output(id="painValue")
-         | #{max_value/2}
-       input(type="range", name="pain", onchange="painValue.value=value", value=max_value/2, min=min_value, max=max_value)         
-       | Värsta tänkbara
-        
-         
+         | #{pain}
+       input(type="range", name="pain", onchange="painValue.value=value", value="#{pain}", min=min_value, max=max_value)         
+       | #{language.form.worstPain} 
+
       br
      p 2. #{language.form.questionPainkillers}
       br
       h4
         div(style="margin-left:2%")
          input(type="radio", name="painkillers", value="yes")
-         | Ja
+         | #{language.form.yes} 
          input(type="radio", name="painkillers", value="no")
-         | Nej
+         | #{language.form.no} 
 
        br
      p 3. #{language.form.questionNausea}
       br
       h4
         div(style="margin-left:2%")
-         | Inget illamående
+         | #{language.form.noNausea} 
          output(id="nauseaValue")
-           | #{max_value/2}
-         input(type="range", name="nausea", onchange="nauseaValue.value=value", value=max_value/2, min=min_value, max=max_value)
-         | Flertal kräkningar
+           | #{nausea}
+         input(type="range", name="nausea", onchange="nauseaValue.value=value", value="#{nausea}", min=min_value, max=max_value)
+         | #{language.form.severeNausea} 
 
        br
      p 4. #{language.form.questionNarcosis}
       br
       h4
         div(style="margin-left:2%")
-         | Inte alls påverkad
+         | #{language.form.notAffected} 
          output(id="narcosisValue")
-           | #{max_value/2}
-         input(type="range", name="narcosis", onchange="narcosisValue.value=value", value=max_value/2, min=min_value, max=max_value)
-         | Kraftigt påverkad
+           | #{narcosis}
+         input(type="range", name="narcosis", onchange="narcosisValue.value=value", value="#{narcosis}", min=min_value, max=max_value)
+         | #{language.form.veryAffected} 
+
        br
      p 5. #{language.form.questionDaily}
       br
       h4
         div(style="margin-left:2%")
-         | Nej, inte alls
+         | #{language.form.notAtAll} 
          output(id="dailyActivitiesValue")
-           | #{max_value/2}
-         input(type="range", name="dailyActivities", onchange="dailyActivitiesValue.value=value", value=max_value/2, min=min_value, max=max_value)
-         | Ja, fullt ut
-
-
+           | #{dailyActivities}
+         input(type="range", name="dailyActivities", onchange="dailyActivitiesValue.value=value", value="#{dailyActivities}", min=min_value, max=max_value)
+         | #{language.form.completely} 
        br
+       
      p 6. #{language.form.questionRoutine}
       br
       h4
         div(style="margin-left:2%")
-         | Nej, inte alls
+         | #{language.form.notAtAll}
          output(id="routineValue")
-           | #{max_value/2}
-         input(type="range", name="routine", onchange="routineValue.value=value", value=max_value/2, min=min_value, max=max_value)
-         | Ja, fullt ut 
+           | #{routine}
+         input(type="range", name="routine", onchange="routineValue.value=value", value="#{routine}", min=min_value, max=max_value)
+         | #{language.form.completely} 
 
        br
      p 7. #{language.form.questionSatisfied}
       br
       h4
         div(style="margin-left:2%")
-         | Mycket missnöjd
+         | #{language.form.dissatisfied}
          output(id="satisfiedValue")
-           | #{max_value/2}
-         input(type="range", name="satisfied", onchange="satisfiedValue.value=value", value=max_value/2, min=min_value, max=max_value)
-         | Mycket nöjd  
+           | #{satisfied}
+         input(type="range", name="satisfied", onchange="satisfiedValue.value=value", value="#{satisfied}", min=min_value, max=max_value)
+         | #{language.form.satisfied}
 
        br
      p 8. #{language.form.questionWorst}
@@ -108,10 +110,17 @@ block content
       br
       h4
         div(style="margin-left:2%")
-         | Mycket svåranvänd
+         | #{language.form.hardToUse}
          output(id="assessValue")
-           | #{max_value/2}
-         input(type="range", name="assess", onchange="assessValue.value=value", value=max_value/2, min=min_value, max=max_value)
-         |  Lätt att använda
+           | #{assess}
+         input(type="range", name="assess", onchange="assessValue.value=value", value="#{assess}", min=min_value, max=max_value)
+         |  #{language.form.easyToUse}
          br
+         
+     if (user && user.role == 1)
+       // Doctors have a text field where to add comments for a patient
+       p 10. #{language.form.comments}
+         br
+         textarea(type="textarea", name="comments", rows="5", cols="50")
+         
      input(type="submit")

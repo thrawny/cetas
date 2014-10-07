@@ -52,7 +52,6 @@ var init = function(app, config, conn) {
     res.locals.successes = req.flash('success');
     res.locals.errors = req.flash('error');
     res.locals.language = readLanguageFile();
-
     next();
   });
   

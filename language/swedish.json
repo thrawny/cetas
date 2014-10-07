@@ -5,18 +5,31 @@
 		"form": "Fyll i ett formulär",
 		"register": "Registrering",
 		"mypatients": "Mina patienter",
+		"password": "Byta lösenord",
 		"logout": "Logga ut"
 	},
 	
 	"form": {
 		"pleaseAnswer": "Vänligen svara på följande frågor",
 		"questionPain": "Hur har din smärta varit senaste timman?",
+			"noPain": "Ingen smärta",
+			"worstPain": "Värsta tänkbara",
 		"questionPainkillers": "Har du tagit smärtstillande senaste timmarna?",
+			"yes": "Ja",
+			"no": "Nej",
 		"questionNausea": "Har du haft illamående/kräkning senaste timman?",
+			"noNausea": "Inget illamående",
+			"severeNausea": "Flertal kräkningar",
 		"questionNarcosis": "Är du påverkad av narkos/bedövning?",
+			"notAffected": "Inte alls påverkad",
+			"veryAffected": "Kraftigt påverkad",
 		"questionDaily": "Har du kunnat återuppta dina vanliga vardagsaktiviteter?",
+			"notAtAll": "Nej, inte alls",
+			"completely": "Ja, fullt ut",
 		"questionRoutine": "Har du återgått till arbete eller annan vardagsrutin?",
 		"questionSatisfied": "Hur nöjd är du med återhämtningen?",
+			"dissatisfied": "Mycket missnöjd",
+			"satisfied": "Mycket nöjd",
 		"questionWorst": "Markera det besvär som är värst?",
 		"worst": {
 			"pain": "Smärta",
@@ -26,7 +39,10 @@
 			"fever": "Feber",
 			"noSymptoms": "Inget besvär"
 		},
-		"questionAssess": "Bedöm appens användarvänlighet"
+		"questionAssess": "Bedöm appens användarvänlighet",
+			"hardToUse": "Mycket svåranvänd",
+			"easyToUse": "Lätt att använda",
+		"comments": "Anteckningar"
 	},
 	
 	"loginPage": {
