@@ -8,7 +8,6 @@ block content
     div.jumbotron.text-center
         h1
           span.fa.fa-medkit  CETAS
-        p
         if (!user)
           a.btn.btn-default(href="/login") #[span.fa.fa-user #{language.index.login}]
         else
@@ -25,4 +24,17 @@ block content
           if (user.role ==2)
               a.btn.btn-default(href="/signup") #[span.fa.fa-user #{language.index.register}]
           a.btn.btn-default(href="/logout") #[span.fa.fa-user #{language.index.logout}]
+
+
+  script.
+    $.get('/api/patients', function(data, status) {
+      console.log(data);
+      var ul = $('<ul/>');
+      data.forEach(function(elem) {
+        ul.append('<li>'+elem.firstname+'</li>')
+      })
+
+      $('.container').append(ul);
+
+    });
 

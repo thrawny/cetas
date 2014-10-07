@@ -41,6 +41,8 @@ var init = function(app, config) {
   app.use(function (req, res, next) {
     res.locals.user = req.user;
     res.locals.language = language;
+    res.locals.successes = req.flash('success');
+    res.locals.errors = req.flash('error');
     next();
   });
   
