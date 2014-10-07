@@ -37,9 +37,8 @@ var init = function(app, config) {
 
   // exposing the user and language object to all jade templates
   app.use(function (req, res, next) {
-    
+
     res.locals.user = req.user;
-    res.locals.language = language;
     res.locals.successes = req.flash('success');
     res.locals.errors = req.flash('error');
     res.locals.language = readLanguageFile();
