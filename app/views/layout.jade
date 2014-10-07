@@ -15,6 +15,10 @@ html(lang='sv')
       script(src='/js/mypatients.js')
       script(src='http://localhost:35729/livereload.js')
   body
+    each error in errors
+      div.alert.alert-danger= error
+    each success in successes
+      div.alert.alert-success= success
     block content
     
     
