@@ -4,42 +4,61 @@ block content
  div.container
   div.col-sm-6.col-sm-offset-3 
    h2  
-     span.fa.fa-sign-in  Redigering profil - #{user.personal_number} 
+     span.fa.fa-sign-in  Redigera profil 
 
- 
-   h3
-   form(action='', method="post")
-   
-          input(type="hidden", name="id", value=user.id)
-          
+
+ table(border="1", bordercolor="darkblue", style="width:700px; margin-left:2%")
+  h3
+  form(action='', method="post")
+   tr
+     input(type="hidden", name="id", value=user.id)
+     td      
+        div.form-group
+          label Personnummer
+          input.form-control(type="text", name="personal_number", value=user.personal_number, maxlength="10", style="width:100px")
+          input.form-control(type="button" value="Ändra lösenord" style="float: right" onclick="location.href = '/password';")
+    td
+        table(style="width:100%")     
+         tr
+
           div.form-group
             label Email
             input.form-control(type="text", name="email", value=user.local.email) 
           div.form-group           
             label Förnamn
-            input.form-control(type="text", name="firstname", value=user.firstname)
-          div.form-group   
-            label Efternamn
-            input.form-control(type="text", name="lastname" , value=user.lastname) 
-          div.form-group          
-            label adress1
-            input.form-control(type="text", name="address1", value=user.address1)  
-           div.form-group 
-            label adress2
-            input.form-control(type="text", name="address2", value=user.address2) 
-          div.form-group           
+            input.form-control(type="text", name="firstname", value=user.firstname style="width:200px")
+           td 
+            label(style="margin-left:5%") Efternamn
+            input.form-control(type="text", name="lastname" , value=user.lastname, , style="width:200px") 
+   tr       
+    td     
+        table(style="width:100%")
+         tr    
+          div.form-group
+           td
+            label Adressfält 1
+            input.form-control(type="text", name="address1", value=user.address1)          
+           td
+            label Adressfält 2
+            input.form-control(type="text", name="address2", value=user.address2)
+         tr        
+          div.form-group
+           td
             label POSTNR
             input.form-control(type="text", name="postalno", value=user.postalno) 
           div.form-group           
             label POSTORT
-            input.form-control(type="text", name="city", value=user.city)          
-          div.form-group           
-            label mobiltelefon
-            input.form-control(type="text", name="mobile", value=user.mobile)   
 
-        button.btn.btn-warning.btn-lg(style="float: right;  margin-left:2%", type="submit") Inkomma
+            input.form-control(type="text", name="city", value=user.city style="width:200px") 
+         tr  
+          div.form-group
+           td
+            label Mobiltelefon
+            input.form-control(type="text", name="mobile", value=user.mobile style="width:200px")   
+        button.btn.btn-warning.btn-lg(style="float: right;  margin-left:2%", type="submit") Spara
+        input.form-control(type="button" value="Tillbaka" style="float: right" onclick="location.href = '/';")   
         
-      button.btn.btn-warning.btn-lg(style="float: right; margin-left:2%", type="redirect" onclick="location.href = '/password';" ) Ändra lösenord
-
-      button.btn.btn-warning.btn-lg(style="float: right", type="redirect" onclick="location.href = '/';" ) Tillbaka
+      //--button.btn.btn-warning.btn-lg(style="float: right; margin-left:2%", type="redirect" onclick="location.href = '/password';" ) Ändra lösenord
+      //--button.btn.btn-warning.btn-lg(style="float: right", type="redirect" onclick="location.href = '/';" ) Tillbaka
        
+

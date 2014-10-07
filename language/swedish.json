@@ -1,12 +1,31 @@
 {
 	"index": {
 		"login": "Logga in",
-		"test" : "hej"
+		"myprofile": "Redigera min profil",
+		"form": "Fyll i ett formulär",
+		"register": "Registrering",
+		"mypatients": "Mina patienter",
+		"logout": "Logga ut"
 	},
 	
 	"form": {
 		"pleaseAnswer": "Vänligen svara på följande frågor",
 		"questionPain": "Hur har din smärta varit senaste timman?",
-		"questionPainkillers": "Har du tagit smärtstillande senaste timmarna?"
+		"questionPainkillers": "Har du tagit smärtstillande senaste timmarna?",
+		"questionNausea": "Har du haft illamående/kräkning senaste timman?",
+		"questionNarcosis": "Är du påverkad av narkos/bedövning?",
+		"questionDaily": "Har du kunnat återuppta dina vanliga vardagsaktiviteter?",
+		"questionRoutine": "Har du återgått till arbete eller annan vardagsrutin?",
+		"questionSatisfied": "Hur nöjd är du med återhämtningen?",
+		"questionWorst": "Markera det besvär som är värst?",
+		"worst": {
+			"pain": "Smärta",
+			"nausea": "Illamående",
+			"immobility": "Orörlighet",
+			"insomnia": "Sömnbesvär",
+			"fever": "Feber",
+			"noSymptoms": "Inget besvär"
+		},
+		"questionAssess": "Bedöm appens användarvänlighet"
 	}
 }   
