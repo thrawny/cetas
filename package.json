@@ -11,7 +11,8 @@
     "Jonas Lergell"
   ],
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "mocha app/tests"
   },
   "dependencies": {
     "async": "^0.9.0",
