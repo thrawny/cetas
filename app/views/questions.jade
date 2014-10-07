@@ -7,6 +7,8 @@ block content
 
  h2
   .panel-heading.text-center #{language.form.pleaseAnswer}
+  if pageError
+    p Något blev fel!
  form(method='post',action='')
   h3
     div(style="margin-left:2%")
@@ -15,8 +17,8 @@ block content
       div(style="margin-left:2%")
        | Ingen smärta
        output(id="painValue")
-         | #{max_value/2}
-       input(type="range", name="pain", onchange="painValue.value=value", value=max_value/2, min=min_value, max=max_value)         
+         | #{pain}
+       input(type="range", name="pain", onchange="painValue.value=value", value="#{pain}", min=min_value, max=max_value)         
        | Värsta tänkbara
         
          
@@ -37,8 +39,8 @@ block content
         div(style="margin-left:2%")
          | Inget illamående
          output(id="nauseaValue")
-           | #{max_value/2}
-         input(type="range", name="nausea", onchange="nauseaValue.value=value", value=max_value/2, min=min_value, max=max_value)
+           | #{nausea}
+         input(type="range", name="nausea", onchange="nauseaValue.value=value", value="#{nausea}", min=min_value, max=max_value)
          | Flertal kräkningar
 
        br
@@ -48,8 +50,8 @@ block content
         div(style="margin-left:2%")
          | Inte alls påverkad
          output(id="narcosisValue")
-           | #{max_value/2}
-         input(type="range", name="narcosis", onchange="narcosisValue.value=value", value=max_value/2, min=min_value, max=max_value)
+           | #{narcosis}
+         input(type="range", name="narcosis", onchange="narcosisValue.value=value", value="#{narcosis}", min=min_value, max=max_value)
          | Kraftigt påverkad
        br
      p 5. #{language.form.questionDaily}
@@ -58,8 +60,8 @@ block content
         div(style="margin-left:2%")
          | Nej, inte alls
          output(id="dailyActivitiesValue")
-           | #{max_value/2}
-         input(type="range", name="dailyActivities", onchange="dailyActivitiesValue.value=value", value=max_value/2, min=min_value, max=max_value)
+           | #{dailyActivities}
+         input(type="range", name="dailyActivities", onchange="dailyActivitiesValue.value=value", value="#{dailyActivities}", min=min_value, max=max_value)
          | Ja, fullt ut
 
 
@@ -70,8 +72,8 @@ block content
         div(style="margin-left:2%")
          | Nej, inte alls
          output(id="routineValue")
-           | #{max_value/2}
-         input(type="range", name="routine", onchange="routineValue.value=value", value=max_value/2, min=min_value, max=max_value)
+           | #{routine}
+         input(type="range", name="routine", onchange="routineValue.value=value", value="#{routine}", min=min_value, max=max_value)
          | Ja, fullt ut 
 
        br
@@ -81,8 +83,8 @@ block content
         div(style="margin-left:2%")
          | Mycket missnöjd
          output(id="satisfiedValue")
-           | #{max_value/2}
-         input(type="range", name="satisfied", onchange="satisfiedValue.value=value", value=max_value/2, min=min_value, max=max_value)
+           | #{satisfied}
+         input(type="range", name="satisfied", onchange="satisfiedValue.value=value", value="#{satisfied}", min=min_value, max=max_value)
          | Mycket nöjd  
 
        br
@@ -110,8 +112,8 @@ block content
         div(style="margin-left:2%")
          | Mycket svåranvänd
          output(id="assessValue")
-           | #{max_value/2}
-         input(type="range", name="assess", onchange="assessValue.value=value", value=max_value/2, min=min_value, max=max_value)
+           | #{assess}
+         input(type="range", name="assess", onchange="assessValue.value=value", value="#{assess}", min=min_value, max=max_value)
          |  Lätt att använda
          br
      input(type="submit")
