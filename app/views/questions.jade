@@ -6,11 +6,11 @@ block content
  - var max_value = 100
 
  h2
-  .panel-heading.text-center Vänligen svara på följande frågor
+  .panel-heading.text-center #{language.form.pleaseAnswer}
  form(method='post',action='')
   h3
     div(style="margin-left:2%")
-     p 1. Hur har din smärta varit senaste timman? 
+     p 1. #{language.form.questionPain} 
       br
       div(style="margin-left:2%")
        | Ingen smärta
@@ -21,7 +21,7 @@ block content
         
          
       br
-     p 2. Har du tagit smärtstillande senaste timmarna?
+     p 2. #{language.form.questionPainkillers}
       br
       h4
         div(style="margin-left:2%")

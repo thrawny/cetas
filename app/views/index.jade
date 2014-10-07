@@ -10,9 +10,9 @@ block content
           span.fa.fa-medkit  CETAS
         p
         if (!user)
-          a.btn.btn-default(href="/login") #[span.fa.fa-user Logga in]
+          a.btn.btn-default(href="/login") #[span.fa.fa-user #{language.index.login}]
         else
-          p Inloggad som: #{user.firstname + ' ' + user.lastname + ' ' + user.personal_number} - #{user.local.email} och är #{user.role}
+          p Inloggad som: #{user.firstname + ' ' + user.lastname + '  -' +  user.local.email} och är #{user.role}
           //- If you are patient you should be able to edit your profile and fill in forms
           if (user.role == 0)
               a.btn.btn-default(href="/myprofile") #[span.fa.fa-user Redigera min profil]

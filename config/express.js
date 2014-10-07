@@ -8,12 +8,15 @@ var bodyParser = require('body-parser');
 var compress = require('compression');
 var methodOverride = require('method-override');
 var errorHandler = require('errorhandler');
+var fs = require('fs'); // Used for reading language file
 
 var passport = require('passport');
 var flash    = require('connect-flash');
 var session  = require('express-session');
 
-module.exports = function(app, config) {
+var language; // Stores a JSON objects with all the strings used by the system
+
+var init = function(app, config) {
   app.set('views', config.root + '/app/views');
   app.set('view engine', 'jade');
 
@@ -34,15 +37,15 @@ module.exports = function(app, config) {
   app.use(passport.session()); // persistent login sessions
   app.use(flash()); // use connect-flash for flash messages stored in session
 
-  // exposing the user object to all jade templates
+  // exposing the user and language object to all jade templates
   app.use(function (req, res, next) {
     res.locals.user = req.user;
+    res.locals.language = language;
     next();
   });
   
   require('./routes')(app, passport);
   require('./passport')(passport); // pass passport for configuration
-
 
   // Use config/router.js to handle routes, use callback from controller
 
@@ -50,8 +53,6 @@ module.exports = function(app, config) {
   // controllers.forEach(function (controller) {
   //   require(controller)(app);
   // });
-
-  
 
   if(app.get('env') === 'development') {
     app.locals.pretty = true;
@@ -73,8 +74,25 @@ module.exports = function(app, config) {
     
     app.use(errorHandler());
   }
-
-
-
-
 };
+
+// Reads the language file and stores the strings in the variable language
+// TODO: dynamically find the current language file
+var readLanguageFile = function() {
+	var file = './language/swedish.json';
+	fs.readFile(file, 'utf8', function (err, data) {
+	  if (err) {
+	    console.log('Error: ' + err);
+	    return;
+	  }
+	  language = JSON.parse(data);
+	});
+	console.log('reloading');
+};
+
+
+readLanguageFile();
+module.exports = {
+		init: init,
+		readLanguageFile: readLanguageFile
+}

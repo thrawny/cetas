@@ -3,8 +3,9 @@ extends ../layout
 block content
  div.container
   div.col-sm-6.col-sm-offset-3 
-  h2  
-   span Patientens profil - #{user.local.email} 
+   h2  
+     span.fa.fa-sign-in  Redigera profil 
+
 
  table(border="1", bordercolor="darkblue", style="width:700px; margin-left:2%")
   h3
@@ -19,8 +20,11 @@ block content
     td
         table(style="width:100%")     
          tr
+
           div.form-group
-           td
+            label Email
+            input.form-control(type="text", name="email", value=user.local.email) 
+          div.form-group           
             label Förnamn
             input.form-control(type="text", name="firstname", value=user.firstname style="width:200px")
            td 
@@ -41,14 +45,20 @@ block content
           div.form-group
            td
             label POSTNR
-            input.form-control(type="text", name="postalno", value=user.postalno style="width:200px") 
-           td
+            input.form-control(type="text", name="postalno", value=user.postalno) 
+          div.form-group           
             label POSTORT
+
             input.form-control(type="text", name="city", value=user.city style="width:200px") 
          tr  
           div.form-group
            td
             label Mobiltelefon
             input.form-control(type="text", name="mobile", value=user.mobile style="width:200px")   
-        button.btn.btn-default(style="float: right", type="submit") Spara
-        input.form-control(type="button" value="Tillbaka" style="float: right" onclick="location.href = '/';")
+        button.btn.btn-warning.btn-lg(style="float: right;  margin-left:2%", type="submit") Spara
+        input.form-control(type="button" value="Tillbaka" style="float: right" onclick="location.href = '/';")   
+        
+      //--button.btn.btn-warning.btn-lg(style="float: right; margin-left:2%", type="redirect" onclick="location.href = '/password';" ) Ändra lösenord
+      //--button.btn.btn-warning.btn-lg(style="float: right", type="redirect" onclick="location.href = '/';" ) Tillbaka
+       
+

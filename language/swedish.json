@@ -1,0 +1,12 @@
+{
+	"index": {
+		"login": "Logga in",
+		"test" : "hej"
+	},
+	
+	"form": {
+		"pleaseAnswer": "Vänligen svara på följande frågor",
+		"questionPain": "Hur har din smärta varit senaste timman?",
+		"questionPainkillers": "Har du tagit smärtstillande senaste timmarna?"
+	}
+}   
