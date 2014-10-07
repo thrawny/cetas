@@ -47,6 +47,13 @@ describe('GET /api/patients by patient', function() {
 describe('GET /api/patients by doctor.', function() {
   var agent = request.agent(app);
 
+  var testUser = {
+      email: 'test@test.se',
+      password: 'password123',
+      firstname: 'Palle',
+      lastname: 'Kuling'
+  };
+
   before(function(done){
     utils.clearDB(done);
   });
@@ -63,17 +70,29 @@ describe('GET /api/patients by doctor.', function() {
       .expect('Location', '/', done);
   });
 
-  it('should respond with json', function(done) {
+  it('should respond with json when requesting a list of users', function(done) {
     agent
       .get('/api/patients')
       .expect(200)
       .expect('Content-Type', /json/, done)
   });
 
-  it('should respond with json', function(done) {
+  it('should be able to create new patient', function(done) {
     agent
-      .get('/api/patients/1')
-      .expect(200)
-      .expect('Content-Type', /json/, done)
+      .post('/api/patients')
+      .send(testUser)
+      .expect(302)
+      .expect('Location', '/', done)
+  });
+
+  it('should respond with json when requesting a single user', function(done) {
+    User.findOne({'local.email': testUser.email}, function(err, user){
+      if (err) return done(err);
+      agent
+        .get('/api/patients/'+user._id)
+        .expect(200)
+        .expect('Content-Type', /json/, done)  
+    })
+    
   });
 })
