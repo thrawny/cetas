@@ -80,13 +80,8 @@ var init = function(app, config) {
 // TODO: dynamically find the current language file
 var readLanguageFile = function() {
 	var file = './language/swedish.json';
-	fs.readFile(file, 'utf8', function (err, data) {
-	  if (err) {
-	    console.log('Error: ' + err);
-	    return;
-	  }
-	  language = JSON.parse(data);
-	});
+	var data = fs.readFileSync(file, 'utf8');
+	language = JSON.parse(data);
 	console.log('reloading');
 };
 

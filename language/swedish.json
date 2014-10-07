@@ -27,5 +27,11 @@
 			"noSymptoms": "Inget besvär"
 		},
 		"questionAssess": "Bedöm appens användarvänlighet"
+	},
+	
+	"loginPage": {
+		"login": "Logga in",
+		"email": "Epost",
+		"password": "Lösenord"
 	}
 }   
