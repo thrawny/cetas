@@ -20,7 +20,7 @@ module.exports.signup = function(req, res) {
   res.render('user/signup');
 }
 
-module.exports.signup = function(req, res) {
+module.exports.doctorpatientprofile = function(req, res) {
   res.render('user/doctorpatientprofile');
 }
 
