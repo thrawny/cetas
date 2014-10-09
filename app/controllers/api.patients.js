@@ -3,7 +3,7 @@ var User = mongoose.model('User');
 
 // Lists all patients
 module.exports.list = function(req, res, next) {
-    User.find({role: 1}, 'local.email firstname lastname', function(err, users) {
+    User.find({role: 0}, 'local.email firstname lastname formrecords', function(err, users) {
       if (err) next(err);
       res.json(users);
     });

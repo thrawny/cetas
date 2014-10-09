@@ -1,4 +1,7 @@
-var mongoose = require('mongoose'), FormRecord = mongoose.model('FormRecord'), Enum = require('enum'), Enums = require('../models/enums.js');
+var mongoose = require('mongoose'), 
+    FormRecord = mongoose.model('FormRecord'), 
+    Enum = require('enum'), 
+    Enums = require('../models/enums.js');
 
 var User = require('../models/user');
 
