@@ -55,6 +55,8 @@ module.exports.changepassword = function (req, res, next) {
  User.findById(req.body.id, function (err, cp) {
   if (err) return next(err);
     if (req.body.password != req.body.confirmpassword) return next('Bekräftelse Lösenord är inte korrekt!');
+    if (!cp.validPassword(req.body.password))
+          return next('Lösenordet är fel!!');
 
      cp.local.password = cp.generateHash(req.body.password);
 
