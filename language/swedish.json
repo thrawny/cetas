@@ -6,7 +6,9 @@
 		"register": "Registrering",
 		"mypatients": "Mina patienter",
 		"password": "Byta lösenord",
-		"logout": "Logga ut"
+		"logout": "Logga ut",
+		"loggedInAs": "Inloggad som",
+		"andIs": "och är"
 	},
 	
 	"form": {
@@ -49,5 +51,28 @@
 		"login": "Logga in",
 		"email": "Epost",
 		"password": "Lösenord"
+	},
+	
+	"myprofile": {
+		"editProfile": "Redigera profil",
+		"email": "Email",
+		"firstname": "Förnamn",
+		"lastname": "Efternamn",
+		"address1": "Adressfält 1",
+		"address2": "Adressfält 2",
+		"postalnumber": "Postnummer",
+		"city": "Postort",
+		"mobile": "Mobilnummer",
+		"save": "Spara",
+		"changePassword": "Ändra lösenord",
+		"back": "Tillbaka"
+	},
+	
+	"password": {
+		"changePassword": "Ändra lösenord",
+		"password": "Lösenord",
+		"confirmPassword": "Bekräfta lösenord",
+		"save": "Spara",
+		"back": "Tillbaka"
 	}
 }   
