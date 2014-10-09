@@ -13,7 +13,7 @@ var access = {
 // Who can access different API routes (includes subroutes). If not in the list, nobody can access it.
 var api_access = {
   'patients': [roles.doctor],
-  'formrecord': [roles.patient]
+  'formrecord': [roles.patient, roles.doctor]
 }
 
 // Check if a user is permitted to access the page.

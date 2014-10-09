@@ -33,7 +33,7 @@ module.exports = function(app, passport) {
 	app.route('/myprofile').get(user.myprofile).post(user.editprofile);  
  	app.route('/password').get(user.password).post(user.changepassword);    
 	app.route('/').get(home.list);
-	app.route('/form').get(home.form).post(home.create);
+	app.route('/form').get(home.form);
     app.route('/mypatients').get(mypatients.list);
 
 	/******* API CALLS **********/
@@ -47,6 +47,9 @@ module.exports = function(app, passport) {
 	app.route('/api/formrecord')
 		.post(formrecord_api.create);
 
+	app.route('api/patients/:p_id/formrecords/:f_id')
+		.get(formrecord_api.view);
+
 
 	app.post('/signup', passport.authenticate('local-signup', {
 		successRedirect : '/', // redirect to the secure profile section
@@ -54,7 +57,7 @@ module.exports = function(app, passport) {
 										// there is an error
 		failureFlash : true
 	// allow flash messages
-	}));	
+	}));
 
 	// process the login form
 	app.post('/login', passport.authenticate('local-login', {

@@ -14,7 +14,7 @@ var FormRecordSchema = new Schema({
   worstThing: String,
   assess: Number,
   comments: String,
-  date: { type: Date, default: Date.now }
+  date: { type: Date, default: Date.now, required: true },
 });
 
 module.exports.FormRecordSchema = FormRecordSchema;

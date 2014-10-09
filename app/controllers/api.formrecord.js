@@ -2,6 +2,9 @@ var mongoose = require('mongoose'), FormRecord = mongoose.model('FormRecord'), E
 
 var User = require('../models/user');
 
+var painkillers;
+var worstThing;
+var pageError = false;
 //
 module.exports.create = function(req, res, next) {
 
@@ -41,7 +44,7 @@ module.exports.create = function(req, res, next) {
     worstThing = Enums.worstThing.get(req.body.worstThing).value;
   }
 
-  var record = {
+  var record = new FormRecord ({
     pain : req.body.pain,
     painKillers : painkillers,
     nausea : req.body.nausea,
@@ -51,7 +54,7 @@ module.exports.create = function(req, res, next) {
     satisfied : req.body.satisfied,
     worstThing : worstThing,
     assess : req.body.assess,
-  };
+  });
   if (pageError === true) {
     record["pageError"] = true;
     return res.render('questions', record);
@@ -71,3 +74,10 @@ module.exports.create = function(req, res, next) {
   })
 
 };
+
+
+module.exports.view = function(req, res, next) {
+  User.findOne({ _id: req.params.p_id },  function(err, user) {
+
+  })
+}

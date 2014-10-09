@@ -55,7 +55,7 @@ describe('POST and GET of /form', function() {
 
   it('should create formrecord object in db with correct data', function(done) {
     agent
-      .post('/form')
+      .post('/api/formrecord')
       .send(utils.exampleFormRecord)
       .end(function(err, res) {
         if (err) return done(err);
@@ -69,7 +69,7 @@ describe('POST and GET of /form', function() {
 
   it('post should redirect to /form with incorrect data', function(done) {
     agent
-      .post('/form')
+      .post('/api/formrecord')
       .expect(302)
       .expect('Location', '/form', done);
   });
