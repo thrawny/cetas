@@ -1,8 +1,16 @@
-extends ../layout
+extends layout
 
 block content
- div.container
-  div.col-sm-6.col-sm-offset-3 
-   h2  
-     span.fa.fa-sign-in  "Patient's name"  
-      //--input.form-control(type="button" value="Tillbaka" style="float: right" onclick="location.href = '/';")
+  if (messages.length>0)
+    div.alert.alert-danger= messages[0]
+
+  div.container
+    div.jumbotron.text-center
+        h1
+          span.fa.fa-medkit  "Patient : "
+        p
+
+        //-- Right now, no real functions
+		a.btn.btn-default(href="/") #[span.fa.fa-user #{language.doctor.editpatient}]
+		a.btn.btn-default(href="/") #[span.fa.fa-user #{language.doctor.surgeryinfo}]
+		a.btn.btn-default(href="/") #[span.fa.fa-user #{language.doctor.form}]

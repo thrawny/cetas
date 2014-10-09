@@ -24,6 +24,16 @@ var userSchema = mongoose.Schema({
     formrecords: [formrecordSchema]
 });
 
+var surgeryInfoSchema = mongoose.Schema({
+
+    surgery: String,
+    compartment: String,
+    hospital: String,
+    notes: String,
+    date: { type: Date, default: Date.now }
+});
+
+
 // methods ======================
 // generating a hash
 userSchema.methods.generateHash = function(password) {

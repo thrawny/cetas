@@ -28,5 +28,19 @@
 			"noSymptoms": "Inget besvär"
 		},
 		"questionAssess": "Bedöm appens användarvänlighet"
+	},
+
+	"surgeryInfo": {
+		"surgery" : "Operation",
+		"compartment" : "Avdelning",
+		"hospital" : "Sjukhus",
+		"notes" : "Anteckningar"
+
+	},
+
+	"doctor" : {
+		"editpatient" : "Redigera profil",
+		"surgery" : "Lägg till operation",
+		"form" : "Fyll i formulär"
 	}
-}   
+ }   
