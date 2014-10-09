@@ -11,7 +11,7 @@ block content
         if (!user)
           a.btn.btn-default(href="/login") #[span.fa.fa-user #{language.index.login}]
         else
-          p Inloggad som: #{user.firstname + ' ' + user.lastname + '  -' +  user.local.email} och är #{user.role}
+          p #{language.index.loggedInAs}: #{user.firstname + ' ' + user.lastname + '  -' +  user.local.email} #{language.index.andIs} #{user.role}
           //- If you are patient you should be able to edit your profile and fill in forms
           if (user.role == 0)
               a.btn.btn-default(href="/form") #[span.fa.fa-user #{language.index.form}]
