@@ -25,7 +25,6 @@ module.exports = function(app, passport) {
 		}
 	});
 	
-
 	/******* CORE PAGES ********/
 	app.route('/login').get(user.login)
 	app.route('/logout').get(user.logout);
@@ -35,9 +34,8 @@ module.exports = function(app, passport) {
  	app.route('/password').get(user.password).post(user.changepassword);    
 	app.route('/').get(home.list);
 	app.route('/form').get(home.form).post(home.create);
+    app.route('/mypatients').get(mypatients.list);
 
-
-	
 	/******* API CALLS **********/
 	app.route('/api/patients')
  		.get(patient_api.list)
