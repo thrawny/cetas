@@ -78,6 +78,7 @@ module.exports.create = function(req, res, next) {
 
 module.exports.view = function(req, res, next) {
   User.findOne({ _id: req.params.p_id },  function(err, user) {
-
+    console.log(req.params);
+    res.json(user.formrecords.id(req.params.f_id));
   })
 }

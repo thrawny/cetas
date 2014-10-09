@@ -47,7 +47,7 @@ module.exports = function(app, passport) {
 	app.route('/api/formrecord')
 		.post(formrecord_api.create);
 
-	app.route('api/patients/:p_id/formrecords/:f_id')
+	app.route('/api/patients/:p_id/formrecords/:f_id')
 		.get(formrecord_api.view);
 
 

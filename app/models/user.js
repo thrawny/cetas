@@ -3,9 +3,8 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
 
-var FormrecordSchema = require('./formrecord').formrecordSchema;
-
-
+FormRecord = mongoose.model('FormRecord');
+var FormrecordSchema = FormRecord.schema;
 
 // define the schema for our user model
 var userSchema = mongoose.Schema({
