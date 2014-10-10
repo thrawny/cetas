@@ -19,6 +19,7 @@ var app = express();
 
 var express = require('./config/express')
 
+console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'development') {
   store = new MongoStore({'db': 'sessions'}, function(err) {
     app.use(session({

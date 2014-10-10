@@ -1,6 +1,6 @@
 var path = require('path'),
-    rootPath = path.normalize(__dirname + '/..'),
-    env = process.env.NODE_ENV || 'development';
+    rootPath = path.normalize(__dirname + '/..');
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var config = {
   development: {
@@ -34,4 +34,4 @@ var config = {
   }
 };
 
-module.exports = config[env];
+module.exports = config[process.env.NODE_ENV];
