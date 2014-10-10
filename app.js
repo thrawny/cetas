@@ -19,17 +19,25 @@ var app = express();
 
 var express = require('./config/express')
 
-store = new MongoStore({'db': 'sessions'}, function(err) {
+if (process.env.NODE_ENV === 'development') {
+  store = new MongoStore({'db': 'sessions'}, function(err) {
+    app.use(session({
+      secret: 'itsfridayfriday',
+      store: store
+    }));
+    express.init(app, config, session);
+    app.listen(config.port);
+    console.log('The magic happens on port ' + config.port);
+  })    
+}
+else if (process.env.NODE_ENV === 'test') {
   app.use(session({
-    secret: 'itsfridayfriday',
-    store: store
-  }));
+      secret: 'itsfridayfriday'
+    }));
   express.init(app, config, session);
   app.listen(config.port);
-})
+}
 
-
-if (process.env.NODE_ENV !== 'test')
-  console.log('The magic happens on port ' + config.port);
+  
 
 module.exports = app;
