@@ -8,9 +8,9 @@ block content
             li.patient 
                 h2
                     = patient.id
+                    button.btn.btn-warning.btn-lg(style="float: right", type="redirect" onclick="location.href = '/doctorpatientprofile';" ) 
                 p
-                    = patient.sex
-                
+                    = patient.sex               
                 
                 ul.recordList  
                     h3.recordListTitle Inlämnade formulär
