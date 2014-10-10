@@ -17,15 +17,17 @@ models.forEach(function (model) {
 });
 var app = express();
 
-app.use(session({
-    secret: 'itsfridayfriday',
-    store: new MongoStore({'db': 'sessions'})
-  }));
-
 var express = require('./config/express')
-express.init(app, config, session);
 
-app.listen(config.port);
+store = new MongoStore({'db': 'sessions'}, function(err) {
+  app.use(session({
+    secret: 'itsfridayfriday',
+    store: store
+  }));
+  express.init(app, config, session);
+  app.listen(config.port);
+})
+
 
 if (process.env.NODE_ENV !== 'test')
   console.log('The magic happens on port ' + config.port);
