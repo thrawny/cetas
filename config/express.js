@@ -12,9 +12,9 @@ var fs = require('fs'); // Used for reading language file
 
 var passport = require('passport');
 var flash    = require('connect-flash');
-var session  = require('express-session');
-
-var init = function(app, config) {
+//var session  = require('express-session');
+ 
+var init = function(app, config, session) {
   app.set('views', config.root + '/app/views');
   app.set('view engine', 'jade');
 
@@ -30,7 +30,7 @@ var init = function(app, config) {
   app.use(methodOverride());
 
   // required for passport
-  app.use(session({ secret: 'itsfridayfriday' })); // session secret
+ // app.use(session({ secret: 'itsfridayfriday' })); // session secret
   app.use(passport.initialize());
   app.use(passport.session()); // persistent login sessions
   app.use(flash()); // use connect-flash for flash messages stored in session
@@ -78,7 +78,7 @@ var init = function(app, config) {
 // TODO: dynamically find the current language file
 var readLanguageFile = function() {
 	var file = './language/swedish.json';
-	var data = fs.readFileSync(file, 'utf8');
+	var data = fs.readFileSync(file, 'utf8'); 
 	return JSON.parse(data);
 };
 

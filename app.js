@@ -2,6 +2,8 @@ var express = require('express'),
   config = require('./config/config'),
   glob = require('glob'),
   mongoose = require('mongoose');
+var session = require('express-session');
+var MongoStore = require('connect-mongostore')(session);
 
 mongoose.connect(config.db, config.options);
 var db = mongoose.connection;
@@ -15,8 +17,13 @@ models.forEach(function (model) {
 });
 var app = express();
 
+app.use(session({
+    secret: 'itsfridayfriday',
+    store: new MongoStore({'db': 'sessions'})
+  }));
+
 var express = require('./config/express')
-express.init(app, config, db);
+express.init(app, config, session);
 
 app.listen(config.port);
 
