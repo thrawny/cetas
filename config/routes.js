@@ -34,7 +34,7 @@ module.exports = function(app, passport) {
  	app.route('/password').get(user.password).post(user.changepassword);    
 	app.route('/').get(home.list);
 	app.route('/form').get(home.form);
-    app.route('/mypatients').get(mypatients.list);
+  app.route('/mypatients').get(mypatients.list);
 
 	/******* API CALLS **********/
 	app.route('/api/patients')
