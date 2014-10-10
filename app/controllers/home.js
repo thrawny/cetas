@@ -7,7 +7,8 @@ var User = require('../models/user');
 
 module.exports.list = function(req, res, next) {
 	res.render('index', {
-		messages : req.flash('notLoggedIn')
+		messages : req.flash('notLoggedIn'),
+		title: "Cetas"
 	});
 };
 
@@ -21,7 +22,8 @@ module.exports.form = function(req, res, next) {
 			routine : 50,
 			satisfied : 50,
 			worstThing : "",
-			assess : 50
+			assess : 50,
+			title:  "Svara på formulär"
 		};
 	res.render('questions', record);
 };
