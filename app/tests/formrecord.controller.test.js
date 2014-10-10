@@ -70,8 +70,13 @@ describe('POST and GET of /form', function() {
   it('post should redirect to /form with incorrect data', function(done) {
     agent
       .post('/api/formrecord')
-      .expect(302)
-      .expect('Location', '/form', done);
+      .expect(200)
+      .end(function(err, res) {
+        if (err) return done(err);
+        res.text.should.containEql('Något blev fel!');
+        return done();
+      });
+
   });
 
 });
