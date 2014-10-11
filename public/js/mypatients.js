@@ -3,14 +3,14 @@
         
         /** 
             Retrieves patient information from server and inserts it into the DOM.
-            Adds visual anmiations
+            Adds visual anminations
         **/
         $.get('/api/patients', function(data, status){
             for(var i in data){
                 var     id = data[i]._id;
                         name = data[i].firstname + " " + data[i].lastname
                 $(".patientList").append("<li id='" + id + "' class='patient'><h2>"+ name + "</h2>");
-                
+
                 if(data[i].formrecords.length > 0){
                     $("#"+id).append("<div class='lastRecord expandlist'></div>");
                     var lastrecordDiv = $("#"+id+" .lastRecord");
@@ -37,15 +37,24 @@
                     recordlistDiv.find(".recordList").append("<li><a href=''>Formulär "+ j +"</a>");
                 }
             }
+
+            $(".patientList").delegate('.patient', 'click',function(e){    
+                $(location).attr('href','/doctorpatientprofile');
+                e.stopPropagation();
+
+            });
             //Slide-toggle for patients
-            $(".lastRecord").click(function(){
+            $(".lastRecord").click(function(e){
                 $(this).find(".lastRecordExpand").slideToggle("slow");
+                e.stopPropagation();
             });
             
             //Slide-toggle for patients
-            $(".recordlistDiv").click(function(){
+            $(".recordlistDiv").click(function(e){
                 $(this).find(".recordList").slideToggle("slow");
+                e.stopPropagation();
             });
+
         });
         
         
