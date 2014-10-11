@@ -30,6 +30,7 @@ module.exports = function(app, passport) {
 	app.route('/logout').get(user.logout);
 	app.route('/signup').get(user.signup);
 	app.route('/profile').get(user.view);
+	app.route('/doctorpatientprofile').get(user.doctorpatientprofile);
 	app.route('/myprofile').get(user.myprofile).post(user.editprofile);  
  	app.route('/password').get(user.password).post(user.changepassword);    
 	app.route('/').get(home.list);

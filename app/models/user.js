@@ -33,6 +33,16 @@ var SurgerySchema = mongoose.Schema({
     date: { type: Date, default: Date.now }
 });
 
+var surgeryInfoSchema = mongoose.Schema({
+
+    surgery: String,
+    compartment: String,
+    hospital: String,
+    notes: String,
+    date: { type: Date, default: Date.now }
+});
+
+
 // methods ======================
 // generating a hash
 userSchema.methods.generateHash = function(password) {

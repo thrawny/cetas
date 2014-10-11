@@ -1,0 +1,13 @@
+extends ../layout
+block content
+	div.container
+		div.col-sm-6.col-sm-offset-3 
+		h2  
+			//-- Will show the personal number of the patient later on
+			span.fa.fa-sign-in  Patient :
+		p 
+			//-- Right now, no real functions
+			a.btn.btn-default(href="/") #[span.fa.fa-user #{language.doctor.editpatient}] 
+			a.btn.btn-default(href="/") #[span.fa.fa-user #{language.doctor.surgery}]
+			a.btn.btn-default(href="/") #[span.fa.fa-user #{language.doctor.form}]
+
