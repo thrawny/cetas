@@ -28,7 +28,6 @@ module.exports.create = function(req, res, next) {
   if (req.body.painkillers === '' || req.body.painkillers === undefined) {
     painkillers = "0";
     pageError = true;
-    console.log(req.body.painkillers);
   } else {
     painkillers = Enums.yesOrNo.get(req.body.painkillers).value;
   }

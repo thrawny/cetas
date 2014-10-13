@@ -14,7 +14,7 @@ var FormRecord = mongoose.model('FormRecord');
 
 var utils = require('./utils');
 
-describe('POST and GET of /form', function() {
+describe('POST and GET of /api/formrecord', function() {
 
   var agent = request.agent(app);
 
@@ -30,8 +30,14 @@ describe('POST and GET of /form', function() {
     });
   }
 
+  var drSave = function(cb) {
+    utils.doctorUser().save(function(err) {
+      cb(null, 3);
+    });
+  }
+
   before(function(done) {
-    async.series([clearDB, userSave] , 
+    async.series([clearDB, userSave, drSave] , 
       function(err, results) {
         if (err) return done(err);
         done();
@@ -77,6 +83,29 @@ describe('POST and GET of /form', function() {
         return done();
       });
 
+  });
+
+  it('doctor should be able to view formrecord', function(done) {
+    agent
+      .post('/login')
+      .send({email: utils.doctorUser().local.email, password: utils.doctorUserPassword})
+      .expect(302)
+      .expect('Location', '/')
+      .end(function(err, res) {
+        agent
+          .get('/api/patients')
+          .end(function(err, res) {
+            var patients = JSON.parse(res.text);
+            patients.length.should.equal(1);
+            patients[0].formrecords.length.should.equal(1);
+
+            var p_id = patients[0]._id;
+            var f_id = patients[0].formrecords[0]._id;
+            agent.get('/api/patients/'+p_id+'/formrecords/'+f_id)
+              .expect(200)
+              .expect('Content-Type', /json/, done)
+          })
+      })      
   });
 
 });

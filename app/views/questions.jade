@@ -1,126 +1,126 @@
-extends layout
+//- ALL style-related things should be in css. Oblige!
 
+extends layout
 block content
 
  - var min_value = 0
  - var max_value = 100
 
- h2
+ - // Fix in css
   .panel-heading.text-center #{language.form.pleaseAnswer}
 
  form(method='post',action='/api/formrecord')
   if pageError
     p Något blev fel!
-  h3
-    div(style="margin-left:2%")
+  div(style="margin-left:2%")
      p 1. #{language.form.questionPain} 
-      br
-      div(style="margin-left:2%")
-       | #{language.form.noPain} 
-       output(id="painValue")
-         | #{pain}
-       input(type="range", name="pain", onchange="painValue.value=value", value="#{pain}", min=min_value, max=max_value)         
-       | #{language.form.worstPain} 
+     br
+     
+     div(style="margin-left:2%")
+        | #{language.form.noPain} 
+        output(id="painValue")
+          | #{pain}
+        input(type="range", name="pain", onchange="painValue.value=value", value="#{pain}", min=min_value, max=max_value)         
+        | #{language.form.worstPain} 
 
-      br
+     br
      p 2. #{language.form.questionPainkillers}
-      br
-      h4
-        div(style="margin-left:2%")
-         input(type="radio", name="painkillers", value="yes")
-         | #{language.form.yes} 
-         input(type="radio", name="painkillers", value="no")
-         | #{language.form.no} 
-
+     br
+     
+     div(style="margin-left:2%")
+        input(type="radio", name="painkillers", value="yes")
+        | #{language.form.yes} 
+        input(type="radio", name="painkillers", value="no")
+        | #{language.form.no} 
        br
      p 3. #{language.form.questionNausea}
-      br
-      h4
-        div(style="margin-left:2%")
-         | #{language.form.noNausea} 
-         output(id="nauseaValue")
-           | #{nausea}
-         input(type="range", name="nausea", onchange="nauseaValue.value=value", value="#{nausea}", min=min_value, max=max_value)
-         | #{language.form.severeNausea} 
+     br
+     
+     div(style="margin-left:2%")
+        | #{language.form.noNausea} 
+        output(id="nauseaValue")
+          | #{nausea}
+        input(type="range", name="nausea", onchange="nauseaValue.value=value", value="#{nausea}", min=min_value, max=max_value)
+        | #{language.form.severeNausea} 
 
-       br
+      br
      p 4. #{language.form.questionNarcosis}
-      br
-      h4
-        div(style="margin-left:2%")
-         | #{language.form.notAffected} 
-         output(id="narcosisValue")
-           | #{narcosis}
-         input(type="range", name="narcosis", onchange="narcosisValue.value=value", value="#{narcosis}", min=min_value, max=max_value)
-         | #{language.form.veryAffected} 
+     br
+     
+     div(style="margin-left:2%")
+        | #{language.form.notAffected} 
+        output(id="narcosisValue")
+          | #{narcosis}
+        input(type="range", name="narcosis", onchange="narcosisValue.value=value", value="#{narcosis}", min=min_value, max=max_value)
+        | #{language.form.veryAffected} 
 
-       br
-     p 5. #{language.form.questionDaily}
       br
-      h4
-        div(style="margin-left:2%")
-         | #{language.form.notAtAll} 
-         output(id="dailyActivitiesValue")
-           | #{dailyActivities}
-         input(type="range", name="dailyActivities", onchange="dailyActivitiesValue.value=value", value="#{dailyActivities}", min=min_value, max=max_value)
-         | #{language.form.completely} 
-       br
+     p 5. #{language.form.questionDaily}
+     br
+
+     div(style="margin-left:2%")
+        | #{language.form.notAtAll} 
+        output(id="dailyActivitiesValue")
+          | #{dailyActivities}
+        input(type="range", name="dailyActivities", onchange="dailyActivitiesValue.value=value", value="#{dailyActivities}", min=min_value, max=max_value)
+        | #{language.form.completely} 
+      br
        
      p 6. #{language.form.questionRoutine}
-      br
-      h4
-        div(style="margin-left:2%")
-         | #{language.form.notAtAll}
-         output(id="routineValue")
-           | #{routine}
-         input(type="range", name="routine", onchange="routineValue.value=value", value="#{routine}", min=min_value, max=max_value)
-         | #{language.form.completely} 
+     br
 
-       br
+     div(style="margin-left:2%")
+        | #{language.form.notAtAll}
+        output(id="routineValue")
+          | #{routine}
+        input(type="range", name="routine", onchange="routineValue.value=value", value="#{routine}", min=min_value, max=max_value)
+        | #{language.form.completely} 
+
+      br
      p 7. #{language.form.questionSatisfied}
-      br
-      h4
-        div(style="margin-left:2%")
-         | #{language.form.dissatisfied}
-         output(id="satisfiedValue")
-           | #{satisfied}
-         input(type="range", name="satisfied", onchange="satisfiedValue.value=value", value="#{satisfied}", min=min_value, max=max_value)
-         | #{language.form.satisfied}
+     br
+    
+     div(style="margin-left:2%")
+        | #{language.form.dissatisfied}
+        output(id="satisfiedValue")
+          | #{satisfied}
+        input(type="range", name="satisfied", onchange="satisfiedValue.value=value", value="#{satisfied}", min=min_value, max=max_value)
+        | #{language.form.satisfied}
 
-       br
-     p 8. #{language.form.questionWorst}
       br
-      h4
-        div(style="margin-left:2%")
-         input(type="radio", name="worstThing", value="pain")
-         | #{language.form.worst.pain}
-         input(type="radio", name="worstThing", value="nausea")
-         | #{language.form.worst.nausea}    
-         input(type="radio", name="worstThing", value="immobility")
-         | #{language.form.worst.immobility}  
-         input(type="radio", name="worstThing", value="insomnia")
-         | #{language.form.worst.insomnia}  
-         input(type="radio", name="worstThing", value="fever")
-         | #{language.form.worst.fever}  
-         input(type="radio", name="worstThing", value="noSymptoms")
-         | #{language.form.worst.noSymptoms} 
-       br
+     p 8. #{language.form.questionWorst}
+     br
+   
+     div(style="margin-left:2%")
+        input(type="radio", name="worstThing", value="pain")
+        | #{language.form.worst.pain}
+        input(type="radio", name="worstThing", value="nausea")
+        | #{language.form.worst.nausea}    
+        input(type="radio", name="worstThing", value="immobility")
+        | #{language.form.worst.immobility}  
+        input(type="radio", name="worstThing", value="insomnia")
+        | #{language.form.worst.insomnia}  
+        input(type="radio", name="worstThing", value="fever")
+        | #{language.form.worst.fever}  
+        input(type="radio", name="worstThing", value="noSymptoms")
+        | #{language.form.worst.noSymptoms} 
+      br
 
      p 9. #{language.form.questionAssess}
-      br
-      h4
-        div(style="margin-left:2%")
-         | #{language.form.hardToUse}
-         output(id="assessValue")
-           | #{assess}
-         input(type="range", name="assess", onchange="assessValue.value=value", value="#{assess}", min=min_value, max=max_value)
-         |  #{language.form.easyToUse}
-         br
+     br
+    
+     div(style="margin-left:2%")
+        | #{language.form.hardToUse}
+        output(id="assessValue")
+          | #{assess}
+        input(type="range", name="assess", onchange="assessValue.value=value", value="#{assess}", min=min_value, max=max_value)
+        |  #{language.form.easyToUse}
+        br
          
      if (user && user.role == 1)
        // Doctors have a text field where to add comments for a patient
        p 10. #{language.form.comments}
-         br
-         textarea(type="textarea", name="comments", rows="5", cols="50")
+       br
+       textarea(type="textarea", name="comments", rows="5", cols="50")
          
      input(type="submit")

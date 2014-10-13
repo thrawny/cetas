@@ -3,12 +3,12 @@ var mongoose = require('mongoose'),
 
 
 module.exports.login = function(req, res) {
-  res.render('user/login');
+  res.render('user/login', {title: "Logga in"});
 
 }
 
 module.exports.view = function(req, res) {
-  res.render('user/profile', {user: req.user});
+  res.render('user/profile', {user: req.user}, {title: "Profil"});
 }
 
 module.exports.logout = function(req, res) {
@@ -17,7 +17,7 @@ module.exports.logout = function(req, res) {
 }
 
 module.exports.signup = function(req, res) {
-  res.render('user/signup');
+  res.render('user/signup', {title: "Registrera patient"});
 }
 
 module.exports.doctorpatientprofile = function(req, res) {
@@ -29,7 +29,7 @@ module.exports.surgeryinfo = function(req, res) {
 }
 
 module.exports.myprofile = function(req, res, next) {
-  res.render('user/myprofile');
+  res.render('user/myprofile', {title: "Min profil"});
 }
 
 module.exports.editprofile = function (req, res, next) {
@@ -55,7 +55,7 @@ module.exports.editprofile = function (req, res, next) {
 };
 
 module.exports.password = function(req, res, next) {
-  res.render('user/password');
+  res.render('user/password', {title: "Ändra lösenord"});
 }
 
 module.exports.changepassword = function (req, res, next) {

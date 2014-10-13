@@ -2,6 +2,8 @@ var express = require('express'),
   config = require('./config/config'),
   glob = require('glob'),
   mongoose = require('mongoose');
+var session = require('express-session');
+var MongoStore = require('connect-mongostore')(session);
 
 mongoose.connect(config.db, config.options);
 var db = mongoose.connection;
@@ -16,11 +18,27 @@ models.forEach(function (model) {
 var app = express();
 
 var express = require('./config/express')
-express.init(app, config, db);
 
-app.listen(config.port);
+console.log(process.env.NODE_ENV);
+if (process.env.NODE_ENV === 'development') {
+  store = new MongoStore({'db': 'sessions'}, function(err) {
+    app.use(session({
+      secret: 'itsfridayfriday',
+      store: store
+    }));
+    express.init(app, config, session);
+    app.listen(config.port);
+    console.log('The magic happens on port ' + config.port);
+  })    
+}
+else if (process.env.NODE_ENV === 'test') {
+  app.use(session({
+      secret: 'itsfridayfriday'
+    }));
+  express.init(app, config, session);
+  app.listen(config.port);
+}
 
-if (process.env.NODE_ENV !== 'test')
-  console.log('The magic happens on port ' + config.port);
+  
 
 module.exports = app;

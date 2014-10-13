@@ -56,7 +56,7 @@ module.exports = function (grunt) {
             grunt.log.error('Unable to make a delayed live reload.');
           done(reloaded);
         });
-    }, 500);
+    }, 750);
   });
 
   grunt.registerTask('default', ['develop', 'watch']);
