@@ -24,6 +24,9 @@ module.exports.doctorpatientprofile = function(req, res) {
   res.render('user/doctorpatientprofile');
 }
 
+module.exports.surgeryinfo = function(req, res) {
+  res.render('user/surgeryinfo');
+}
 
 module.exports.myprofile = function(req, res, next) {
   res.render('user/myprofile');

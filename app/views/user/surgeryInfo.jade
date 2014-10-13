@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+ div.container
+  div.col-sm-6.col-sm-offset-3 
+   h2  
+     span.fa.fa-sign-in  #{language.surgeryInfo.surgeryinfo} - "Patient's id/personal number" 
+
+ 
+   h3
+   form(action='', method="post")
+          input(type="hidden", name="id", value=user.id)
+
+          div.form-group
+             label #{language.surgeryInfo.surgery}
+             input.form-control(type="text", name="surgery", value=user.surgery) 
+
+          div.form-group
+             label #{language.surgeryInfo.compartment}
+             input.form-control(type="text", name="surgery", value=user.compartment) 
+
+          div.form-group
+             label #{language.surgeryInfo.hospital}
+             input.form-control(type="text", name="surgery", value=user.hospital) 
+
+          div.form-group
+             label #{language.surgeryInfo.notes}
+             textarea(type="textarea", name="comments", rows="5", cols="50")
+
+          input(type="submit")   
+
+          
+      button.btn.btn-warning.btn-lg(style="float: right", type="redirect" onclick="location.href = '/doctorpatientprofile';" ) #{language.myprofile.back}
