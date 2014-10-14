@@ -12,6 +12,10 @@ module.exports.list = function(req, res, next) {
 	});
 };
 
+module.exports.nothere = function(req, res, next) {
+	res.render('404');
+};
+
 module.exports.form = function(req, res, next) {
 	var record = {
 			pain : 50,
