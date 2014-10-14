@@ -88,6 +88,7 @@
 	"doctor" : {
 		"editpatient" : "Redigera profil",
 		"surgery" : "Lägg till operation",
-		"form" : "Fyll i formulär"
+		"form" : "Fyll i formulär",
+		"home" : "Hem"
 	}
  }   
