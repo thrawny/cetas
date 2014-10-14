@@ -9,7 +9,7 @@
             for(var i in data){
                 var     id = data[i]._id;
                         name = data[i].firstname + " " + data[i].lastname
-                $(".patientList").append("<li id='" + id + "' class='patient'><h2>"+ name + "</h2>");
+                $(".patientList").append("<li id='" + id + "' class='patient'><h2 style='cursor:pointer'>"+ name + "</h2>");
 
                 if(data[i].formrecords.length > 0){
                     $("#"+id).append("<div class='lastRecord expandlist'></div>");
