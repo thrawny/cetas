@@ -1,16 +1,20 @@
-var mongoose = require('mongoose'), FormRecord = mongoose.model('FormRecord'), Enum = require('enum'), Enums = require('../models/enums.js');
+var mongoose = require('mongoose'), 
+    FormRecord = mongoose.model('FormRecord'), 
+    Enum = require('enum'), 
+    Enums = require('../models/enums.js');
+    User = mongoose.model('User');
 
-var User = require('../models/user');
 
-var painkillers;
-var worstThing;
-var pageError = false;
-//
+// Handle post request with new form record.
 module.exports.create = function(req, res, next) {
 
-  if (req.user === undefined) {
-    res.redirect('/form');
-  }
+  var pageError = false;
+  var painkillers;
+  var worstThing;
+
+  // if (req.user === undefined) {
+  //   res.redirect('/form');
+  // }
 
   var fields = [ 'pain', 'nausea', 'dailyActivities', 'routine', 'satisfied',
       'assess' ];
@@ -49,23 +53,24 @@ module.exports.create = function(req, res, next) {
     routine : req.body.routine,
     satisfied : req.body.satisfied,
     worstThing : worstThing,
-    assess : req.body.assess,
+    assess : req.body.assess
   });
-  if (pageError === true) {
+  if (pageError) {
     record["pageError"] = true;
-    return res.render('questions', record);
+    //return res.render('questions', record);
+    return res.json({error: "Incorrect post data"});
   }
 
   User.findOne({
-    _id : req.user.id
+    _id : req.params.p_id
   }, function(err, user) {
     if (err)
       next(err);
-    user.formrecords.push(record);
-    user.save(function(err) {
+      user.formrecords.push(record);
+      user.save(function(err) {
       if (err)
         next(err);
-      res.redirect('/');
+      return res.json({success: "User was saved successfully"});
     });
   })
 

@@ -79,7 +79,7 @@
 	"surgeryInfo": {
 		"surgeryinfo" : "Information om Operation",
 		"surgery" : "Operation",
-		"compartment" : "Avdelning",
+		"department" : "Avdelning",
 		"hospital" : "Sjukhus",
 		"notes" : "Anteckningar"
 

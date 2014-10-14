@@ -4,7 +4,8 @@ var mypatients = require('../app/controllers/mypatients');
 var auth = require('./auth');
 
 var patient_api = require('../app/controllers/api.patients');
-var formrecord_api = require('../app/controllers/api.formrecord'); 
+var formrecord_api = require('../app/controllers/api.formrecord');
+var surgery_api = require('../app/controllers/api.surgery'); 
 
 module.exports = function(app, passport) {
 
@@ -46,11 +47,17 @@ module.exports = function(app, passport) {
 	app.route('/api/patients/:id')
 		.get(patient_api.view);
 
-	app.route('/api/formrecord')
+	// Post new formrecord
+	app.route('/api/patients/:p_id/formrecords')
 		.post(formrecord_api.create);
 
+	// View form record
 	app.route('/api/patients/:p_id/formrecords/:f_id')
 		.get(formrecord_api.view);
+
+	// Post surgery
+	app.route('/api/patients/:p_id/surgeries')
+		.post(surgery_api.create)
 
 
 	app.post('/signup', passport.authenticate('local-signup', {

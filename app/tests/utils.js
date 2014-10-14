@@ -70,3 +70,10 @@ module.exports.exampleFormRecord = {
   worstThing: 'pain',
   assess: 50
 };
+
+module.exports.exampleSurgery = {
+  operation: "Test",
+  department: "Test",
+  hospital: "Test",
+  comments: "Blablabla"
+};

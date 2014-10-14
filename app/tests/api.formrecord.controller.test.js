@@ -14,9 +14,12 @@ var FormRecord = mongoose.model('FormRecord');
 
 var utils = require('./utils');
 
-describe('POST and GET of /api/formrecord', function() {
+describe('POST and GET of /api/patients/:p_id/formrecords', function() {
 
   var agent = request.agent(app);
+
+  var patient_id;
+
 
   // trying out the async package
   var clearDB = function(cb) {
@@ -25,7 +28,8 @@ describe('POST and GET of /api/formrecord', function() {
   };
 
   var userSave = function(cb) {
-    utils.patientUser().save(function(err) {
+    utils.patientUser().save(function(err, user) {
+      patient_id = user._id;
       cb(null, 2);
     });
   }
@@ -60,8 +64,10 @@ describe('POST and GET of /api/formrecord', function() {
   });
 
   it('should create formrecord object in db with correct data', function(done) {
+    console.log(patient_id);
+
     agent
-      .post('/api/formrecord')
+      .post('/api/patients/'+patient_id+'/formrecords')
       .send(utils.exampleFormRecord)
       .end(function(err, res) {
         if (err) return done(err);
@@ -74,12 +80,14 @@ describe('POST and GET of /api/formrecord', function() {
   });
 
   it('post should redirect to /form with incorrect data', function(done) {
+    
+
     agent
-      .post('/api/formrecord')
+      .post('/api/patients/'+patient_id+'/formrecords')
       .expect(200)
       .end(function(err, res) {
         if (err) return done(err);
-        res.text.should.containEql('Något blev fel!');
+        should.exist(JSON.parse(res.text).error);
         return done();
       });
 
