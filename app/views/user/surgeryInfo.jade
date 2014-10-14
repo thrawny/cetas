@@ -26,8 +26,5 @@ block content
           div.form-group
              label #{language.surgeryInfo.notes}
              textarea(type="textarea", name="comments", rows="5", cols="50")
-
-          input(type="submit")   
-
-          
+          button.btn.btn-warning.btn-lg(style="float: right;  margin-left:2%", type="submit") #{language.myprofile.save}          
       button.btn.btn-warning.btn-lg(style="float: right", type="redirect" onclick="location.href = '/doctorpatientprofile';" ) #{language.myprofile.back}
