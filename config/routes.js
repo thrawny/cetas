@@ -27,7 +27,6 @@ module.exports = function(app, passport) {
 	});
 	
 	/******* CORE PAGES ********/
-	app.route('/login').get(user.login)
 	app.route('/logout').get(user.logout);
 	app.route('/signup').get(user.signup);
 	app.route('/profile').get(user.view);

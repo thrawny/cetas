@@ -1,6 +1,27 @@
 extends layout
 
 block content
+  div.container
+    if (!user)
+      div.col-sm-6.col-sm-offset-3
+        h1
+          span.fa.fa-sign-in(style="color:darkblue")  #{language.loginPage.login}
+        form(action="/login", method="post")
+          div.form-group
+            label #{language.loginPage.email}
+            input.form-control(type="text", name="email")
+          div.form-group
+            label #{language.loginPage.password}
+            input.form-control(type="password", name="password")
+          button.btn.btn-warning.btn-lg(style="float: right;  margin-left:2%", type="submit") #{language.loginPage.login}
+
+
+
+
+
+
+
+
 //
   if (messages.length>0)
     div.alert.alert-danger= messages[0]
