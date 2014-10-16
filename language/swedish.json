@@ -8,7 +8,8 @@
 		"password": "Ändra lösenord",
 		"logout": "Logga ut",
 		"loggedInAs": "Inloggad som",
-		"andIs": "och är"
+		"andIs": "och är",
+		"welcomeTitle": "Välkommen!"
 	},
 	
 	"form": {
