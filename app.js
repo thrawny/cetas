@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'development') {
     express.init(app, config, session);
     app.listen(config.port);
     console.log('The magic happens on port ' + config.port);
-  })    
+  })
 }
 else if (process.env.NODE_ENV === 'test') {
   app.use(session({
