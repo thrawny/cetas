@@ -4,7 +4,7 @@ block content
  div.container
   div.col-sm-6.col-sm-offset-3 
    h2  
-     span.fa.fa-sign-in  #{language.myprofile.editProfile} - #{user.personal_number} 
+     span.fa.fa-sign-in(style="color:darkblue")  #{language.index.myprofile} 
 
  
    form(action='#', method="post")
@@ -38,7 +38,7 @@ block content
 
           button.btn.btn-warning.btn-lg(style="float: right;  margin-left:2%", type="submit") 
             | #{language.myprofile.save}
-      button.btn.btn-warning.btn-lg(style="float: right; margin-left:2%", type="button" onclick="location.href = '/password';" ) 
+      // button.btn.btn-warning.btn-lg(style="float: right; margin-left:2%", type="button" onclick="location.href = '/password';" ) 
         | #{language.myprofile.changePassword}
-      button.btn.btn-warning.btn-lg(style="float: right", type="redirect" onclick="location.href = '/';" ) #{language.myprofile.back}
+      // button.btn.btn-warning.btn-lg(style="float: right", type="redirect" onclick="location.href = '/';" ) #{language.myprofile.back}
 
