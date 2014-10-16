@@ -4,7 +4,7 @@ block content
   div.container
     div.col-sm-6.col-sm-offset-3
       h1
-        span.fa.fa-sign-in  Registrering
+        span.fa.fa-sign-in(style="color:darkblue")  #{language.index.register}
       form(action="/api/patients", method="post")
         div.form-group
           label Förnamn
@@ -23,4 +23,4 @@ block content
           label Lösenord
           input.form-control(type="password", name="password")   
         button.btn.btn-warning.btn-lg(style="float: right;  margin-left:2%", type="submit") Skapa Konto
-      button.btn.btn-warning.btn-lg(style="float: right", type="redirect" onclick="location.href = '/';" ) #{language.myprofile.back}
+      // button.btn.btn-warning.btn-lg(style="float: right", type="redirect" onclick="location.href = '/';" ) #{language.myprofile.back}
