@@ -3,8 +3,8 @@ extends ../layout
 block content  
   div.container
     div.col-sm-6.col-sm-offset-3
-      h1
-        span.fa.fa-sign-in(style="color:darkblue")  #{language.index.register}
+      h3
+        span.fa.fa-sign-in  #{language.index.register}
       form(action="/api/patients", method="post")
         div.form-group
           label Förnamn
