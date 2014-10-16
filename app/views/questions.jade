@@ -9,7 +9,7 @@ block content
  - // Fix in css
   .panel-heading.text-center #{language.form.pleaseAnswer}
 
- form(method='post',action='/api/patients/'+user._id+'/formrecords')
+ form#patientform(method='post',action='/api/patients/'+user._id+'/formrecords')
   if pageError
     p Något blev fel!
   div(style="margin-left:2%")

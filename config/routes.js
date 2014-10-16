@@ -31,13 +31,14 @@ module.exports = function(app, passport) {
 	app.route('/logout').get(user.logout);
 	app.route('/signup').get(user.signup);
 	app.route('/profile').get(user.view);
-	app.route('/doctorpatientprofile').get(user.doctorpatientprofile);
+    app.route('/mypatients/:p_id').get(user.doctorpatientprofile);
 	app.route('/surgeryinfo').get(user.surgeryinfo);
 	app.route('/myprofile').get(user.myprofile).post(user.editprofile);  
  	app.route('/password').get(user.password).post(user.changepassword);    
 	app.route('/').get(home.list);
+	app.route('/mypatients/:p_id/formrunner').get(home.form);
 	app.route('/form').get(home.form);
-  app.route('/mypatients').get(mypatients.list);
+	app.route('/mypatients').get(mypatients.list);
 
 	/******* API CALLS **********/
 	app.route('/api/patients')
