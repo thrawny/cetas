@@ -19,12 +19,13 @@ var app = express();
 
 var express = require('./config/express')
 
-console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'development') {
   store = new MongoStore({'db': 'sessions'}, function(err) {
     app.use(session({
       secret: 'itsfridayfriday',
-      store: store
+      store: store,
+      saveUninitialized: true,
+      resave: true
     }));
     express.init(app, config, session);
     app.listen(config.port);
@@ -33,12 +34,14 @@ if (process.env.NODE_ENV === 'development') {
 }
 else if (process.env.NODE_ENV === 'test') {
   app.use(session({
-      secret: 'itsfridayfriday'
+      secret: 'itsfridayfriday',
+      saveUninitialized: true,
+      resave: true
     }));
   express.init(app, config, session);
   app.listen(config.port);
+  module.exports = app;
 }
 
   
 
-module.exports = app;

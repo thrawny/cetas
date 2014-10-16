@@ -64,7 +64,6 @@ describe('POST and GET of /api/patients/:p_id/formrecords', function() {
   });
 
   it('should create formrecord object in db with correct data', function(done) {
-    console.log(patient_id);
 
     agent
       .post('/api/patients/'+patient_id+'/formrecords')

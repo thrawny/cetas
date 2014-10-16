@@ -1,3 +1,5 @@
+process.env.NODE_ENV = 'test';
+
 var utils = require('./utils');
 var should = require('should');
 

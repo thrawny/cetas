@@ -77,6 +77,6 @@ module.exports = function(app, passport) {
 	// allow flash messages
 	}));
 	// 404-page
-	app.route('/*')
-	.get(home.nothere);
+	// app.route('/*')
+	// .get(home.nothere);
 };
