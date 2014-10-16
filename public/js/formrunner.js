@@ -7,7 +7,7 @@
 		var rest = url.replace(new RegExp("http://[^/]*."), "").split("/");
 		console.log(rest);
 		if(rest[0] === "mypatients"){
-			$("#patientform").attr("action", "/api/patient/"+rest[1]+"/formrecords");
+			$("#patientform").attr("action", "/api/patients/"+rest[1]+"/formrecords");
 		}
 	});
 })();
