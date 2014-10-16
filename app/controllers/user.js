@@ -22,11 +22,7 @@ module.exports.signup = function(req, res) {
 }
 
 module.exports.doctorpatientprofile = function(req, res) {
-  res.render('user/doctorpatientprofile');
-}
-
-module.exports.surgeryinfo = function(req, res) {
-  res.render('user/surgeryinfo');
+  res.render('user/doctorpatientprofile', { p_id: req.params.p_id });
 }
 
 module.exports.myprofile = function(req, res, next) {

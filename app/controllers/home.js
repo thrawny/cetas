@@ -31,3 +31,8 @@ module.exports.form = function(req, res, next) {
 		};
 	res.render('questions', record);
 };
+
+module.exports.surgery = function(req, res, next) {
+
+	res.render('user/surgeryinfo', { p_id: req.params.p_id });
+};
