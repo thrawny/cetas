@@ -1,13 +1,14 @@
 extends ../layout
 block content
-	div.container
+	.container.text-center
 		div.col-sm-6.col-sm-offset-3 
 		h2  
 			//-- Will show the personal number of the patient later on
-			span.fa.fa-sign-in  Patient : #{user.personal_number}
+			span.fa  Patient : #{user.personal_number}
 		p 
-			//-- Right now, no real functions
-			a.btn.btn-default(href="/") #[span.fa.fa-user #{language.doctor.editpatient}] 
-			a.btn.btn-default(href="/surgeryInfo") #[span.fa.fa-user #{language.doctor.surgery}]
-			a.btn.btn-default#nav-form(href="/") #[span.fa.fa-user #{language.doctor.form}]
-			a.btn.btn-default(href="/") #[span.fa.fa-user #{language.doctor.home}]
+			//- Right now, no real functions
+			//- a(href="/") #[span.fa #{language.doctor.editpatient}] 
+			.btn.btn-default.btn-lg
+				a(href="/surgeryInfo") #[span.fa #{language.doctor.surgery}]
+			.btn.btn-default.btn-lg
+				a#nav-form(href="/") #[span.fa #{language.doctor.form}]

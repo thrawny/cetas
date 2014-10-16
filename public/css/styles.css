@@ -17,20 +17,30 @@
 
 .patientList{
     list-style: none;
+    padding: 0;
 }
 
 .patientList > li{
-    width: 80%;
     border-style: solid;
     border-width: 1px;
-    padding: 1em;
     margin: 0.5em;
 }
 
 .recordList{
     display: none;
+    list-style: none;
+    padding: 0;
 }
 
-/*.container .jumbotron {
+.patientList h3 {
+  cursor: pointer;
+}
+
+.container .jumbotron {
   padding: 10px;
-}*/
+  margin-bottom: 10px;
+}
+
+.jumbotron h1 {
+  margin: 0;
+}
