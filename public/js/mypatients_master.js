@@ -41,7 +41,7 @@
             //Open patient detail-view
             $(".patientList").delegate('.patient', 'click',function(e){ 
                 var id = $(this).attr('id');
-                $(location).attr('href',window.location.href + id );
+                $(location).attr('href',window.location.href + "/" + id );
                 e.stopPropagation();
             });
             
