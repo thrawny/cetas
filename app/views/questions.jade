@@ -10,6 +10,7 @@ block content
   h3.text-center #{language.form.pleaseAnswer}
 
   form(method='post',action='/api/patients/'+user._id+'/formrecords')
+    
     datalist#rangeTicks
       option 50
   
@@ -105,7 +106,7 @@ block content
             span(style="float: right") #{language.form.easyToUse} 
           input(type="range", name="assess", value="#{assess}", min=min_value, max=max_value, list="rangeTicks")  
 
-      if (user && user.role == 0)
+      if (user && user.role == 1)
         //- Doctors have a text field where to add comments for a patient
         .panel.panel-default
           .panel-heading 10. #{language.form.comments}

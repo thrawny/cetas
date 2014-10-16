@@ -70,7 +70,8 @@ module.exports.create = function(req, res, next) {
       user.save(function(err) {
       if (err)
         next(err);
-      return res.json({success: "User was saved successfully"});
+      //return res.json({success: "User was saved successfully"});
+      return res.json(record);
     });
   })
 
