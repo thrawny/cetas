@@ -37,12 +37,14 @@
                     recordlistDiv.find(".recordList").append("<li><a href=''>Formulär "+ j +"</a>");
                 }
             }
-
-            $(".patientList").delegate('.patient', 'click',function(e){    
-                $(location).attr('href','/doctorpatientprofile');
+            
+            //Open patient detail-view
+            $(".patientList").delegate('.patient', 'click',function(e){ 
+                var id = $(this).attr('id');
+                $(location).attr('href',window.location.href + "/" + id );
                 e.stopPropagation();
-
             });
+            
             //Slide-toggle for patients
             $(".lastRecord").click(function(e){
                 $(this).find(".lastRecordExpand").slideToggle("slow");

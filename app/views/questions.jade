@@ -7,6 +7,7 @@ block content
  - var max_value = 100
 
  - // Fix in css
+
   h3.text-center #{language.form.pleaseAnswer}
 
   form(method='post',action='/api/patients/'+user._id+'/formrecords')
@@ -113,5 +114,5 @@ block content
           .panel-body
             textarea(name="comments", rows="5", cols="50")
          
-      p.text-right
-        input.btn.btn-warning.btn-lg(type="submit")   
+      p.text-right 
+        input.btn.btn-warning.btn-lg(type="submit")
