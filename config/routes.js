@@ -27,7 +27,6 @@ module.exports = function(app, passport) {
 	});
 	
 	/******* CORE PAGES ********/
-	app.route('/login').get(user.login)
 	app.route('/logout').get(user.logout);
 	app.route('/signup').get(user.signup);
 	app.route('/profile').get(user.view);
@@ -72,7 +71,9 @@ module.exports = function(app, passport) {
 	// process the login form
 	app.post('/login', passport.authenticate('local-login', {
 		successRedirect : '/', // redirect to the secure profile section
-		failureRedirect : '/login', // redirect back to the signup page if there
+		
+		// TODO: display error message if incorrect credentials
+		failureRedirect : '/', // redirect back to the signup page if there
 									// is an error
 		failureFlash : true
 	// allow flash messages

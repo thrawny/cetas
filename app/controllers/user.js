@@ -1,11 +1,12 @@
 var mongoose = require('mongoose'),
   User = mongoose.model('User');
 
-
+/*
 module.exports.login = function(req, res) {
   res.render('user/login', {title: "Logga in"});
 
 }
+*/
 
 module.exports.view = function(req, res) {
   res.render('user/profile', {user: req.user}, {title: "Profil"});

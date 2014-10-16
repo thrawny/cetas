@@ -12,6 +12,7 @@ var User = mongoose.model('User');
 
 var utils = require('./utils');
 
+/*
 describe('GET /login', function(){
   it('should respond with 200', function(done){
     request(app)
@@ -19,6 +20,7 @@ describe('GET /login', function(){
       .expect(200, done);
   });
 })
+*/
 
 describe('GET /form', function(){
   it('should redirect to home if not logged in', function(done){
@@ -39,10 +41,10 @@ describe('POST /login', function(){
     utils.patientUser().save(done);
   });
 
-  it('should redirect back to login with no credentials', function(done){
+  it('should redirect back to index with no credentials', function(done){
     request(app)
       .post('/login')
-      .expect('location', '/login', done);
+      .expect('location', '/', done);
   });
 
   it('should redirect to / with correct credentials', function(done){
