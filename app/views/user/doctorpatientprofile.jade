@@ -6,9 +6,8 @@ block content
 			//-- Will show the personal number of the patient later on
 			span.fa  Patient : #{user.personal_number}
 		p 
-			//- Right now, no real functions
-			//- a(href="/") #[span.fa #{language.doctor.editpatient}] 
-			.btn.btn-default.btn-lg
-				a(href="#{p_id}/addsurgery") #[span.fa #{language.doctor.surgery}]
-			.btn.btn-default.btn-lg
-				a#nav-form(href="/") #[span.fa #{language.doctor.form}]
+			a(href="/mypatients/#{p_id}/addsurgery")
+				span.btn.btn-default.btn-lg #{language.doctor.surgery}
+
+			a#nav-form(href="/mypatients/#{p_id}/formrunner")
+				span.btn.btn-default.btn-lg #{language.doctor.form}
