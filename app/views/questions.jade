@@ -6,8 +6,6 @@ block content
  - var min_value = 0
  - var max_value = 100
 
- - // Fix in css
-
   h3.text-center #{language.form.pleaseAnswer}
 
   form(method='post',action='/api/patients/'+user._id+'/formrecords')
@@ -16,103 +14,104 @@ block content
       option 50
   
     .container
-      .panel.panel-default 
-        .panel-heading 1. #{language.form.questionPain}
+      div.col-sm-6.col-sm-offset-3 
+        .panel.panel-default 
+          .panel-heading 1. #{language.form.questionPain}
 
-        .panel-body
-          .div 
-            span(style="float: left") #{language.form.noPain} 
-            span(style="float: right") #{language.form.worstPain} 
-          input(type="range", name="pain", value="#{pain}", min=min_value, max=max_value, list="rangeTicks")
-
-      .panel.panel-default 
-        .panel-heading 2. #{language.form.questionPainkillers}
-
-        .panel-body
-          p
-            | #{language.form.yes}
-            input(type="radio", name="painkillers", value="yes")
-            | #{language.form.no}
-            input(type="radio", name="painkillers", value="no")
-
-      .panel.panel-default 
-        .panel-heading 3. #{language.form.questionNausea}
-
-        .panel-body
-          .div 
-            span(style="float: left") #{language.form.noNausea} 
-            span(style="float: right") #{language.form.severeNausea} 
-          input(type="range", name="nausea", value="#{nausea}", min=min_value, max=max_value, list="rangeTicks")
-          
-      .panel.panel-default 
-        .panel-heading 4. #{language.form.questionNarcosis}
-
-        .panel-body
-          .div 
-            span(style="float: left") #{language.form.notAffected} 
-            span(style="float: right") #{language.form.veryAffected} 
-          input(type="range", name="narcosis", value="#{narcosis}", min=min_value, max=max_value, list="rangeTicks")
-
-      .panel.panel-default 
-        .panel-heading 5. #{language.form.questionDaily}
-
-        .panel-body
-          .div 
-            span(style="float: left") #{language.form.notAtAll} 
-            span(style="float: right") #{language.form.completely} 
-          input(type="range", name="dailyActivities", value="#{dailyActivities}", min=min_value, max=max_value, list="rangeTicks")
-
-      .panel.panel-default 
-        .panel-heading 6. #{language.form.questionRoutine}
-
-        .panel-body
-          .div 
-            span(style="float: left") #{language.form.notAtAll} 
-            span(style="float: right") #{language.form.completely} 
-          input(type="range", name="routine", value="#{routine}", min=min_value, max=max_value, list="rangeTicks")
-
-      .panel.panel-default 
-        .panel-heading 7. #{language.form.questionSatisfied}
-
-        .panel-body
-          .div 
-            span(style="float: left") #{language.form.dissatisfied} 
-            span(style="float: right") #{language.form.satisfied} 
-          input(type="range", name="satisfied", value="#{satisfied}", min=min_value, max=max_value, list="rangeTicks")
-
-      .panel.panel-default 
-        .panel-heading 8. #{language.form.questionWorst}
-
-        .panel-body
-          p
-            input(type="radio", name="worstThing", value="pain")
-            | #{language.form.worst.pain}
-            input(type="radio", name="worstThing", value="nausea")
-            | #{language.form.worst.nausea}    
-            input(type="radio", name="worstThing", value="immobility")
-            | #{language.form.worst.immobility}  
-            input(type="radio", name="worstThing", value="insomnia")
-            | #{language.form.worst.insomnia}  
-            input(type="radio", name="worstThing", value="fever")
-            | #{language.form.worst.fever}  
-            input(type="radio", name="worstThing", value="noSymptoms")
-            | #{language.form.worst.noSymptoms}
-
-      .panel.panel-default 
-        .panel-heading 9. #{language.form.questionAssess}
-
-        .panel-body
-          .div 
-            span(style="float: left") #{language.form.hardToUse} 
-            span(style="float: right") #{language.form.easyToUse} 
-          input(type="range", name="assess", value="#{assess}", min=min_value, max=max_value, list="rangeTicks")  
-
-      if (user && user.role == 1)
-        //- Doctors have a text field where to add comments for a patient
-        .panel.panel-default
-          .panel-heading 10. #{language.form.comments}
           .panel-body
-            textarea.form-control(name="comments", rows="5", cols="50")
-         
-      p.text-right 
-        input.btn.btn-warning.btn-lg(type="submit")
+            .div 
+              span(style="float: left") #{language.form.noPain} 
+              span(style="float: right") #{language.form.worstPain} 
+            input(type="range", name="pain", value="#{pain}", min=min_value, max=max_value, list="rangeTicks")
+
+        .panel.panel-default 
+          .panel-heading 2. #{language.form.questionPainkillers}
+
+          .panel-body
+            p
+              | #{language.form.yes}
+              input(type="radio", name="painkillers", value="yes")
+              | #{language.form.no}
+              input(type="radio", name="painkillers", value="no")
+
+        .panel.panel-default 
+          .panel-heading 3. #{language.form.questionNausea}
+
+          .panel-body
+            .div 
+              span(style="float: left") #{language.form.noNausea} 
+              span(style="float: right") #{language.form.severeNausea} 
+            input(type="range", name="nausea", value="#{nausea}", min=min_value, max=max_value, list="rangeTicks")
+            
+        .panel.panel-default 
+          .panel-heading 4. #{language.form.questionNarcosis}
+
+          .panel-body
+            .div 
+              span(style="float: left") #{language.form.notAffected} 
+              span(style="float: right") #{language.form.veryAffected} 
+            input(type="range", name="narcosis", value="#{narcosis}", min=min_value, max=max_value, list="rangeTicks")
+
+        .panel.panel-default 
+          .panel-heading 5. #{language.form.questionDaily}
+
+          .panel-body
+            .div 
+              span(style="float: left") #{language.form.notAtAll} 
+              span(style="float: right") #{language.form.completely} 
+            input(type="range", name="dailyActivities", value="#{dailyActivities}", min=min_value, max=max_value, list="rangeTicks")
+
+        .panel.panel-default 
+          .panel-heading 6. #{language.form.questionRoutine}
+
+          .panel-body
+            .div 
+              span(style="float: left") #{language.form.notAtAll} 
+              span(style="float: right") #{language.form.completely} 
+            input(type="range", name="routine", value="#{routine}", min=min_value, max=max_value, list="rangeTicks")
+
+        .panel.panel-default 
+          .panel-heading 7. #{language.form.questionSatisfied}
+
+          .panel-body
+            .div 
+              span(style="float: left") #{language.form.dissatisfied} 
+              span(style="float: right") #{language.form.satisfied} 
+            input(type="range", name="satisfied", value="#{satisfied}", min=min_value, max=max_value, list="rangeTicks")
+
+        .panel.panel-default 
+          .panel-heading 8. #{language.form.questionWorst}
+
+          .panel-body
+            p
+              input(type="radio", name="worstThing", value="pain")
+              | #{language.form.worst.pain}
+              input(type="radio", name="worstThing", value="nausea")
+              | #{language.form.worst.nausea}    
+              input(type="radio", name="worstThing", value="immobility")
+              | #{language.form.worst.immobility}  
+              input(type="radio", name="worstThing", value="insomnia")
+              | #{language.form.worst.insomnia}  
+              input(type="radio", name="worstThing", value="fever")
+              | #{language.form.worst.fever}  
+              input(type="radio", name="worstThing", value="noSymptoms")
+              | #{language.form.worst.noSymptoms}
+
+        .panel.panel-default 
+          .panel-heading 9. #{language.form.questionAssess}
+
+          .panel-body
+            .div 
+              span(style="float: left") #{language.form.hardToUse} 
+              span(style="float: right") #{language.form.easyToUse} 
+            input(type="range", name="assess", value="#{assess}", min=min_value, max=max_value, list="rangeTicks")  
+
+        if (user && user.role == 1)
+          //- Doctors have a text field where to add comments for a patient
+          .panel.panel-default
+            .panel-heading 10. #{language.form.comments}
+            .panel-body
+              textarea.form-control(name="comments", rows="5", cols="50")
+           
+        p.text-right 
+          input.btn.btn-warning.btn-lg(type="submit")
