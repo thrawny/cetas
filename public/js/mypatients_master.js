@@ -16,15 +16,18 @@
                     var lastrecordDiv = $("#"+id+" .lastRecord");
                     lastrecordDiv.append("<h3>Senast ifyllda formulär</h3>");
                     lastrecordDiv.append("<div class='lastRecordExpand'></div>");
-                    var lastrecord = data[i].formrecords[0];
+                    var lastrecord = data[i].formrecords[data[i].formrecords.length-1];
+                    console.log(lastrecord);
                     $("#"+id+" .lastRecord div").append( "<p>" +
+                                                        "Datum: " + lastrecord.date + "<br />" +
                                                         "Upplevd smärta: " + lastrecord.pain + "<br />" +
                                                         "Smärtstillande: " + lastrecord.painKillers + "<br />" +
+                                                        "Illamående/kräkning: " + lastrecord.nausea + "<br />" +
                                                         "Uppskattad narkosnivå: " + lastrecord.narcosis + "<br />" +
                                                         "Jobbigast just nu: " + lastrecord.worstThing + "<br />" +
                                                         "Återgått till normala rutiner: " + lastrecord.routine + "<br />" +
-                                                        "Återgått till dagaktivitet / arbete: " + lastrecord.dailyAcitvity + "<br />" +
-                                                        "Nöjdhet med behandling: " + lastrecord.satisfied + "<br /></p>");
+                                                        "Återgått till dagaktivitet / arbete: " + lastrecord.dailyActivities + "<br />" +
+                                                        "Nöjdhet med återhämtning: " + lastrecord.satisfied + "<br /></p>");
                 }
                 
                 $("#"+id).append("<div class='recordlistDiv expandlist'></div>");
@@ -33,9 +36,12 @@
                 recordlistDiv.append("<ul class='recordList'></ul>");
                 
                 
-                for(var j in data[i].formrecords){
-                    recordlistDiv.find(".recordList").append("<li><a href=''>Formulär "+ j +"</a>");
-                }
+                data[i].formrecords.forEach(function(elem) {
+                    console.log(elem);
+                    var date = new Date(elem.date);
+                    recordlistDiv.find(".recordList").append(
+                        "<li><a href='/api/patients/"+data[i]._id+"/formrecords/"+elem._id+"'>"+ date +"</a>");
+                });
             }
             
             //Open patient detail-view

@@ -6,8 +6,8 @@ var path = require('path');
 
 // Object with routes and their accepted roles. If a route is not here it is open to all roles.
 var access = {
-  '/form': [roles.admin, roles.doctor, roles.patient],
-  '/profile': [roles.admin, roles.doctor, roles.patient]
+  '/form': [roles.patient],
+  '/mypatients': [roles.admin, roles.doctor]
 }
 
 // Who can access different API routes (includes subroutes). If not in the list, nobody can access it.

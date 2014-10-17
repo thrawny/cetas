@@ -3,6 +3,7 @@ var mongoose = require('mongoose'),
     Enum = require('enum'), 
     Enums = require('../models/enums.js');
     User = mongoose.model('User');
+    roles = require('../models/enums').roles;
 
 
 // Handle post request with new form record.
@@ -70,8 +71,14 @@ module.exports.create = function(req, res, next) {
       user.save(function(err) {
       if (err)
         next(err);
-      //return res.json({success: "User was saved successfully"});
-      return res.json(record);
+        console.log(req.user.role)
+        if (req.user.role == roles.patient) {
+          return res.redirect('/');
+        }
+        else if (req.user.role == roles.doctor) {
+          return res.redirect('/mypatients');
+        }
+      
     });
   })
 

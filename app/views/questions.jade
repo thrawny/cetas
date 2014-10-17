@@ -8,7 +8,7 @@ block content
 
   h3.text-center #{language.form.pleaseAnswer}
 
-  form(method='post',action='/api/patients/'+user._id+'/formrecords')
+  form#patientform(method='post',action='/api/patients/'+user._id+'/formrecords')
     
     datalist#rangeTicks
       option 50
@@ -38,7 +38,7 @@ block content
           .panel-heading 3. #{language.form.questionNausea}
 
           .panel-body
-            .div 
+            .div
               span(style="float: left") #{language.form.noNausea} 
               span(style="float: right") #{language.form.severeNausea} 
             input(type="range", name="nausea", value="#{nausea}", min=min_value, max=max_value, list="rangeTicks")
