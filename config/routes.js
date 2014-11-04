@@ -25,6 +25,10 @@ module.exports = function(app, passport) {
 			res.status(403).end('Access denied.');
 		}
 	});
+
+	app.route('/angular').get(function (req, res) {
+		res.sendfile('angular/app/ng-index.html');
+	})
 	
 	/******* CORE PAGES ********/
 	app.route('/logout').get(user.logout);

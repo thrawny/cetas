@@ -1,5 +1,7 @@
 node_modules/
 public/lib
+angular/
 .sass-cache
 .settings
 .project
+npm-debug.log

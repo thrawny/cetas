@@ -1,0 +1,30 @@
+doctype html
+html(ng-app='myApp')
+  head
+    title eSauna !
+    link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap-theme.min.css')
+    link(rel='stylesheet', href='/lib/font-awesome/css/font-awesome.min.css')  
+    link(rel='stylesheet', href='/css/styles.css')
+    base(href='/angularr')
+  body(ng-controller="MainCtrl as main")
+    header
+      h1
+        a(ui-sref="index") Main
+    ul
+      li 
+        a(ui-sref="patients") Patients
+    .container(ui-view)
+    footer
+
+    script(src='lib/angular/angular.js')
+    script(src='lib/ui-router/release/angular-ui-router.js')
+    script(src='lib/angular-sanitize/angular-sanitize.js')
+    script(src='lib/angular-animate/angular-animate.js')
+
+    script(src='app/ngApp.js')
+    script(src='app/main/main.controller.js')  
+    script(src='app/home/home.js')
+    script(src='app/home/home.controller.js')
+    script(src='app/patients/patients.js')
+    script(src='app/patients/patients.controller.js')

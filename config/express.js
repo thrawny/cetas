@@ -54,7 +54,7 @@ var init = function(app, config, session) {
 
   if(app.get('env') === 'development') {
     app.locals.pretty = true;
-
+    app.use(express.static(config.root + '/angular'));
     app.use(function (req, res, next) {
       var err = new Error('Not Found');
       err.status = 404;
