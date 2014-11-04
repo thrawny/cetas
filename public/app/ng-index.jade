@@ -1,22 +1,27 @@
 doctype html
-html(ng-app='myApp')
+html(ng-app='myApp' lang='sv')
   head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width')
     title eSauna !
     link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap-theme.min.css')
     link(rel='stylesheet', href='/lib/font-awesome/css/font-awesome.min.css')  
     link(rel='stylesheet', href='/css/styles.css')
-    base(href='/angularr')
+    base(href='/')
   body(ng-controller="MainCtrl as main")
     header
-      h1
-        a(ui-sref="index") Main
+      div.container
+        div.jumbotron.text-center
+          h1
+            span.fa.fa-medkit  eSana
     ul
+      li 
+        a(ui-sref="index") Home
       li 
         a(ui-sref="patients") Patients
     .container(ui-view)
     footer
-
     script(src='lib/angular/angular.js')
     script(src='lib/ui-router/release/angular-ui-router.js')
     script(src='lib/angular-sanitize/angular-sanitize.js')
@@ -28,3 +33,5 @@ html(ng-app='myApp')
     script(src='app/home/home.controller.js')
     script(src='app/patients/patients.js')
     script(src='app/patients/patients.controller.js')
+
+    script(src='http://localhost:35729/livereload.js')
