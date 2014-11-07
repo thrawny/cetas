@@ -11,7 +11,8 @@ angular.module('myApp')
         success(function(data, status, headers, config) {
           $scope.status = status;
           if(status === 200) {
-            $scope.user_id = $cookies.user;
+            var user = JSON.parse($cookies.user);
+            $scope.user_id = user.id
             console.log($cookies.user);
           }
         })

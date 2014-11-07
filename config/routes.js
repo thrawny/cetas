@@ -104,6 +104,11 @@ module.exports = function(app, passport) {
 		})(req, res, next);
 	});
 
+	app.post('/logout2', function(req, res, next) {
+		req.logout();
+		res.clearCookie("user");
+		return res.send('200');
+	})
 
 
 

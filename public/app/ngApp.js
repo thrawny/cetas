@@ -10,4 +10,53 @@ angular.module('myApp', [
     $urlRouterProvider
       .otherwise('/');
     $locationProvider.html5Mode(false);
-  });
+  })
+
+  .run(function ($rootScope, $state, Auth) {
+    $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
+      if (!Auth.isLoggedIn() && toState.name !== 'login') {
+        console.log('noauth');
+        event.preventDefault();
+        $state.go('login');
+      }
+    })
+  })
+
+
+  .factory('Auth', ['$http', '$q', '$cookies', function($http, $q, $cookies) {
+
+    var login = function(email, password) {
+      var deferred = $q.defer();
+
+      $http.post('/login2', {email: email, password: password})
+        .then(function(result) {
+          deferred.resolve(true);
+        }, function(error) {
+          deferred.reject(error);
+        });
+      return deferred.promise;
+    }
+
+    var logout = function() {
+      var deferred = $q.defer();
+
+      $http.post('/logout2')
+        .then(function(result) {
+          deferred.resolve(true);
+        }, function(error) {
+          deferred.reject(error);
+        });
+      return deferred.promise;
+
+    }
+
+    var isLoggedIn = function() {
+      return $cookies.user ? JSON.parse($cookies.user).id : false;
+    }  
+
+    return {
+      login: login,
+      logout: logout,
+      isLoggedIn: isLoggedIn
+    };
+  }]);
