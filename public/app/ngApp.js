@@ -25,10 +25,10 @@ angular.module('myApp', [
 
   .factory('Auth', ['$http', '$q', '$cookies', function($http, $q, $cookies) {
 
-    var login = function(email, password) {
+    var login = function(user) {
       var deferred = $q.defer();
 
-      $http.post('/login2', {email: email, password: password})
+      $http.post('/login2', user)
         .then(function(result) {
           deferred.resolve(true);
         }, function(error) {
