@@ -3,7 +3,8 @@
 angular.module('myApp', [
   'ui.router',
   'ngSanitize',
-  'ngAnimate'
+  'ngAnimate',
+  'ngCookies'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider

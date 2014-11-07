@@ -26,7 +26,14 @@ module.exports = function(app, passport) {
 		}
 	});
 
+	app.route('/lang').get(function(req,res) {
+		res.sendfile('language/swedish.json')
+	});
+
 	app.route('/angular').get(function (req, res) {
+		if (req.user) {
+
+		}
 		res.sendfile('angular/app/ng-index.html');
 	})
 	
@@ -82,6 +89,24 @@ module.exports = function(app, passport) {
 		failureFlash : true
 	// allow flash messages
 	}));
+
+	app.post('/login2', function(req, res, next) {
+		passport.authenticate('local-login', function(err, user, info) {
+			if (err) { return next(err); }
+			if (!user) {
+				return res.status('401').send('Wrong password or username');
+			}
+			else {
+				res.cookie('user', JSON.stringify({'id': user.id}), { httpOnly: false } );
+				return res.send('200');
+
+			}
+		})(req, res, next);
+	});
+
+
+
+
 	// 404-page
 	// app.route('/*')
 	// .get(home.nothere);
