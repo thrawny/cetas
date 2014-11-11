@@ -3,7 +3,7 @@ html(ng-app='myApp' lang='sv')
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width')
-    title eSauna !
+    title eSana
     link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap-theme.min.css')
     link(rel='stylesheet', href='/lib/font-awesome/css/font-awesome.min.css')  
@@ -15,10 +15,28 @@ html(ng-app='myApp' lang='sv')
         div.jumbotron.text-center
           h1
             span.fa.fa-medkit  eSana
-        div(ng-bind="user.firstname") 
+          div(ng-if="user")
+            p(ng-bind="language.index.loggedInAs+':'+ user.firstname + ' ' + user.lastname + '  - ' +  user.local.email")
+            //- If you are patient you should be able to edit your profile and fill in forms and change password
+            div(ng-if="user.role == 0")
+              a.btn.btn-default(href="/form") #[span.fa.fa-user {{language.index.form}}]
+              a.btn.btn-default(href="/myprofile") #[span.fa.fa-user {{language.index.myprofile}}]
+              a.btn.btn-default(href="/password") #[span.fa.fa-user {{language.index.password}}]
+              a.btn.btn-default(href="/logout") #[span.fa.fa-user {{language.index.logout}}]
+            //- If you are a doctor you should be able to create patient accounts    
+            div(ng-if="user.role == 1")
+              a.btn.btn-default(href="/signup") #[span.fa.fa-user {{language.index.register}}]
+              a.btn.btn-default(href="/mypatients") #[span.fa.fa-user {{language.index.mypatients}}]
+              a.btn.btn-default(href="/password") #[span.fa.fa-user {{language.index.password}}]
+              a.btn.btn-default(href="/logout") #[span.fa.fa-user {{language.index.logout}}]
+            //- If you are an administrator you should be able to create all kinds of accounts
+            div(ng-if="user.role == 2")
+              a.btn.btn-default(href="/signup") #[span.fa.fa-user {{language.index.register}}]
+              a.btn.btn-default(href="/password") #[span.fa.fa-user {{language.index.password}}]
+              a.btn.btn-default(href="/logout") #[span.fa.fa-user {{language.index.logout}}]
     ul
       li
-        a(href="" ng-click="logout()") Logga ut
+        a(href="logout" ng-click="logout()") Logga ut
       li 
         a(ui-sref="index") Home
       li 

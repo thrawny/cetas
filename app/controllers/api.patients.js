@@ -61,6 +61,11 @@ module.exports.create = function(req, res, next) {
 module.exports.view = function(req, res, next) {
     User.findOne({_id: req.params.id, role: roles.patient}, function(err, user) {
       if (err) return next(err);
-      res.json(user);
+      if(user) {
+        res.json(user);  
+      } else {
+        res.send(404);
+      }
+      
     })    
 };

@@ -31,11 +31,18 @@ module.exports = function(app, passport) {
 	});
 
 	app.route('/angular').get(function (req, res) {
-		if (req.user) {
-
-		}
 		res.sendfile('angular/app/ng-index.html');
 	})
+
+	// used to pass user data to angular app
+	app.route('/currentuser').get(function(req, res) {
+		if (req.isAuthenticated()) {
+			return res.json(req.user);
+		} else {
+			res.send(403);
+		}
+	})
+
 	
 	/******* CORE PAGES ********/
 	app.route('/logout').get(user.logout);
@@ -69,6 +76,7 @@ module.exports = function(app, passport) {
 	// Post surgery
 	app.route('/api/patients/:p_id/surgeries')
 		.post(surgery_api.create)
+
 
 
 	app.post('/signup', passport.authenticate('local-signup', {

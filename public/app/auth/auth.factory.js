@@ -38,9 +38,9 @@ angular.module('myApp')
       var deferred = $q.defer();
       var id = isLoggedIn();
       if (id) {
-        $http.get('/api/patients/'+id)
-          .then(function(user) {
-            deferred.resolve(user);
+        $http.get('/currentuser')
+          .then(function(result) {
+            deferred.resolve(result.data);
           }, function(error) {
             deferred.reject(error);
           });

@@ -24,9 +24,12 @@ angular.module('myApp', [
 
   .run(function ($rootScope, Auth) {
    Auth.getUserData()
-    .then(function(result) {
-          $rootScope.user = result.data;
-      }, function(error) {
+    .then(
+      function(user) {
+        $rootScope.user = user;
+        console.log($rootScope.user);
+      }, 
+      function(error) {
 
       }); 
   });
