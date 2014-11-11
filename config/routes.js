@@ -97,16 +97,17 @@ module.exports = function(app, passport) {
 				return res.status('401').send('Wrong password or username');
 			}
 			else {
-				res.cookie('user', JSON.stringify({'id': user.id}), { httpOnly: false } );
-				return res.send('200');
-
+				req.login(user, function() {
+					res.cookie('user', JSON.stringify({'id': user.id}), { httpOnly: false } );
+					return res.json(user);	
+				});
 			}
 		})(req, res, next);
 	});
 
 	app.post('/logout2', function(req, res, next) {
 		req.logout();
-		res.clearCookie("user");
+		res.clearCookie('user');
 		return res.send('200');
 	})
 

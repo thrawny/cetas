@@ -1,4 +1,11 @@
-form(name="login")
-  input(type="email" ng-model="user.email")
-  input(type="password" ng-model="user.password")
-  button(ng-click="mylogin(user)") Submit
+div.col-sm-6.col-sm-offset-3
+  h3
+    span.fa.fa-sign-in  {{language.loginPage.login}}
+  form(name="login")
+    div.form-group
+      label {{language.loginPage.email}}
+      input.form-control(type="email", ng-model="user.email")
+    div.form-group
+      label {{language.loginPage.password}}
+      input.form-control(type="password", ng-model="user.password")
+    button.btn.btn-warning.btn-lg(style="float: right;  margin-left:2%", ng-click="mylogin(user)") {{language.loginPage.login}}

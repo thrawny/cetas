@@ -18,45 +18,15 @@ angular.module('myApp', [
         console.log('noauth');
         event.preventDefault();
         $state.go('login');
-      }
+      } 
     })
   })
 
+  .run(function ($rootScope, Auth) {
+   Auth.getUserData()
+    .then(function(result) {
+          $rootScope.user = result.data;
+      }, function(error) {
 
-  .factory('Auth', ['$http', '$q', '$cookies', function($http, $q, $cookies) {
-
-    var login = function(user) {
-      var deferred = $q.defer();
-
-      $http.post('/login2', user)
-        .then(function(result) {
-          deferred.resolve(true);
-        }, function(error) {
-          deferred.reject(error);
-        });
-      return deferred.promise;
-    }
-
-    var logout = function() {
-      var deferred = $q.defer();
-
-      $http.post('/logout2')
-        .then(function(result) {
-          deferred.resolve(true);
-        }, function(error) {
-          deferred.reject(error);
-        });
-      return deferred.promise;
-
-    }
-
-    var isLoggedIn = function() {
-      return $cookies.user ? JSON.parse($cookies.user).id : false;
-    }  
-
-    return {
-      login: login,
-      logout: logout,
-      isLoggedIn: isLoggedIn
-    };
-  }]);
+      }); 
+  });

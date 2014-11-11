@@ -15,7 +15,10 @@ html(ng-app='myApp' lang='sv')
         div.jumbotron.text-center
           h1
             span.fa.fa-medkit  eSana
+        div(ng-bind="user.firstname") 
     ul
+      li
+        a(href="" ng-click="logout()") Logga ut
       li 
         a(ui-sref="index") Home
       li 
@@ -29,6 +32,7 @@ html(ng-app='myApp' lang='sv')
     script(src='/lib/angular-cookies/angular-cookies.js')
 
     script(src='/app/ngApp.js')
+    script(src='/app/auth/auth.factory.js')
     script(src='/app/main/main.controller.js')  
     script(src='/app/home/home.js')
     script(src='/app/home/home.controller.js')
