@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('myApp')
-  .controller('HomeCtrl', function($scope, $http, $cookies) {
+  .controller('HomeCtrl', function($scope, $http, $cookies, $state) {
     
   });

@@ -2,6 +2,12 @@
 
 angular.module('myApp')
   .controller('MainCtrl', function ($scope, $state, $http, $rootScope, Auth) {
+
+    $http.get('/lang')
+      .success(function(data) {
+        $scope.language = data;
+      })
+
     $scope.$state = $state;
     $scope.language;
 
@@ -17,9 +23,6 @@ angular.module('myApp')
       })
     }
 
-    $http.get('/lang')
-      .success(function(data) {
-        $scope.language = data;
-      })
+    
 
   });

@@ -18,7 +18,11 @@ angular.module('myApp', [
         console.log('noauth');
         event.preventDefault();
         $state.go('login');
-      } 
+      } else {
+        console.log(toParams);
+        $rootScope.message = toParams.message;
+      }
+
     })
   })
 
@@ -27,7 +31,6 @@ angular.module('myApp', [
     .then(
       function(user) {
         $rootScope.user = user;
-        console.log($rootScope.user);
       }, 
       function(error) {
 

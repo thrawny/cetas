@@ -45,7 +45,8 @@
 		"questionAssess": "Bedöm appens användarvänlighet",
 			"hardToUse": "Mycket svåranvänd",
 			"easyToUse": "Lätt att använda",
-		"comments": "Anteckningar"
+		"comments": "Anteckningar",
+		"submit": "Skicka"
 	},
 	
 	"loginPage": {

@@ -71,7 +71,9 @@ module.exports.create = function(req, res, next) {
       user.save(function(err) {
       if (err)
         next(err);
-        console.log(req.user.role)
+        if(req.query.format === 'json') {
+          return res.json({ result: 'record added' });
+        }
         if (req.user.role == roles.patient) {
           return res.redirect('/');
         }
