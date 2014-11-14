@@ -9,11 +9,11 @@ angular.module('myApp')
       })
 
     Auth.getUserData().then(function(data) {
-      $scope.new_user = data;
+      $scope.new_user = angular.copy(data);
     })
 
     $scope.$on('user.update', function(event, args) {
-      $scope.new_user = args;
+      $scope.new_user = angular.copy(args);
     })
 
     $scope.submit = function(form) {
