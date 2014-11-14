@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var roles = require('../models/enums').roles;
-
+var _ = require('lodash');
 // Lists all patients
 module.exports.list = function(req, res, next){
     var query = User.find({role: 0}, 'local.email firstname lastname formrecords');
@@ -69,3 +69,17 @@ module.exports.view = function(req, res, next) {
       
     })    
 };
+
+module.exports.update = function (req, res, next) {
+  User.findById(req.params.id, function (err, user) {
+    if (err) return next(err);
+    if (!user) return res.send(404);
+    if(req.body._id) { delete req.body._id; }
+
+    var updated = _.merge(user, req.body)
+    updated.save(function(err) {
+      if (err) return next(err);
+      return res.json(200, user);
+    })
+  });
+}

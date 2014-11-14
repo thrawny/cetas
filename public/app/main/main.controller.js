@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp')
-  .controller('MainCtrl', function ($scope, $state, $http, $rootScope, Auth) {
+  .controller('MainCtrl', function ($scope, $state, $http, Auth) {
 
     $http.get('/lang')
       .success(function(data) {
@@ -11,8 +11,8 @@ angular.module('myApp')
     $scope.$state = $state;
     $scope.language;
 
-    $rootScope.$watch('user', function() {
-      $scope.user = $rootScope.user;
+    Auth.getUserData().then(function(data) {
+      $scope.user = data;
     })
 
     $scope.logout = function() {

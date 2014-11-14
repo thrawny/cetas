@@ -19,20 +19,8 @@ angular.module('myApp', [
         event.preventDefault();
         $state.go('login');
       } else {
-        console.log(toParams);
         $rootScope.message = toParams.message;
       }
 
     })
   })
-
-  .run(function ($rootScope, Auth) {
-   Auth.getUserData()
-    .then(
-      function(user) {
-        $rootScope.user = user;
-      }, 
-      function(error) {
-
-      }); 
-  });

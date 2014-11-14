@@ -30,8 +30,7 @@ angular.module('myApp')
         
       } else {
         console.log('invalid');
-      }
-      
+      }  
     };
     
   });

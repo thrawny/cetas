@@ -60,10 +60,11 @@ module.exports = function(app, passport) {
 	/******* API CALLS **********/
 	app.route('/api/patients')
  		.get(patient_api.list)
- 		.post(patient_api.create);
+ 		.post(patient_api.create)
 
 	app.route('/api/patients/:id')
-		.get(patient_api.view);
+		.get(patient_api.view)
+		.put(patient_api.update);
 
 	// Post new formrecord
 	app.route('/api/patients/:p_id/formrecords')

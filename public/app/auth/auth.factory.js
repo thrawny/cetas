@@ -8,7 +8,7 @@ angular.module('myApp')
         .then(function(result) {
           // bug in angular, cookie is not set yet, need to wait 100 ms
           setTimeout(function() {
-            deferred.resolve(result.data);  
+            deferred.resolve(result.data);
           }, 100);
           
         }, function(error) {

@@ -9,10 +9,10 @@ html(ng-app='myApp' lang='sv')
     link(rel='stylesheet', href='/lib/font-awesome/css/font-awesome.min.css')  
     link(rel='stylesheet', href='/css/styles.css')
     base(href='/')
-  body(ng-controller="MainCtrl as main")
-    header
-      div.container
-        div.jumbotron.text-center
+  body
+    header(ng-controller="MainCtrl as main")
+      .container
+        .jumbotron.text-center
           h1
             span.fa.fa-medkit  eSana
           div(ng-if="user")
@@ -20,7 +20,7 @@ html(ng-app='myApp' lang='sv')
             //- If you are patient you should be able to edit your profile and fill in forms and change password
             div(ng-if="user.role == 0")
               a.btn.btn-default(ui-sref="patientform") #[span.fa.fa-user(ng-bind="language.index.form")]
-              a.btn.btn-default(href="/myprofile") #[span.fa.fa-user(ng-bind="language.index.myprofile")]
+              a.btn.btn-default(ui-sref="profile") #[span.fa.fa-user(ng-bind="language.index.myprofile")]
               a.btn.btn-default(href="/password") #[span.fa.fa-user(ng-bind="language.index.password")]
               a.btn.btn-default(href="/logout" ng-click="logout()") #[span.fa.fa-user(ng-bind="language.index.logout")]
             //- If you are a doctor you should be able to create patient accounts    
@@ -54,5 +54,7 @@ html(ng-app='myApp' lang='sv')
     script(src='/app/login/login.controller.js')
     script(src='/app/patientform/patientform.js')
     script(src='/app/patientform/patientform.controller.js')
+    script(src='/app/profile/profile.js')
+    script(src='/app/profile/profile.controller.js')
 
     script(src='http://localhost:35729/livereload.js')
