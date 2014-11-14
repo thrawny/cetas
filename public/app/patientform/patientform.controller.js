@@ -1,7 +1,11 @@
 'use strict';
 
 angular.module('myApp')
-  .controller('PatientFormCtrl', function($scope, $http, $cookies, $state) {
+  .controller('PatientFormCtrl', function($scope, $http, $cookies, $state, Auth) {
+
+    Auth.getUserData().then(function(data) {
+      $scope.user = data;
+    })
 
     $http.get('/lang')
       .success(function(data) {

@@ -15,7 +15,7 @@ html(ng-app='myApp' lang='sv')
         .jumbotron.text-center
           h1
             span.fa.fa-medkit  eSana
-          div(ng-if="user")
+          div(ng-if="user.firstname")
             p(ng-bind="language.index.loggedInAs+': '+ user.firstname + ' ' + user.lastname + '  - ' +  user.local.email")
             //- If you are patient you should be able to edit your profile and fill in forms and change password
             div(ng-if="user.role == 0")

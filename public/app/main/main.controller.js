@@ -21,12 +21,9 @@ angular.module('myApp')
       //console.log(args);
     })
 
-    
-
     $scope.logout = function() {
       Auth.logout().then(function() {
         console.log('logged out');
-        $rootScope.user = undefined;
         $state.go('login');
       })
     }

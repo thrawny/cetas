@@ -8,6 +8,7 @@ angular.module('myApp')
         .then(function(result) {
           // bug in angular, cookie is not set yet, need to wait 100 ms
           setTimeout(function() {
+            getUserData();
             deferred.resolve(result.data);
           }, 100);
           
@@ -22,6 +23,7 @@ angular.module('myApp')
 
       $http.post('/logout2')
         .then(function(result) {
+          $rootScope.$broadcast('user.update', {});
           deferred.resolve(true);
         }, function(error) {
           deferred.reject(error);
