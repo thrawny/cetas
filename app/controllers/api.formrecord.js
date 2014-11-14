@@ -1,11 +1,20 @@
+//TODO: Define outgoing email adress. Who you gonna mail? (Not ghostbusters)
 var mongoose = require('mongoose'), 
     FormRecord = mongoose.model('FormRecord'), 
     Enum = require('enum'), 
     Enums = require('../models/enums.js');
     User = mongoose.model('User');
-    roles = require('../models/enums').roles;
-
-
+    roles = require('../models/enums').roles,
+    nodemailer = require('nodemailer'),
+    transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'cetasdevelop@gmail.com',
+            pass: 'CENSURED'
+        }
+    });
+    //For password; Ask the almighty Mike
+    
 // Handle post request with new form record.
 module.exports.create = function(req, res, next) {
 
@@ -74,7 +83,18 @@ module.exports.create = function(req, res, next) {
         if(req.query.format === 'json') {
           return res.json({ result: 'record added' });
         }
+        //Insert email down here.
         if (req.user.role == roles.patient) {
+        	//Update subject and text. There is a html-field for html-mails
+        	//Use html: 'htmlhere'
+        	//See http://www.nodemailer.com/#address-formatting
+        	transporter.sendMail({
+        	    from: 'Cetas <cetasdevelop@gmail.com>',
+        	    to: '',
+        	    subject: 'Nytt formulär ifyllt',
+        	    text: 'Nu har någon fyll i ett formulär... Igen.'
+        	});
+
           return res.redirect('/');
         }
         else if (req.user.role == roles.doctor) {
@@ -85,7 +105,6 @@ module.exports.create = function(req, res, next) {
   })
 
 };
-
 
 module.exports.view = function(req, res, next) {
   User.findOne({ _id: req.params.p_id },  function(err, user) {
