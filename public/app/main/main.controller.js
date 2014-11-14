@@ -3,6 +3,10 @@
 angular.module('myApp')
   .controller('MainCtrl', function ($scope, $state, $http, Auth) {
 
+    Auth.getUserData().then(function(data) {
+      $scope.user = data;
+    })
+
     $http.get('/lang')
       .success(function(data) {
         $scope.language = data;
@@ -11,9 +15,13 @@ angular.module('myApp')
     $scope.$state = $state;
     $scope.language;
 
-    Auth.getUserData().then(function(data) {
-      $scope.user = data;
+    
+    $scope.$on('user.update', function(event, args) {
+      $scope.user = args;
+      //console.log(args);
     })
+
+    
 
     $scope.logout = function() {
       Auth.logout().then(function() {

@@ -12,6 +12,10 @@ angular.module('myApp')
       $scope.new_user = data;
     })
 
+    $scope.$on('user.update', function(event, args) {
+      $scope.new_user = args;
+    })
+
     $scope.submit = function(form) {
       if (!form.$valid) {
         return;
@@ -19,7 +23,7 @@ angular.module('myApp')
 
         $http.put('/api/patients/'+$scope.new_user._id, $scope.new_user)
           .success(function(data, status, headers, config) {
-            $scope.new_user = data;
+            Auth.getUserData();
           })
           .error(function(data, status, headers, config) {
 

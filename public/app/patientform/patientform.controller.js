@@ -3,6 +3,11 @@
 angular.module('myApp')
   .controller('PatientFormCtrl', function($scope, $http, $cookies, $state) {
 
+    $http.get('/lang')
+      .success(function(data) {
+        $scope.language = data;
+      })
+
     $scope.record = {
       pain : 50,
       //painKillers : "",

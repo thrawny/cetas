@@ -1,5 +1,5 @@
 angular.module('myApp')
-  .factory('Auth', ['$http', '$q', '$cookies', function($http, $q, $cookies) {
+  .factory('Auth', ['$http', '$q', '$cookies', '$rootScope', function($http, $q, $cookies, $rootScope) {
 
     var login = function(user) {
       var deferred = $q.defer();
@@ -34,12 +34,14 @@ angular.module('myApp')
       return $cookies.user ? JSON.parse($cookies.user).id : false;
     }
 
+
     var getUserData = function() {
       var deferred = $q.defer();
       var id = isLoggedIn();
       if (id) {
         $http.get('/currentuser')
           .then(function(result) {
+            $rootScope.$broadcast('user.update', result.data);
             deferred.resolve(result.data);
           }, function(error) {
             deferred.reject(error);
@@ -54,6 +56,6 @@ angular.module('myApp')
       login: login,
       logout: logout,
       isLoggedIn: isLoggedIn,
-      getUserData: getUserData
+      getUserData: getUserData,
     };
   }]);
