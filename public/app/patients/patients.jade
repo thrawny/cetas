@@ -1,1 +1,20 @@
-h1 Patients !!
+﻿h1 {{language.index.mypatients}}
+table#patientTable.table.table-hover
+  thead
+    tr  
+      th Personnummer
+      th Namn
+      th # ifyllda formulär
+      th Senaste ifyllda formulär
+      th
+
+  tbody
+    tr(ng-repeat="patient in patientRecords" popover)
+      td {{patient.personal_number}}
+      td {{patient.firstname + " " + patient.lastname}} 
+      td 
+       button.btn.btn-info(type="button" data-trigger="focus" data-toggle="popover" data-placement="top" title="Ifyllda formulär" data-content="{{patient.displayRecords}}") {{patient.formrecords.length}}
+      td 
+        a {{patient.formrecords[0].date}}
+      td
+        a + Operation
