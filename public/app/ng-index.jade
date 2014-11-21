@@ -40,15 +40,16 @@ html(ng-app='myApp' lang='sv')
       li 
         a(ui-sref="index") Home
       li 
-        a(ui-sref="patients") Patients
+        a(ui-sref="patients") #[span {{language.index.mypatients}}]
     .container(ui-view)
     footer
+    script(src='/lib/jquery/dist/jquery.min.js')
+    script(src='/lib/bootstrap/dist/js/bootstrap.min.js')
     script(src='/lib/angular/angular.js')
     script(src='/lib/ui-router/release/angular-ui-router.js')
     script(src='/lib/angular-sanitize/angular-sanitize.js')
     script(src='/lib/angular-animate/angular-animate.js')
     script(src='/lib/angular-cookies/angular-cookies.js')
-
     script(src='/app/ngApp.js')
     script(src='/app/auth/auth.factory.js')
     script(src='/app/main/main.controller.js')  

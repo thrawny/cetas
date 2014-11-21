@@ -4,7 +4,7 @@ var roles = require('../models/enums').roles;
 
 // Lists all patients
 module.exports.list = function(req, res, next){
-    var query = User.find({role: 0}, 'local.email firstname lastname formrecords');
+    var query = User.find({role: 0}, 'local.email firstname lastname formrecords personal_number');
     query.sort( { date: 1 } );
     query.exec(function(err, users) {
       if (err) next(err);
