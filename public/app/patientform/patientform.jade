@@ -1,107 +1,107 @@
-h3.text-center {{language.form.pleaseAnswer}}
+h3.text-center
+  span.fa.fa-sign-in {{language.form.pleaseAnswer}} 
 
-form#patientform(name="patientform")
+form.form-wrapper#patientform(name="patientform")
   
   datalist#rangeTicks
     option 50
 
-  .container
-    div.col-sm-6.col-sm-offset-3 
-      .panel.panel-default 
-        .panel-heading 1. {{language.form.questionPain}}
+  div
+    .panel.panel-default 
+      .panel-heading 1. {{language.form.questionPain}}
 
+      .panel-body
+        .div 
+          span(style="float: left") {{language.form.noPain}} 
+          span(style="float: right") {{language.form.worstPain}} 
+        input(type="range" name="pain" ng-model="record.pain" min=min_value max=max_value list="rangeTicks" required)
+
+    .panel.panel-default 
+      .panel-heading 2. {{language.form.questionPainkillers}}
+
+      .panel-body
+        p
+          | {{language.form.yes}}
+          input(type="radio" name="painkillers" value="yes" ng-model="record.painkillers" required)
+          | {{language.form.no}}
+          input(type="radio" name="painkillers" value="no" ng-model="record.painkillers")
+
+    .panel.panel-default
+      .panel-heading 3. {{language.form.questionNausea}}
+
+      .panel-body
+        .div
+          span(style="float: left") {{language.form.noNausea}} 
+          span(style="float: right") {{language.form.severeNausea}} 
+        input(type="range" name="nausea" ng-model="record.nausea"  min=min_value max=max_value list="rangeTicks" required)
+        
+    .panel.panel-default 
+      .panel-heading 4. {{language.form.questionNarcosis}}
+
+      .panel-body
+        .div 
+          span(style="float: left") {{language.form.notAffected}} 
+          span(style="float: right") {{language.form.veryAffected}} 
+        input(type="range" name="narcosis" ng-model="record.narcosis" min=min_value max=max_value list="rangeTicks" required)
+
+    .panel.panel-default 
+      .panel-heading 5. {{language.form.questionDaily}}
+
+      .panel-body
+        .div 
+          span(style="float: left") {{language.form.notAtAll}} 
+          span(style="float: right") {{language.form.completely}} 
+        input(type="range" name="dailyActivities" ng-model="record.dailyActivities" min=min_value max=max_value list="rangeTicks" required)
+
+    .panel.panel-default 
+      .panel-heading 6. {{language.form.questionRoutine}}
+
+      .panel-body
+        .div 
+          span(style="float: left") {{language.form.notAtAll}} 
+          span(style="float: right") {{language.form.completely}} 
+        input(type="range" name="routine" ng-model="record.routine" min=min_value max=max_value list="rangeTicks" required)
+
+    .panel.panel-default 
+      .panel-heading 7. {{language.form.questionSatisfied}}
+
+      .panel-body
+        .div 
+          span(style="float: left") {{language.form.dissatisfied}} 
+          span(style="float: right") {{language.form.satisfied}} 
+        input(type="range" name="satisfied" ng-model="record.satisfied" min=min_value max=max_value list="rangeTicks" required)
+
+    .panel.panel-default 
+      .panel-heading 8. {{language.form.questionWorst}}
+
+      .panel-body
+        p
+          input(type="radio" name="worstThing" value="pain" ng-model="record.worstThing" required)
+          | {{language.form.worst.pain}}
+          input(type="radio" name="worstThing" ng-model="record.worstThing" value="nausea")
+          | {{language.form.worst.nausea}}    
+          input(type="radio" name="worstThing" ng-model="record.worstThing" value="immobility")
+          | {{language.form.worst.immobility}}  
+          input(type="radio" name="worstThing" ng-model="record.worstThing" value="insomnia")
+          | {{language.form.worst.insomnia}}  
+          input(type="radio" name="worstThing" ng-model="record.worstThing" value="fever")
+          | {{language.form.worst.fever}}  
+          input(type="radio" name="worstThing" ng-model="record.worstThing" value="noSymptoms")
+          | {{language.form.worst.noSymptoms}}
+
+    .panel.panel-default 
+      .panel-heading 9. {{language.form.questionAssess}}
+
+      .panel-body
+        .div 
+          span(style="float: left") {{language.form.hardToUse}} 
+          span(style="float: right") {{language.form.easyToUse}} 
+        input(type="range" name="assess" ng-model="record.assess" min=min_value max=max_value list="rangeTicks" required)  
+
+      .panel.panel-default(ng-if="user.role==1")
+        .panel-heading 10. {{language.form.comments}}
         .panel-body
-          .div 
-            span(style="float: left") {{language.form.noPain}} 
-            span(style="float: right") {{language.form.worstPain}} 
-          input(type="range" name="pain" ng-model="record.pain" min=min_value max=max_value list="rangeTicks" required)
-
-      .panel.panel-default 
-        .panel-heading 2. {{language.form.questionPainkillers}}
-
-        .panel-body
-          p
-            | {{language.form.yes}}
-            input(type="radio" name="painkillers" value="yes" ng-model="record.painkillers" required)
-            | {{language.form.no}}
-            input(type="radio" name="painkillers" value="no" ng-model="record.painkillers")
-
-      .panel.panel-default
-        .panel-heading 3. {{language.form.questionNausea}}
-
-        .panel-body
-          .div
-            span(style="float: left") {{language.form.noNausea}} 
-            span(style="float: right") {{language.form.severeNausea}} 
-          input(type="range" name="nausea" ng-model="record.nausea"  min=min_value max=max_value list="rangeTicks" required)
-          
-      .panel.panel-default 
-        .panel-heading 4. {{language.form.questionNarcosis}}
-
-        .panel-body
-          .div 
-            span(style="float: left") {{language.form.notAffected}} 
-            span(style="float: right") {{language.form.veryAffected}} 
-          input(type="range" name="narcosis" ng-model="record.narcosis" min=min_value max=max_value list="rangeTicks" required)
-
-      .panel.panel-default 
-        .panel-heading 5. {{language.form.questionDaily}}
-
-        .panel-body
-          .div 
-            span(style="float: left") {{language.form.notAtAll}} 
-            span(style="float: right") {{language.form.completely}} 
-          input(type="range" name="dailyActivities" ng-model="record.dailyActivities" min=min_value max=max_value list="rangeTicks" required)
-
-      .panel.panel-default 
-        .panel-heading 6. {{language.form.questionRoutine}}
-
-        .panel-body
-          .div 
-            span(style="float: left") {{language.form.notAtAll}} 
-            span(style="float: right") {{language.form.completely}} 
-          input(type="range" name="routine" ng-model="record.routine" min=min_value max=max_value list="rangeTicks" required)
-
-      .panel.panel-default 
-        .panel-heading 7. {{language.form.questionSatisfied}}
-
-        .panel-body
-          .div 
-            span(style="float: left") {{language.form.dissatisfied}} 
-            span(style="float: right") {{language.form.satisfied}} 
-          input(type="range" name="satisfied" ng-model="record.satisfied" min=min_value max=max_value list="rangeTicks" required)
-
-      .panel.panel-default 
-        .panel-heading 8. {{language.form.questionWorst}}
-
-        .panel-body
-          p
-            input(type="radio" name="worstThing" value="pain" ng-model="record.worstThing" required)
-            | {{language.form.worst.pain}}
-            input(type="radio" name="worstThing" ng-model="record.worstThing" value="nausea")
-            | {{language.form.worst.nausea}}    
-            input(type="radio" name="worstThing" ng-model="record.worstThing" value="immobility")
-            | {{language.form.worst.immobility}}  
-            input(type="radio" name="worstThing" ng-model="record.worstThing" value="insomnia")
-            | {{language.form.worst.insomnia}}  
-            input(type="radio" name="worstThing" ng-model="record.worstThing" value="fever")
-            | {{language.form.worst.fever}}  
-            input(type="radio" name="worstThing" ng-model="record.worstThing" value="noSymptoms")
-            | {{language.form.worst.noSymptoms}}
-
-      .panel.panel-default 
-        .panel-heading 9. {{language.form.questionAssess}}
-
-        .panel-body
-          .div 
-            span(style="float: left") {{language.form.hardToUse}} 
-            span(style="float: right") {{language.form.easyToUse}} 
-          input(type="range" name="assess" ng-model="record.assess" min=min_value max=max_value list="rangeTicks" required)  
-
-        .panel.panel-default(ng-if="user.role==1")
-          .panel-heading 10. {{language.form.comments}}
-          .panel-body
-            textarea.form-control(name="comments" rows="5" cols="50")
-         
-      p.text-right 
-        button.btn.btn-warning.btn-lg(ng-click="submit(patientform)") {{language.form.submit}}
+          textarea.form-control(name="comments" rows="5" cols="50")
+       
+    p.text-right 
+      button.btn.btn-warning.btn-lg(ng-click="submit(patientform)") {{language.form.submit}}

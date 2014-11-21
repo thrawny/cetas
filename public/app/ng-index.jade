@@ -11,31 +11,33 @@ html(ng-app='myApp' lang='sv')
     base(href='/')
   body
     header(ng-controller="MainCtrl as main")
-      .container
-        .jumbotron.text-center
-          h1
-            span.fa.fa-medkit  eSana
-          div(ng-if="user.firstname")
-            p(ng-bind="language.index.loggedInAs+': '+ user.firstname + ' ' + user.lastname + '  - ' +  user.local.email")
-            //- If you are patient you should be able to edit your profile and fill in forms and change password
-            div(ng-if="user.role == 0")
-              a.btn.btn-default(ui-sref="patientform") #[span.fa.fa-user(ng-bind="language.index.form")]
-              a.btn.btn-default(ui-sref="profile") #[span.fa.fa-user(ng-bind="language.index.myprofile")]
-              a.btn.btn-default(href="/password") #[span.fa.fa-user(ng-bind="language.index.password")]
-              a.btn.btn-default(href="/logout" ng-click="logout()") #[span.fa.fa-user(ng-bind="language.index.logout")]
-            //- If you are a doctor you should be able to create patient accounts    
-            div(ng-if="user.role == 1")
-              a.btn.btn-default(href="/signup") #[span.fa.fa-user(ng-bind="language.index.register")]
-              a.btn.btn-default(href="/mypatients") #[span.fa.fa-user(ng-bind="language.index.mypatients")]
-              a.btn.btn-default(href="/password") #[span.fa.fa-user(ng-bind="language.index.password")]
-              a.btn.btn-default(href="/logout" ng-click="logout()") #[span.fa.fa-user(ng-bind="language.index.logout")]
-            //- If you are an administrator you should be able to create all kinds of accounts
-            div(ng-if="user.role == 2")
-              a.btn.btn-default(href="/signup") #[span.fa.fa-user(ng-bind="language.index.register")]
-              a.btn.btn-default(href="/password") #[span.fa.fa-user(ng-bind="language.index.password")]
-              a.btn.btn-default(href="/logout" ng-click="logout()") #[span.fa.fa-user(ng-bind="language.index.logout")]
-
-    .container(ui-view)
+      div#wrapper
+        div#sidebar-wrapper
+            h1
+              span.fa.fa-medkit  eSana
+            div(ng-if="user.firstname")
+              p(ng-bind="language.index.loggedInAs+': '+ user.firstname + ' ' + user.lastname + '  - ' +  user.local.email")
+              //- If you are patient you should be able to edit your profile and fill in forms and change password
+              div(ng-if="user.role == 0")
+                a.btn.btn-default(ui-sref="patientform") #[span.fa.fa-user(ng-bind="language.index.form")]
+                a.btn.btn-default(ui-sref="profile") #[span.fa.fa-user(ng-bind="language.index.myprofile")]
+                a.btn.btn-default(href="/password") #[span.fa.fa-user(ng-bind="language.index.password")]
+                a.btn.btn-default(href="/logout" ng-click="logout()") #[span.fa.fa-user(ng-bind="language.index.logout")]
+              //- If you are a doctor you should be able to create patient accounts    
+              div(ng-if="user.role == 1")
+                a.btn.btn-default(href="/signup") #[span.fa.fa-user(ng-bind="language.index.register")]
+                a.btn.btn-default(href="/mypatients") #[span.fa.fa-user(ng-bind="language.index.mypatients")]
+                a.btn.btn-default(href="/password") #[span.fa.fa-user(ng-bind="language.index.password")]
+                a.btn.btn-default(href="/logout" ng-click="logout()") #[span.fa.fa-user(ng-bind="language.index.logout")]
+              //- If you are an administrator you should be able to create all kinds of accounts
+              div(ng-if="user.role == 2")
+                a.btn.btn-default(href="/signup") #[span.fa.fa-user(ng-bind="language.index.register")]
+                a.btn.btn-default(href="/password") #[span.fa.fa-user(ng-bind="language.index.password")]
+                a.btn.btn-default(href="/logout" ng-click="logout()") #[span.fa.fa-user(ng-bind="language.index.logout")]
+        div#page-content-wrapper
+            .container-fluid
+              .row
+                .col-md-12(ui-view)
     footer
     script(src='/lib/angular/angular.js')
     script(src='/lib/ui-router/release/angular-ui-router.js')
