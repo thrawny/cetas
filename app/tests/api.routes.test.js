@@ -82,8 +82,8 @@ describe('GET /api/patients by doctor.', function() {
     agent
       .post('/api/patients')
       .send(testUser)
-      .expect(302)
-      .expect('Location', '/', done)
+      .expect(200)
+      .expect('Content-Type', /json/, done) 
   });
 
   it('should respond with json when requesting a single user', function(done) {
