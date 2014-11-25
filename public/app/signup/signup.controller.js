@@ -12,9 +12,9 @@ angular.module('myApp')
         $scope.language = data;
       })
 
-    $scope.submit = function (form) {
+  /*  $scope.submit = function (form) {
       if (form.$valid) {
-        $http.put('/api/patients/'+$scope.new_user._id, $scope.new_user)
+        $http.post('/api/patients/', $scope.new_user)
           .success(function(data, status, headers, config) {
         	  $state.go('index', {message: 'Du registrerade en ny användare'});
             //Auth.getUserData();
@@ -26,6 +26,26 @@ angular.module('myApp')
       } else {
         console.log('invalid');
       }  
-    };
+    };*/
+    $scope.new_user = {};
+    
+    $scope.submit = function(form) {
+        if (!form.$valid) {
+        	console.log("Not valid");
+          return;
+        } else {
+        	console.log($scope.new_user);
+
+          $http.post('/api/patients/', $scope.new_user)
+            .success(function(data, status, headers, config) {
+            	
+            	console.log(data);
+            	$state.go('index', {message: 'Du registrerade en ny användare'});
+            })
+            .error(function(data, status, headers, config) {
+
+            });
+        }
+      }
     
   });

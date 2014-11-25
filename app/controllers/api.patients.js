@@ -52,8 +52,10 @@ module.exports.create = function(req, res, next) {
             // save the user
             newUser.save(function(err) {
               if (err) throw err;
-              req.flash('success', 'Patient saved.')
+            //  req.flash('success', 'Patient saved.')
              // return res.redirect('/');
+              console.log("HALLOOO");
+              return res.json({success: "Patient saved"});
             });
           }
   });
