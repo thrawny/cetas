@@ -15,7 +15,7 @@ module.exports.create = function (req, res, next) {
     console.log(sur);
     user.surgeries.push(sur);
     user.save(function(err) {
-      return res.json({success: "Surgery saved"});
+      return res.json({success: "Operation saved"});
     });
 
   });

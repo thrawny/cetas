@@ -21,7 +21,6 @@ angular.module('myApp')
 
           $http.post('/api/patients/', $scope.new_user)
             .success(function(data, status, headers, config) {
-            	
             	console.log(data);
             	$state.go('index', {message: 'Du registrerade en ny användare'});
             })
