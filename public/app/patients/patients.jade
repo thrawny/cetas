@@ -21,4 +21,4 @@ table#patientTable.table.table-hover
       td 
         a(href='/api/patients/{{patient._id}}/formrecords/{{patient.formrecords[0]._id || "undefined"}}') {{patient.formrecords[0].date | date : 'yyyy-MM-dd HH:mm'}}
       td
-        a(href='/') + Operation
+        button.btn.btn-info(type="button" ng-click="addOperation(patient._id)") + Operation
