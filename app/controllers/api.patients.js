@@ -16,7 +16,8 @@ module.exports.create = function(req, res, next) {
 
   if (req.body.email === '' || req.body.password === '') {
     req.flash('error', 'Fill in all the fields.');
-    return res.redirect('/signup');
+    //TODO: return json
+    //return res.redirect('/signup');
   }
 
   User.findOne({
@@ -29,7 +30,8 @@ module.exports.create = function(req, res, next) {
           // check to see if theres already a user with that email
           if (user) {
             req.flash('error', 'That email is already taken.');
-            return res.redirect('/signup');
+            //TODO: return json
+            //return res.redirect('/signup');
           } 
           else {
             // if there is no user with that email
@@ -51,7 +53,7 @@ module.exports.create = function(req, res, next) {
             newUser.save(function(err) {
               if (err) throw err;
               req.flash('success', 'Patient saved.')
-              return res.redirect('/');
+             // return res.redirect('/');
             });
           }
   });

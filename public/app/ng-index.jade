@@ -26,14 +26,14 @@ html(ng-app='myApp' lang='sv')
                 a.btn.btn-default(href="/password") #[span.fa.fa-user(ng-bind="language.index.password")]
                 a.btn.btn-default(href="/logout" ng-click="logout()") #[span.fa.fa-user(ng-bind="language.index.logout")]
               //- If you are a doctor you should be able to create patient accounts    
-              div(ng-if="user.role == 1")
-                a.btn.btn-default(href="/signup") #[span.fa.fa-user(ng-bind="language.index.register")]
-                a.btn.btn-default(href="/mypatients") #[span.fa.fa-user(ng-bind="language.index.mypatients")]
+              div(ng-if="user.role == 1") 
+                a.btn.btn-default(ui-sref="signup") #[span.fa.fa-user(ng-bind="language.index.register")] 
+                a.btn.btn-default(ui-sref="patients") #[span.fa.fa-user(ng-bind="language.index.mypatients")]
                 a.btn.btn-default(href="/password") #[span.fa.fa-user(ng-bind="language.index.password")]
                 a.btn.btn-default(href="/logout" ng-click="logout()") #[span.fa.fa-user(ng-bind="language.index.logout")]
               //- If you are an administrator you should be able to create all kinds of accounts
               div(ng-if="user.role == 2")
-                a.btn.btn-default(href="/signup") #[span.fa.fa-user(ng-bind="language.index.register")]
+                a.btn.btn-default(ui-sref="signup") #[span.fa.fa-user(ng-bind="language.index.register")]
                 a.btn.btn-default(href="/password") #[span.fa.fa-user(ng-bind="language.index.password")]
                 a.btn.btn-default(href="/logout" ng-click="logout()") #[span.fa.fa-user(ng-bind="language.index.logout")]
         div#page-content-wrapper
@@ -61,5 +61,7 @@ html(ng-app='myApp' lang='sv')
     script(src='/app/patientform/patientform.controller.js')
     script(src='/app/profile/profile.js')
     script(src='/app/profile/profile.controller.js')
+    script(src='/app/signup/signup.js')
+    script(src='/app/signup/signup.controller.js')
 
     script(src='http://localhost:35729/livereload.js')

@@ -1,0 +1,24 @@
+block content  
+  div.container
+    div.col-sm-6.col-sm-offset-3
+      h3
+        span.fa.fa-sign-in  {{language.index.register}}
+      form(action="/api/patients", method="post") 
+        div.form-group
+          label Förnamn
+          input.form-control(type="text", name="firstname")
+        div.form-group
+          label Efternamn
+          input.form-control(type="text", name="lastname") 
+        div.form-default(ng-if="user.role==2")
+            div.form-group
+              label Ockupation
+              input.form-control(type="integer", name="role")   
+        div.form-group
+          label Email
+          input.form-control(type="text", name="email") 
+        div.form-group
+          label Lösenord
+          input.form-control(type="password", name="password")   
+        button.btn.btn-warning.btn-lg(style="float: right;  margin-left:2%", type="submit") Skapa Konto
+      // button.btn.btn-warning.btn-lg(style="float: right", type="redirect" onclick="location.href = '/';" ) #{language.myprofile.back}
