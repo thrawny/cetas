@@ -30,7 +30,7 @@ html(ng-app='myApp' lang='sv')
                 a.button(ui-sref="signup" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.register")]
                 a.button(ui-sref="patients" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.mypatients")]
                 a.button(ui-sref="password" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.password")]
-                a.buttonsign(ui-sref="logout" ng-click="logout()" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.logout")]
+                a.buttonsign(href="logout" ng-click="logout()" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.logout")]
               //- If you are an administrator you should be able to create all kinds of accounts
               div(ng-if="user.role == 2")
                 a.button(ui-sref="signup" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.register")]
