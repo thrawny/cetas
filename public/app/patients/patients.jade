@@ -11,9 +11,9 @@ table#patientTable.table.table-hover
   tbody
     tr(ng-repeat="patient in patientRecords" popover)
       td 
-        a(href='/') {{patient.personal_number}}
+        a(href='/api/patients/{{patient._id}}') {{patient.personal_number}}
       td 
-        a(href='/') {{patient.firstname + " " + patient.lastname}} 
+        a(href='/api/patients/{{patient._id}}') {{patient.firstname + " " + patient.lastname}} 
       td 
        button.btn.btn-info(type="button" data-trigger="focus" data-toggle="popover" data-placement="right" title="Ifyllda formulär" data-content="{{patient.displayRecords}}") {{patient.formrecords.length}}
       td 
