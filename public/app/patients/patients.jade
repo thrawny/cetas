@@ -2,19 +2,21 @@
 table#patientTable.table.table-hover
   thead
     tr  
-      th Personnummer
-      th Namn
-      th # ifyllda formulär
-      th Senaste ifyllda formulär
+      th {{language.patientListing.personalnumber}}
+      th {{language.patientListing.name}}
+      th {{language.patientListing.completedforms}}
+      th {{language.patientListing.latestform}}
       th
 
   tbody
     tr(ng-repeat="patient in patientRecords" popover)
-      td {{patient.personal_number}}
-      td {{patient.firstname + " " + patient.lastname}} 
       td 
-       button.btn.btn-info(type="button" data-trigger="focus" data-toggle="popover" data-placement="top" title="Ifyllda formulär" data-content="{{patient.displayRecords}}") {{patient.formrecords.length}}
+        a(href='/') {{patient.personal_number}}
       td 
-        a {{patient.formrecords[0].date}}
+        a(href='/') {{patient.firstname + " " + patient.lastname}} 
+      td 
+       button.btn.btn-info(type="button" data-trigger="focus" data-toggle="popover" data-placement="right" title="Ifyllda formulär" data-content="{{patient.displayRecords}}") {{patient.formrecords.length}}
+      td 
+        a(href='/api/patients/{{patient._id}}/formrecords/{{patient.formrecords[0]._id || "undefined"}}') {{patient.formrecords[0].date | date : 'yyyy-MM-dd HH:mm'}}
       td
-        a + Operation
+        a(href='/') + Operation
