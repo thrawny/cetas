@@ -92,5 +92,12 @@
 		"surgery" : "Lägg till operation",
 		"form" : "Fyll i formulär",
 		"home" : "Hem"
+	},
+	
+	"patientListing" : {
+		"name": "Namn",
+		"personalnumber": "Personnummer",
+		"completedforms": "# ifyllda formulär",
+		"latestform": "Senast ifyllda formulär"
 	}
- }   
+ }

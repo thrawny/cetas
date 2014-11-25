@@ -39,12 +39,14 @@ html(ng-app='myApp' lang='sv')
               .row
                 .col-md-12(ui-view)
     footer
+    script(src='/lib/jquery/dist/jquery.min.js')
+    script(src='/lib/bootstrap/dist/js/bootstrap.min.js')
     script(src='/lib/angular/angular.js')
     script(src='/lib/ui-router/release/angular-ui-router.js')
     script(src='/lib/angular-sanitize/angular-sanitize.js')
     script(src='/lib/angular-animate/angular-animate.js')
     script(src='/lib/angular-cookies/angular-cookies.js')
-
+    
     script(src='/app/ngApp.js')
     script(src='/app/auth/auth.factory.js')
     script(src='/app/main/main.controller.js')  
@@ -58,5 +60,5 @@ html(ng-app='myApp' lang='sv')
     script(src='/app/patientform/patientform.controller.js')
     script(src='/app/profile/profile.js')
     script(src='/app/profile/profile.controller.js')
-
+    
     script(src='http://localhost:35729/livereload.js')
