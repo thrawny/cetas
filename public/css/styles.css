@@ -38,11 +38,52 @@
   margin: 0;
 }
 
+.buttonsign {
+    display: block;
+    height: 50px;
+    width: 100%;
+    padding-top: 5%;
+    background-color: tomato;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    color: white;
+
+}
+
+.buttonsign:hover {
+   background: #b15151;
+   color: white;
+   }
+
+.buttonsign:active {
+   background: #974646;
+   color: white;
+   }
+
 .button {
     display: block;
     height: 50px;
+    width: 100%;
+    padding-top: 5%;
+    background-color: tomato;
+    border-top: 1px solid;
+    color: white;
+
 }
 
+.button:hover {
+   background: #b15151;
+   color: white;
+   }
+
+.button:active {
+   background: #974646;
+   color: white;
+   }
+
+.buttontext {
+    vertical-align: middle;
+}
 
 #wrapper {
     font-family:   'Roboto', serif;

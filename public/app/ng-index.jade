@@ -8,39 +8,41 @@ html(ng-app='myApp' lang='sv')
     link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap-theme.min.css')
     link(rel='stylesheet', href='/lib/font-awesome/css/font-awesome.min.css')  
     link(rel='stylesheet', href='/css/styles.css')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Roboto:100')
     base(href='/')
   body
     header(ng-controller="MainCtrl as main")
       div#wrapper
-        div#sidebar-wrapper 
-            h1
-              span.fa.fa-medkit  eSana
-            div(ng-if="user.firstname")
+        div#sidebar-wrapper
+            h1(align = "center")
+              span.fa.fa-medkit  eSana 
+            div(ng-if="user.firstname", style ="float: right; margin-left:2%")
               p(ng-bind="language.index.loggedInAs+': '+ user.firstname + ' ' + user.lastname + '  - ' +  user.local.email")
+              br
               //- If you are patient you should be able to edit your profile and fill in forms and change password
               div(ng-if="user.role == 0")
-                a.btn.btn-default(ui-sref="patientform") #[span.fa.fa-user(ng-bind="language.index.form")]
-                a.btn.btn-default(ui-sref="profile") #[span.fa.fa-user(ng-bind="language.index.myprofile")]
-                a.btn.btn-default(ui-sref="password") #[span.fa.fa-user(ng-bind="language.index.password")]
-                a.btn.btn-default(href="/logout" ng-click="logout()") #[span.fa.fa-user(ng-bind="language.index.logout")]
+                a.button(ui-sref="patientform" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.form")]
+                a.button(ui-sref="profile" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.myprofile")]
+                a.button(ui-sref="password" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.password")]
+                a.buttonsign(href="/logout" ng-click="logout()" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.logout")]
               //- If you are a doctor you should be able to create patient accounts    
               div(ng-if="user.role == 1")
-                a.btn.btn-default(ui-sref="signup") #[span.fa.fa-user(ng-bind="language.index.register")]
-                a.btn.btn-default(ui-sref="patients") #[span.fa.fa-user(ng-bind="language.index.mypatients")]
-                a.btn.btn-default(ui-sref="password") #[span.fa.fa-user(ng-bind="language.index.password")]
-                a.btn.btn-default(href="/logout" ng-click="logout()") #[span.fa.fa-user(ng-bind="language.index.logout")]
+                a.button(ui-sref="signup" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.register")]
+                a.button(ui-sref="patients" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.mypatients")]
+                a.button(ui-sref="password" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.password")]
+                a.buttonsign(ui-sref="logout" ng-click="logout()" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.logout")]
               //- If you are an administrator you should be able to create all kinds of accounts
               div(ng-if="user.role == 2")
-                a.btn.btn-default(ui-sref="signup") #[span.fa.fa-user(ng-bind="language.index.register")]
-                a.btn.btn-default(ui-sref="password") #[span.fa.fa-user(ng-bind="language.index.password")]
-                a.btn.btn-default(href="/logout" ng-click="logout()") #[span.fa.fa-user(ng-bind="language.index.logout")]
+                a.button(ui-sref="signup" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.register")]
+                a.button(ui-sref="password" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.password")]
+                a.buttonsign(href="/logout" ng-click="logout()" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.logout")]
         div#page-content-wrapper
             .container-fluid
               .row
                 .col-md-12(ui-view)
     footer
     script(src='/lib/jquery/dist/jquery.min.js')
-    script(src='/lib/bootstrap/dist/js/bootstrap.min.js')
+    script(src='/lib/bootstrap/dist/js/bootstrap.min.js')  
     script(src='/lib/angular/angular.js')
     script(src='/lib/ui-router/release/angular-ui-router.js')
     script(src='/lib/angular-sanitize/angular-sanitize.js')
@@ -64,7 +66,5 @@ html(ng-app='myApp' lang='sv')
     script(src='/app/signup/signup.controller.js')
     script(src='/app/password/password.js')
     script(src='/app/password/password.controller.js')
-
-
 
     script(src='http://localhost:35729/livereload.js')

@@ -17,7 +17,7 @@ angular.module('myApp')
     $scope.submit = function (form) {
       if (form.$valid) {
         if ($scope.pass.password === $scope.pass.confirm) {
-          
+          $http
           console.log('valid');
         }
       } else {
