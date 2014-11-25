@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp')
-  .controller('MainCtrl', function ($scope, $state, $http, Auth) {
+  .controller('MainCtrl', function ($scope, $state, $http, Auth, $stateParams) {
 
     Auth.getUserData().then(function(data) {
       $scope.user = data;

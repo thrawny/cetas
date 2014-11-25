@@ -5,6 +5,7 @@ angular.module('myApp')
     $stateProvider
       .state('index', {
         url: '/',
+        params: { message: {} },
         templateUrl: 'app/home/home.html',
         controller: 'HomeCtrl'
       });

@@ -24,6 +24,7 @@ angular.module('myApp')
         $http.put('/api/patients/'+$scope.new_user._id, $scope.new_user)
           .success(function(data, status, headers, config) {
             Auth.getUserData();
+            $state.go('index', {message: 'Din profil har uppdaterats.'})
           })
           .error(function(data, status, headers, config) {
 
