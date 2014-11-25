@@ -9,6 +9,7 @@ html(ng-app='myApp' lang='sv')
     link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap-theme.min.css')
     link(rel='stylesheet', href='/lib/font-awesome/css/font-awesome.min.css')  
     link(rel='stylesheet', href='/css/styles.css')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Roboto:100')
     base(href='/')
   body
     header(ng-controller="MainCtrl as main")
@@ -16,7 +17,9 @@ html(ng-app='myApp' lang='sv')
         div#sidebar-wrapper
             h1
               span.fa.fa-medkit  eSana
+            //-div#fontstyle  
             div(ng-if="user.firstname")
+              color: white;
               p(ng-bind="language.index.loggedInAs+': '+ user.firstname + ' ' + user.lastname + '  - ' +  user.local.email")
               //- If you are patient you should be able to edit your profile and fill in forms and change password
               div(ng-if="user.role == 0")
