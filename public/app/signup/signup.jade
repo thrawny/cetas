@@ -20,4 +20,4 @@ block content
         div.form-group
           label {{language.signup.password}}
           input.form-control(type="password", name="password", ng-model="new_user.password" required)   
-        button.buttonsubmit(style="float: right;  margin-left:2%") #[span.buttontext(ng-click="submit(signupform)")] {{language.signup.skapakonto}}
+        button.buttonsubmit(ng-click="submit(signupform)" style="float: right;  margin-left:2%") #[span.buttontext] {{language.signup.skapakonto}}

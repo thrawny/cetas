@@ -23,7 +23,7 @@ angular.module('myApp')
             });
           
         } else {
-          $scope.message = "Lösenorden stämmer inte överens."
+          $scope.message = "Lösenorden stämmer inte överens.";
         }
       } else {
         console.log('invalid');
