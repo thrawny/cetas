@@ -10,10 +10,16 @@ angular.module('myApp')
     $scope.user = {};
 
     $scope.user_id;
-    $scope.mylogin = function(user) {
-      Auth.login(user).then(function(user) {
-        $state.go('index');
-      });
+    $scope.submit = function(login) {
+      if (!login.$valid) return;
+      Auth.login($scope.user).then(
+        function(user) {
+          $state.go('index');
+        }, 
+        function(error) {
+          $scope.message = 'Felaktiga inloggningsuppgifter.'
+          $scope.user = {};
+        })
     };
     
   });
