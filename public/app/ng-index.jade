@@ -19,6 +19,7 @@ html(ng-app='myApp' lang='sv')
               span.fa.fa-medkit  eSana 
             div(ng-if="user.firstname", style ="float: right; margin-left:2%")
               p(ng-bind="language.index.loggedInAs+': '+ user.firstname + ' ' + user.lastname + '  - ' +  user.local.email")
+              br
               //- If you are patient you should be able to edit your profile and fill in forms and change password
               div(ng-if="user.role == 0")
                 a.btn.btn-default(ui-sref="patientform") #[span.fa.fa-user(ng-bind="language.index.form")]
@@ -27,10 +28,10 @@ html(ng-app='myApp' lang='sv')
                 a.btn.btn-default(href="/logout" ng-click="logout()") #[span.fa.fa-user(ng-bind="language.index.logout")]
               //- If you are a doctor you should be able to create patient accounts    
               div(ng-if="user.role == 1")
-                a.btn.btn-default(href="/signup") #[span.fa.fa-user(ng-bind="language.index.register")]
-                a.btn.btn-default(href="/mypatients") #[span.fa.fa-user(ng-bind="language.index.mypatients")]
-                a.btn.btn-default(href="/password") #[span.fa.fa-user(ng-bind="language.index.password")]
-                a.btn.btn-default(href="/logout" ng-click="logout()") #[span.fa.fa-user(ng-bind="language.index.logout")]
+                a.button(href="/signup" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.register")]
+                a.button(href="/mypatients" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.mypatients")]
+                a.button(href="/password" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.password")]
+                a.buttonsign(href="/logout" ng-click="logout()" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.logout")]
               //- If you are an administrator you should be able to create all kinds of accounts
               div(ng-if="user.role == 2")
                 a.btn.btn-default(href="/signup") #[span.fa.fa-user(ng-bind="language.index.register")]
