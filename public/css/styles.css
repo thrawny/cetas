@@ -87,6 +87,8 @@
     background-color: tomato;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
+    float: right;
+    margin-left: 2%;
     border: 1px solid #b15151;
     color: white;
     white-space: nowrap;
