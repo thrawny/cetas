@@ -99,5 +99,14 @@
 		"personalnumber": "Personnummer",
 		"completedforms": "# ifyllda formulär",
 		"latestform": "Senast ifyllda formulär"
+	},
+
+	"signup" : {
+		"firstname" : "Förnamn",
+		"lastname" : "Efternamn",
+		"occupation" : "Ockupation",
+		"email" :	"Email",
+		"password" : "Lösenord",
+		"skapakonto" : "Skapa Konto"
 	}
  }

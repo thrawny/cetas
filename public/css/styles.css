@@ -44,7 +44,7 @@
     width: 100%;
     padding-top: 5%;
     background-color: tomato;
-    border-top: 1px solid;
+    border-top: 1px solid white;
     border-bottom: 1px solid white;
 }
 
@@ -67,16 +67,39 @@
 
 .button:hover {
    background: #b15151;
-   }
+}
 
 .button:active {
    background: #974646;
-   }
+}
 
 .buttontext {
     vertical-align: middle;
     margin-left: 2%;
     color:white;
+}
+
+.buttonsubmit {
+    display: block;
+    padding: 2%;
+    padding-right: 6%;
+    padding-left: 6%;
+    background-color: tomato;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border: 1px solid #b15151;
+    color: white;
+    white-space: nowrap;
+}
+
+.buttonsubmit:hover {
+   background: #b15151;
+   border: 1px solid #974646;
+}
+
+.buttonsubmit:active {
+   background: #974646;
+   border: 1px solid #7e3a3a;
 }
 
 
