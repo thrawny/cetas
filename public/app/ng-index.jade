@@ -15,11 +15,9 @@ html(ng-app='myApp' lang='sv')
     header(ng-controller="MainCtrl as main")
       div#wrapper
         div#sidebar-wrapper
-            h1
-              span.fa.fa-medkit  eSana
-            //-div#fontstyle  
-            div(ng-if="user.firstname")
-              color: white;
+            h1(align = "center")
+              span.fa.fa-medkit  eSana 
+            div(ng-if="user.firstname", style ="float: right; margin-left:2%")
               p(ng-bind="language.index.loggedInAs+': '+ user.firstname + ' ' + user.lastname + '  - ' +  user.local.email")
               //- If you are patient you should be able to edit your profile and fill in forms and change password
               div(ng-if="user.role == 0")
@@ -64,5 +62,6 @@ html(ng-app='myApp' lang='sv')
     script(src='/app/patientform/patientform.controller.js')
     script(src='/app/profile/profile.js')
     script(src='/app/profile/profile.controller.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js')
 
     script(src='http://localhost:35729/livereload.js')
