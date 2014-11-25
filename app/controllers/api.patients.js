@@ -54,7 +54,6 @@ module.exports.create = function(req, res, next) {
               if (err) throw err;
             //  req.flash('success', 'Patient saved.')
              // return res.redirect('/');
-              console.log("HALLOOO");
               return res.json({success: "Patient saved"});
             });
           }

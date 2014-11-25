@@ -61,17 +61,13 @@ module.exports.changepassword = function (req, res, next) {
   
  User.findById(req.body.id, function (err, cp) {
   if (err) return next(err);
+    console.log(req.body)
     if (req.body.password != req.body.confirmpassword) return next('Bekräftelse Lösenord är inte korrekt!');
-    if (!cp.validPassword(req.body.password))
-          return next('Lösenordet är fel!!');
+    cp.local.password = cp.generateHash(req.body.password);
+    cp.save(function(err) {
+      if (err) return next(err);
+      return res.json({success: 'Password updated.'})
 
-     cp.local.password = cp.generateHash(req.body.password);
-
-    cp.save(function(err){
-    if (err) next(err)
-    else 
-      if (req.user.role >0) res.redirect('/')
-      else res.redirect('/myprofile')
    });
   
  });

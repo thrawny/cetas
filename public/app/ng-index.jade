@@ -4,7 +4,6 @@ html(ng-app='myApp' lang='sv')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width')
     title eSana
-    script(src='/lib/jquery/dist/jquery.min.js')
     link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap-theme.min.css')
     link(rel='stylesheet', href='/lib/font-awesome/css/font-awesome.min.css')  
@@ -24,24 +23,26 @@ html(ng-app='myApp' lang='sv')
               div(ng-if="user.role == 0")
                 a.button(ui-sref="patientform" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.form")]
                 a.button(ui-sref="profile" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.myprofile")]
-                a.button(href="/password" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.password")]
+                a.button(ui-sref="password" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.password")]
                 a.buttonsign(href="/logout" ng-click="logout()" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.logout")]
               //- If you are a doctor you should be able to create patient accounts    
               div(ng-if="user.role == 1")
-                a.button(href="/signup" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.register")]
-                a.button(href="/mypatients" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.mypatients")]
-                a.button(href="/password" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.password")]
-                a.buttonsign(href="/logout" ng-click="logout()" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.logout")]
+                a.button(ui-sref="signup" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.register")]
+                a.button(ui-sref="patients" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.mypatients")]
+                a.button(ui-sref="password" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.password")]
+                a.buttonsign(href="logout" ng-click="logout()" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.logout")]
               //- If you are an administrator you should be able to create all kinds of accounts
               div(ng-if="user.role == 2")
-                a.button(href="/signup" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.register")]
-                a.button(href="/password" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.password")]
+                a.button(ui-sref="signup" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.register")]
+                a.button(ui-sref="password" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.password")]
                 a.buttonsign(href="/logout" ng-click="logout()" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.logout")]
         div#page-content-wrapper
             .container-fluid
               .row
                 .col-md-12(ui-view)
     footer
+    script(src='/lib/jquery/dist/jquery.min.js')
+    script(src='/lib/bootstrap/dist/js/bootstrap.min.js')  
     script(src='/lib/angular/angular.js')
     script(src='/lib/ui-router/release/angular-ui-router.js')
     script(src='/lib/angular-sanitize/angular-sanitize.js')
@@ -61,4 +62,9 @@ html(ng-app='myApp' lang='sv')
     script(src='/app/patientform/patientform.controller.js')
     script(src='/app/profile/profile.js')
     script(src='/app/profile/profile.controller.js')
+    script(src='/app/signup/signup.js')
+    script(src='/app/signup/signup.controller.js')
+    script(src='/app/password/password.js')
+    script(src='/app/password/password.controller.js')
+
     script(src='http://localhost:35729/livereload.js')
