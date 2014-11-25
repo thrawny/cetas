@@ -19,7 +19,7 @@ angular.module('myApp')
         if ($scope.pass.password === $scope.pass.confirmpassword) {
           $http.post('/password', $scope.pass)
             .success(function(data, status, headers, config) {
-              $state.go('index');
+              $state.go('index', {message: 'Ditt lösenord har ändrats.'});
             });
           
         } else {

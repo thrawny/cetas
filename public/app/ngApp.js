@@ -18,9 +18,6 @@ angular.module('myApp', [
         console.log('noauth');
         event.preventDefault();
         $state.go('login');
-      } else {
-        $rootScope.message = toParams.message;
-      }
-
-    })
-  })
+      } 
+    });
+  });
