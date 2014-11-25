@@ -45,19 +45,15 @@
     padding-top: 5%;
     background-color: tomato;
     border-top: 1px solid;
-    border-bottom: 1px solid;
-    color: white;
-
+    border-bottom: 1px solid white;
 }
 
 .buttonsign:hover {
    background: #b15151;
-   color: white;
    }
 
 .buttonsign:active {
    background: #974646;
-   color: white;
    }
 
 .button {
@@ -66,25 +62,23 @@
     width: 100%;
     padding-top: 5%;
     background-color: tomato;
-    border-top: 1px solid;
-    color: white;
-
+    border-top: 1px solid white;
 }
 
 .button:hover {
    background: #b15151;
-   color: white;
    }
 
 .button:active {
    background: #974646;
-   color: white;
    }
 
 .buttontext {
     vertical-align: middle;
     margin-left: 2%;
+    color:white;
 }
+
 
 #wrapper {
     font-family:   'Roboto', serif;
