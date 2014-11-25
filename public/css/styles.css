@@ -52,6 +52,8 @@
 }
 
 #sidebar-wrapper {
+    font-family:   'Roboto', serif;
+    color: white;
     z-index: 1000;
     position: fixed;
     left: 250px;
