@@ -1,24 +1,24 @@
 ﻿'use strict';
 
 angular.module('myApp')
-.controller('PatientCtrl', function($scope, $http) {
+.controller('PatientCtrl', function($scope, $http, $filter) {
 	$http.get("/api/patients")
 	.success(function(response){
 		console.log("Patients loaded successfully");
-		console.log(response);
 		
+		//Building data-content for the popover
 		for(var i = 0; i<response.length; i++){
-			console.log(response[i]);
+			var pID = response[i]._id;
 			var records = response[i].formrecords;
 			var recordStr = "";
 			for(var j = 0; j<records.length; j++){
-				console.log(records[i]);
-				recordStr += "<a href='/'>"+records[j].date+"</a>" + "<br/>";
+				var fID = records[j]._id;
+				var date = $filter('date')(records[j].date, 'yyyy-MM-dd HH:mm');
+				recordStr += "<a href='/api/patients/"+pID+"/formrecords/"+fID+"'>"+date+"</a>" + "<br/>";
 			}
 			if(recordStr == "")
 				recordStr = "<i>< inga formulär har fyllts i ></>"
 			response[i].displayRecords = recordStr;
-			console.log(recordStr);
 		}
 		
 		$scope.patientRecords = response;
@@ -30,7 +30,7 @@ angular.module('myApp')
 .directive('popover', function(){
 	return function($scope, $element, $attrs){
 		var popoverCandidate = $($element[0]).find("button").popover({html:true});
-		
-	}	
+	}
 });
 
+// /api/patients/:p_id/formrecords/:f_id

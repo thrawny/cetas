@@ -4,20 +4,18 @@ html(ng-app='myApp' lang='sv')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width')
     title eSana
-    
     link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap-theme.min.css')
     link(rel='stylesheet', href='/lib/font-awesome/css/font-awesome.min.css')  
     link(rel='stylesheet', href='/css/styles.css')
-    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Roboto:100')
     base(href='/')
   body
     header(ng-controller="MainCtrl as main")
       div#wrapper
         div#sidebar-wrapper
-            h1(align = "center")
-              span.fa.fa-medkit  eSana 
-            div(ng-if="user.firstname", style ="float: right; margin-left:2%")
+            h1
+              span.fa.fa-medkit  eSana
+            div(ng-if="user.firstname")
               p(ng-bind="language.index.loggedInAs+': '+ user.firstname + ' ' + user.lastname + '  - ' +  user.local.email")
               //- If you are patient you should be able to edit your profile and fill in forms and change password
               div(ng-if="user.role == 0")
@@ -26,14 +24,14 @@ html(ng-app='myApp' lang='sv')
                 a.btn.btn-default(href="/password") #[span.fa.fa-user(ng-bind="language.index.password")]
                 a.btn.btn-default(href="/logout" ng-click="logout()") #[span.fa.fa-user(ng-bind="language.index.logout")]
               //- If you are a doctor you should be able to create patient accounts    
-              div(ng-if="user.role == 1") 
-                a.btn.btn-default(ui-sref="signup") #[span.fa.fa-user(ng-bind="language.index.register")] 
-                a.btn.btn-default(ui-sref="patients") #[span.fa.fa-user(ng-bind="language.index.mypatients")]
+              div(ng-if="user.role == 1")
+                a.btn.btn-default(href="/signup") #[span.fa.fa-user(ng-bind="language.index.register")]
+                a.btn.btn-default(href="/mypatients") #[span.fa.fa-user(ng-bind="language.index.mypatients")]
                 a.btn.btn-default(href="/password") #[span.fa.fa-user(ng-bind="language.index.password")]
                 a.btn.btn-default(href="/logout" ng-click="logout()") #[span.fa.fa-user(ng-bind="language.index.logout")]
               //- If you are an administrator you should be able to create all kinds of accounts
               div(ng-if="user.role == 2")
-                a.btn.btn-default(ui-sref="signup") #[span.fa.fa-user(ng-bind="language.index.register")]
+                a.btn.btn-default(href="/signup") #[span.fa.fa-user(ng-bind="language.index.register")]
                 a.btn.btn-default(href="/password") #[span.fa.fa-user(ng-bind="language.index.password")]
                 a.btn.btn-default(href="/logout" ng-click="logout()") #[span.fa.fa-user(ng-bind="language.index.logout")]
         div#page-content-wrapper
@@ -48,7 +46,7 @@ html(ng-app='myApp' lang='sv')
     script(src='/lib/angular-sanitize/angular-sanitize.js')
     script(src='/lib/angular-animate/angular-animate.js')
     script(src='/lib/angular-cookies/angular-cookies.js')
-
+    
     script(src='/app/ngApp.js')
     script(src='/app/auth/auth.factory.js')
     script(src='/app/main/main.controller.js')  
@@ -62,7 +60,5 @@ html(ng-app='myApp' lang='sv')
     script(src='/app/patientform/patientform.controller.js')
     script(src='/app/profile/profile.js')
     script(src='/app/profile/profile.controller.js')
-    script(src='/app/signup/signup.js')
-    script(src='/app/signup/signup.controller.js')
-
+    
     script(src='http://localhost:35729/livereload.js')
