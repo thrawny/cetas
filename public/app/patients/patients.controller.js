@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular.module('myApp')
-.controller('PatientCtrl', function($scope, $http, $filter) {
+.controller('PatientCtrl', function($scope, $http, $filter, $state) {
 	$http.get("/api/patients")
 	.success(function(response){
 		console.log("Patients loaded successfully");
@@ -26,6 +26,10 @@ angular.module('myApp')
 	.error(function(data, status, header, config){
 		console.log("Error loading patients");
 	});
+	
+	$scope.addOperation = function(patient_id) {
+		$state.go('addoperation', {patient_id: patient_id});
+	}
 })
 .directive('popover', function(){
 	return function($scope, $element, $attrs){

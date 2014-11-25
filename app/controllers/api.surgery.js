@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 
 // Handle post request with new surgery data.
 module.exports.create = function (req, res, next) {
-  User.findOne({_id: req.params.p_id}, function(err, user) {
+  User.findOne({_id: req.body.patient_id}, function(err, user) {
     if (err) next(err);
     var sur = new Surgery({
       operation: req.body.operation,
@@ -12,6 +12,7 @@ module.exports.create = function (req, res, next) {
       hospital: req.body.hospital,
       comments: req.body.comments
     });
+    console.log(sur);
     user.surgeries.push(sur);
     user.save(function(err) {
       return res.json({success: "Surgery saved"});

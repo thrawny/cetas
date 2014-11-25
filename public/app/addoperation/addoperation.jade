@@ -1,0 +1,20 @@
+h2  
+  span.fa.fa-sign-in  {{language.surgeryInfo.surgeryinfo}}  
+
+form.form-wrapper(name="newOperationForm")
+  div.form-group
+    label {{language.surgeryInfo.surgery}}
+    input.form-control(type="text", name="operation", ng-model="patient.operation") 
+
+  div.form-group
+    label {{language.surgeryInfo.department}}
+    input.form-control(type="text", name="department", ng-model="patient.department") 
+
+  div.form-group
+    label {{language.surgeryInfo.hospital}}
+    input.form-control(type="text", name="hospital", ng-model="patient.hospital") 
+
+  div.form-group
+    label {{language.surgeryInfo.notes}}
+    textarea.form-control(name="comments", rows="5", cols="50", ng-model="patient.comments")
+  button.btn.btn-warning.btn-lg(style="float: right;  margin-left:2%", ng-click="addOperation(newOperationForm)") {{language.myprofile.save}}
