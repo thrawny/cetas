@@ -108,5 +108,9 @@
 		"email" :	"Email",
 		"password" : "Lösenord",
 		"skapakonto" : "Skapa Konto"
+	},
+	
+	"formrecord" : {
+		"formdata": "Formulärdata"
 	}
  }

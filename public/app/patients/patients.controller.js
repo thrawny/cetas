@@ -14,7 +14,8 @@ angular.module('myApp')
 			for(var j = 0; j<records.length; j++){
 				var fID = records[j]._id;
 				var date = $filter('date')(records[j].date, 'yyyy-MM-dd HH:mm');
-				recordStr += "<a href='/api/patients/"+pID+"/formrecords/"+fID+"'>"+date+"</a>" + "<br/>";
+				recordStr += "<a class='ng-binding' ng-click='formrecord("+fID+"," +pID+") href='/formrecords/"+fID+"/"+pID+"'>"+date+"</a>" + "<br/>";
+
 			}
 			if(recordStr == "")
 				recordStr = "<i>< inga formulär har fyllts i ></>"
@@ -30,11 +31,14 @@ angular.module('myApp')
 	$scope.addOperation = function(patient_id) {
 		$state.go('addoperation', {patient_id: patient_id});
 	}
+	
+	$scope.formrecord = function(formrecord_id, patient_id) {
+		console.log("kommer hit1");
+		$state.go('formrecord', {formrecord_id: formrecord_id, patient_id: patient_id});
+	}
 })
 .directive('popover', function(){
 	return function($scope, $element, $attrs){
 		var popoverCandidate = $($element[0]).find("button").popover({html:true});
 	}
 });
-
-// /api/patients/:p_id/formrecords/:f_id
