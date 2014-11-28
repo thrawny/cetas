@@ -19,13 +19,5 @@ angular.module('myApp')
     $http.get('/api/patients/'+$scope.formid.patient_id +'/formrecords/'+ $scope.formid.formrecord_id)
     .success(function(data) {
     	$scope.record = data;
-    	console.log(data);
     })
-
-  //href='/api/patients/{{patient._id}}/formrecords/{{patient.formrecords[0]._id || "undefined"}}'
-    
-    $scope.formrecord = function() {
-        console.log($scope.formid.formrecord_id);
-
-      }
   });

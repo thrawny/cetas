@@ -33,8 +33,11 @@ angular.module('myApp')
 	}
 	
 	$scope.formrecord = function(formrecord_id, patient_id) {
-		console.log("kommer hit1");
 		$state.go('formrecord', {formrecord_id: formrecord_id, patient_id: patient_id});
+	}
+	
+	$scope.viewPatient = function(patient_id) {
+		$state.go('patient', {patient_id: patient_id});
 	}
 })
 .directive('popover', function(){

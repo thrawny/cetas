@@ -70,6 +70,19 @@
 		"back": "Tillbaka"
 	},
 	
+	"patient": {
+		"patientdata": "Patientdata",
+		"email": "Email",
+		"name": "Namn",
+		"address1": "Adressfält 1",
+		"address2": "Adressfält 2",
+		"postalnumber": "Postnummer",
+		"city": "Postort",
+		"phone": "Telefonnummer",
+		"personalnumber": "Personnummer",
+		"back": "Tillbaka"
+	},
+	
 	"password": {
 		"changePassword": "Ändra lösenord",
 		"password": "Lösenord",
@@ -83,8 +96,8 @@
 		"surgery" : "Operation",
 		"department" : "Avdelning",
 		"hospital" : "Sjukhus",
-		"notes" : "Anteckningar"
-
+		"notes" : "Anteckningar",
+		"operations": "Operationer"
 	},
 
 	"doctor" : {
@@ -111,6 +124,16 @@
 	},
 	
 	"formrecord" : {
-		"formdata": "Formulärdata"
+		"formdata": "Formulärdata",
+		"date": "Datum",
+		"pain": "Smärta",
+		"assess": "Utvärdering",
+		"worstThing": "Värsta problem",
+		"satisfied": "Återhämtning",
+		"routine": "Vardagsrutin",
+		"dailyActivities": "Vardagsaktivitet",
+		"narcosis": "Påverkan av narkos",
+		"nausea": "Illamående",
+		"painKillers": "Smärtstillande"
 	}
  }

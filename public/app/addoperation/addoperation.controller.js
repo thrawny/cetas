@@ -21,8 +21,5 @@ angular.module('myApp')
 	        .error(function(data, status, headers, config) {
 	        	//TODO: do something...
 	        });
-    	
-    	//console.log("ID::::"+patient_id);
       }
-    
   });
