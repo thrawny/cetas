@@ -28,5 +28,5 @@ form.form-wrapper(name="profileform")
     label {{language.myprofile.mobile}}
     input.form-control(type="text" name="mobile" ng-model="new_user.mobile")
 
-  button.btn.btn-warning.btn-lg(style="float: right;  margin-left:2%" ng-click="submit(profileform)") 
+  button.buttonsubmit(style="float: right;  margin-left:2%" ng-click="submit(profileform)") 
     | {{language.myprofile.save}}
