@@ -21,7 +21,6 @@ angular.module('myApp')
 				recordStr = "<i>< inga formulär har fyllts i ></>"
 			response[i].displayRecords = recordStr;
 		}
-		
 		$scope.patientRecords = response;
 	})
 	.error(function(data, status, header, config){
