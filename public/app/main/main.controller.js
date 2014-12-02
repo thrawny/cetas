@@ -12,8 +12,9 @@ angular.module('myApp')
         $scope.language = data;
       })
 
-    $scope.$state = $state;
+    $scope.state = $state;
     $scope.language;
+    console.log($scope.state.current.name)
 
     
     $scope.$on('user.update', function(event, args) {

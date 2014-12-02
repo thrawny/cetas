@@ -10,10 +10,10 @@ html(ng-app='myApp' lang='sv')
     link(rel='stylesheet', href='/css/styles.css')
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Roboto:100')
     base(href='/')
-  body
-    div#wrapper(ng-controller="MainCtrl as main")
+  body(ng-controller="MainCtrl as main" ng-class="{'login-page': state.current.name==='login'}")
+    div#wrapper
       div#sidebar-wrapper
-          h1(align = "center")
+          h1.text-center
             span.fa.fa-medkit  eSana 
           div(ng-if="user.firstname")
             p(ng-bind="language.index.loggedInAs+': '+ user.firstname + ' ' + user.lastname + '  - ' +  user.local.email")
