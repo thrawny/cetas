@@ -260,7 +260,7 @@ p.statusBox {
 	border-radius: 15%;
 }
 
-.formrecord-head {
+.clickable{
     cursor: pointer;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -269,6 +269,10 @@ p.statusBox {
     -ms-user-select: none;
     user-select: none;
 
+}
+
+th .fa-sort-desc,th .fa-sort-asc{
+	margin-left: 5px;
 }
 
 .login-page {
