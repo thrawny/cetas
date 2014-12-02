@@ -10,49 +10,45 @@ div
   p {{language.patient.phone}}: {{patient.mobile}}
   p {{language.patient.email}}: {{patient.local.email}}
   
-  
-  h3 {{language.surgeryInfo.operations}}
-  table#operationTable.table.table-hover
-    thead
-      tr  
-        th {{language.formrecord.date}}
-        th {{language.surgeryInfo.surgery}}
-        th {{language.surgeryInfo.hospital}}
-        th {{language.surgeryInfo.department}}
-        th {{language.surgeryInfo.notes}}
-    tbody
-      tr(ng-repeat="operation in patient.surgeries")
-       td 
-          | {{operation.date}}
-       td 
-          | {{operation.operation}}
-       td 
-          | {{operation.hospital}}
-       td 
-          | {{operation.department}}
-       td 
-          | {{operation.comments}}
-  
-  
   h3 {{language.formrecord.formdata}}
   table#formTable.table.table-hover
     thead
       tr  
-        th {{language.formrecord.date}}
-        th {{language.formrecord.pain}}
-        th {{language.formrecord.painKillers}}
-        th {{language.formrecord.nausea}}
-        th {{language.formrecord.narcosis}}
-        th {{language.formrecord.dailyActivities}}
-        th {{language.formrecord.routine}}
-        th {{language.formrecord.satisfied}}
-        th {{language.formrecord.worstThing}}
-        th {{language.formrecord.assess}}
+        th.formrecord-head(ng-click="predicate='date'; reverse=!reverse") 
+          i.fa(ng-class="{'fa-sort-desc': predicate==='date'&&reverse, 'fa-sort-asc': predicate==='date'&&!reverse}")
+          | {{language.formrecord.date}}
+        th.formrecord-head(ng-click="predicate='pain'; reverse=!reverse")
+          i.fa(ng-class="{'fa-sort-desc': predicate==='pain'&&reverse, 'fa-sort-asc': predicate==='pain'&&!reverse}")
+          | {{language.formrecord.pain}}
+        th.formrecord-head(ng-click="predicate='painKillers'; reverse=!reverse")
+          i.fa(ng-class="{'fa-sort-desc': predicate==='painKillers'&&reverse, 'fa-sort-asc': predicate==='painKillers'&&!reverse}")
+          | {{language.formrecord.painKillers}}
+        th.formrecord-head(ng-click="predicate='nausea'; reverse=!reverse")
+          i.fa(ng-class="{'fa-sort-desc': predicate==='nausea'&&reverse, 'fa-sort-asc': predicate==='nausea'&&!reverse}")
+          | {{language.formrecord.nausea}}
+        th.formrecord-head(ng-click="predicate='narcosis'; reverse=!reverse")
+          i.fa(ng-class="{'fa-sort-desc': predicate==='narcosis'&&reverse, 'fa-sort-asc': predicate==='narcosis'&&!reverse}")
+          | {{language.formrecord.narcosis}}
+        th.formrecord-head(ng-click="predicate='dailyActivities'; reverse=!reverse")
+          i.fa(ng-class="{'fa-sort-desc': predicate==='dailyActivities'&&reverse, 'fa-sort-asc': predicate==='dailyActivities'&&!reverse}")
+          | {{language.formrecord.dailyActivities}}
+        th.formrecord-head(ng-click="predicate='routine'; reverse=!reverse")
+          i.fa(ng-class="{'fa-sort-desc': predicate==='routine'&&reverse, 'fa-sort-asc': predicate==='routine'&&!reverse}")
+          | {{language.formrecord.routine}}
+        th.formrecord-head(ng-click="predicate='satisfied'; reverse=!reverse")
+          i.fa(ng-class="{'fa-sort-desc': predicate==='satisfied'&&reverse, 'fa-sort-asc': predicate==='satisfied'&&!reverse}")
+          | {{language.formrecord.satisfied}}
+        th.formrecord-head(ng-click="predicate='worstThing'; reverse=!reverse")
+          i.fa(ng-class="{'fa-sort-desc': predicate==='worstThing'&&reverse, 'fa-sort-asc': predicate==='worstThing'&&!reverse}")
+          | {{language.formrecord.worstThing}}
+        th.formrecord-head(ng-click="predicate='assess'; reverse=!reverse")
+          i.fa(ng-class="{'fa-sort-desc': predicate==='assess'&&reverse, 'fa-sort-asc': predicate==='assess'&&!reverse}")
+          | {{language.formrecord.assess}}
       
     tbody
-      tr(ng-repeat="form in patient.formrecords")
+      tr(ng-repeat="form in patient.formrecords | orderBy:predicate:reverse")
         td 
-          | {{form.date}}
+          | {{form.date | date : 'yyyy-MM-dd HH:mm:ss' }}
         td 
           | {{form.pain}}
         td 
@@ -71,3 +67,27 @@ div
           | {{form.worstThing}}
         td 
           | {{form.assess}}
+  
+  h3 {{language.surgeryInfo.operations}}
+  table#operationTable.table.table-hover
+    thead
+      tr  
+        th {{language.formrecord.date}}
+        th {{language.surgeryInfo.surgery}}
+        th {{language.surgeryInfo.hospital}}
+        th {{language.surgeryInfo.department}}
+        th {{language.surgeryInfo.notes}}
+    tbody
+      tr(ng-repeat="operation in patient.surgeries")
+       td 
+          | {{operation.date | date : 'yyyy-MM-dd HH:mm' }}
+       td 
+          | {{operation.operation}}
+       td 
+          | {{operation.hospital}}
+       td 
+          | {{operation.department}}
+       td 
+          | {{operation.comments}}
+  
+  

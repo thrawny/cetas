@@ -5,3 +5,4 @@ angular/
 .settings
 .project
 npm-debug.log
+audit.log

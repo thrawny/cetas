@@ -15,7 +15,6 @@ angular.module('myApp')
 				var fID = records[j]._id;
 				var date = $filter('date')(records[j].date, 'yyyy-MM-dd HH:mm');
 				recordStr += "<a class='ng-binding' ng-click='formrecord("+fID+"," +pID+") href='/formrecords/"+fID+"/"+pID+"'>"+date+"</a>" + "<br/>";
-
 			}
 			if(recordStr == "")
 				recordStr = "<i>< inga formulär har fyllts i ></>"
@@ -37,6 +36,31 @@ angular.module('myApp')
 	
 	$scope.viewPatient = function(patient_id) {
 		$state.go('patient', {patient_id: patient_id});
+	}
+	
+	$scope.getStatusColor = function(patient_id) {
+		var patient = $scope.getPatient(patient_id);
+		var lastForm = patient.formrecords[patient.formrecords.length-1];
+
+		// TODO: this is just dummy logic for determining a patients status
+		if (lastForm === undefined) {
+			return "white";	
+		} else if (lastForm.pain < 20) {
+			return "#ec5d57";
+		} else if (lastForm.pain < 50) {
+			return "#f5d329";
+		} else {
+			return "#70bf40";
+		}
+	}
+	
+	$scope.getPatient = function(patient_id) {
+		for (var i = 0; i < $scope.patientRecords.length; i++) {
+			if ($scope.patientRecords[i]._id === patient_id) {
+				return $scope.patientRecords[i];
+			}
+		}
+		return null;
 	}
 })
 .directive('popover', function(){
