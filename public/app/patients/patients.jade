@@ -1,24 +1,28 @@
 ﻿h3
-  span.fa.fa-sign-in {{language.index.mypatients}}
-
+  span.fa {{language.index.mypatients}}
+  
 table#patientTable.table.table-hover
   thead
     tr  
-      th Status
-      th {{language.patientListing.personalnumber}}
-      th {{language.patientListing.name}}
-      th {{language.patientListing.completedforms}}
-      th {{language.patientListing.latestform}}
+      th.clickable Status
+      th.clickable(ng-click="predicate='personal_number'; reverse=!reverse") {{language.patientListing.personalnumber}}
+        i.fa(ng-class="{'fa-sort-desc': predicate==='personal_number'&&reverse, 'fa-sort-asc': predicate==='personal_number'&&!reverse}") 
+      th.clickable(ng-click="predicate='firstname'; reverse=!reverse") {{language.patientListing.name}}
+        i.fa(ng-class="{'fa-sort-desc': predicate==='firstname'&&reverse, 'fa-sort-asc': predicate==='firstname'&&!reverse}") 
+      th.clickable(ng-click="predicate='formrecords.length'; reverse=!reverse"){{language.patientListing.completedforms}}
+        i.fa(ng-class="{'fa-sort-desc': predicate==='formrecords.length'&&reverse, 'fa-sort-asc': predicate==='formrecords.length'&&!reverse}") 
+      th.clickable(ng-click="predicate='formrecords[0].date'; reverse=!reverse") {{language.patientListing.latestform}}
+        i.fa(ng-class="{'fa-sort-desc': predicate==='formrecords[0].date'&&reverse, 'fa-sort-asc': predicate==='formrecords[0].date'&&!reverse}") 
       th
 
   tbody
-    tr(ng-repeat="patient in patientRecords" popover)
+    tr(ng-repeat="patient in patientRecords | orderBy:predicate:reverse" popover)
       td
         p(class="statusBox" style="background-color: {{getStatusColor(patient._id)}}") 
       td 
         a(href='/api/patients/{{patient._id}}') {{patient.personal_number}}
       td 
-        button.btn.btn-info(type="button" ng-click="viewPatient(patient._id)") {{patient.firstname + " " + patient.lastname}} 
+        button.btn.btn-info.name(type="button" ng-click="viewPatient(patient._id)") {{patient.firstname + " " + patient.lastname}} 
       td 
        button.btn.btn-info(type="button" data-trigger="focus" data-toggle="popover" data-placement="right" title="Ifyllda formulär" data-content="{{patient.displayRecords}}") {{patient.formrecords.length}}
       td 

@@ -252,8 +252,12 @@ p.statusBox {
 	border-radius: 15%;
 }
 
-.formrecord-head {
+.clickable{
     cursor: pointer;
+}
+
+th .fa-sort-desc,th .fa-sort-asc{
+	margin-left: 5px;
 }
 
 .login-page {
