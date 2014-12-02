@@ -69,6 +69,10 @@
    background: #b15151;
 }
 
+.button:active {
+    background: white;
+}
+
 .button:link {
     text-decoration: none;
 }
@@ -85,6 +89,10 @@
 
 .textcolor .buttontext {
     color:tomato;
+}
+
+.button:hover .buttontext {
+    color: white; 
 }
 
 .buttonsubmit {
