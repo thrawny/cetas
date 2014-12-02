@@ -20,21 +20,21 @@ html(ng-app='myApp' lang='sv')
             br
             //- If you are patient you should be able to edit your profile and fill in forms and change password
             div(ng-if="user.role == 0")
-              a.button(ui-sref="patientform" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.form")]
-              a.button(ui-sref="profile" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.myprofile")]
-              a.button(ui-sref="password" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.password")]
-              a.buttonsign(href="/logout" ng-click="logout()" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.logout")]
+              a.button(ui-sref="patientform" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.form")]
+              a.button(ui-sref="profile" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.myprofile")]
+              a.button(ui-sref="password" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.password")]
+              a.buttonsign(href="/logout" ng-click="logout()" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.logout")]
             //- If you are a doctor you should be able to create patient accounts    
             div(ng-if="user.role == 1")
-              a.button(ui-sref="signup" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.register")]
-              a.button(ui-sref="patients" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.mypatients")]
-              a.button(ui-sref="password" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.password")]
-              a.buttonsign(href="logout" ng-click="logout()" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.logout")]
+              a.button(ui-sref="signup" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.register")]
+              a.button(ui-sref="patients" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.mypatients")]
+              a.button(ui-sref="password" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.password")]
+              a.buttonsign(href="logout" ng-click="logout()" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.logout")]
             //- If you are an administrator you should be able to create all kinds of accounts
             div(ng-if="user.role == 2")
-              a.button(ui-sref="signup" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.register")]
-              a.button(ui-sref="password" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.password")]
-              a.buttonsign(href="/logout" ng-click="logout()" style="text-decoration:none") #[span.buttontext(ng-bind="language.index.logout")]
+              a.button(ui-sref="signup" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.register")]
+              a.button(ui-sref="password" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.password")]
+              a.buttonsign(href="/logout" ng-click="logout()" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.logout")]
       div#page-content-wrapper
         .container-fluid
           .row

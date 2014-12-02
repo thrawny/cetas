@@ -52,9 +52,9 @@
    background: #b15151;
    }
 
-.buttonsign:active {
-   background: #974646;
-   }
+.buttonsign:link {
+    text-decoration: none;
+}
 
 .button {
     display: block;
@@ -69,14 +69,22 @@
    background: #b15151;
 }
 
-.button:active {
-   background: #974646;
+.button:link {
+    text-decoration: none;
 }
 
 .buttontext {
     vertical-align: middle;
     margin-left: 2%;
     color:white;
+}
+
+.textcolor {
+    background: white;
+}
+
+.textcolor .buttontext {
+    color:tomato;
 }
 
 .buttonsubmit {
@@ -89,7 +97,7 @@
     -webkit-border-radius: 7px;
     float: right;
     margin-left: 2%;
-    border: 1px solid #b15151;
+    border: 1px solid white;
     color: white;
     white-space: nowrap;
 }
