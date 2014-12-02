@@ -1,5 +1,4 @@
-﻿h3
-  span.fa.fa-sign-in {{language.index.mypatients}}
+﻿h3 {{language.index.mypatients}}
 
 table#patientTable.table.table-hover
   thead
@@ -25,3 +24,5 @@ table#patientTable.table.table-hover
         a( ng-click="formrecord(patient.formrecords[0]._id, patient._id)"  style="cursor: pointer") {{patient.formrecords[0].date | date : 'yyyy-MM-dd HH:mm'}}
       td
         button.btn.btn-info(type="button" ng-click="addOperation(patient._id)") + Operation
+      td
+        button.btn.btn-info(type="button" ui-sref="patientform({ patient_id: patient._id })") + Formulär
