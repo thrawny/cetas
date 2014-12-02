@@ -1,0 +1,75 @@
+//- ALL style-related things should be in css. Oblige!
+
+extends layout
+block content
+   
+    datalist#rangeTicks
+      option 50
+  
+    .container
+      div.col-sm-6.col-sm-offset-3 
+        .panel.panel-default 
+          .panel-heading 1. #{language.form.questionPain}
+
+          .panel-body
+            .div 
+              #{pain}
+
+
+        .panel.panel-default 
+          .panel-heading 2. #{language.form.questionPainkillers}
+
+          .panel-body
+            p
+              #{painkillers}
+
+        .panel.panel-default 
+          .panel-heading 3. #{language.form.questionNausea}
+
+          .panel-body
+            .div
+              #{nausea}
+            
+        .panel.panel-default 
+          .panel-heading 4. #{language.form.questionNarcosis}
+
+          .panel-body
+            .div 
+              #{narcosis}
+
+        .panel.panel-default 
+          .panel-heading 5. #{language.form.questionDaily}
+
+          .panel-body
+            .div 
+              #{dailyActivities}
+
+        .panel.panel-default 
+          .panel-heading 6. #{language.form.questionRoutine}
+
+          .panel-body
+            .div 
+              #{routine}
+
+        .panel.panel-default 
+          .panel-heading 7. #{language.form.questionSatisfied}
+
+          .panel-body
+            .div 
+              #{satisfied}
+
+        .panel.panel-default 
+          .panel-heading 8. #{language.form.questionWorst}
+
+          .panel-body
+            p
+              #{worstThing}
+              
+        .panel.panel-default 
+          .panel-heading 9. #{language.form.questionAssess}
+
+          .panel-body
+            .div 
+              #{assess}  
+
+        
