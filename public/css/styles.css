@@ -69,6 +69,10 @@
    background: #b15151;
 }
 
+.button:hover .buttontext {
+    color: white; 
+}
+
 .button:active {
     background: white;
 }
@@ -91,10 +95,6 @@
     color:tomato;
 }
 
-.button:hover .buttontext {
-    color: white; 
-}
-
 .buttonsubmit {
     display: block;
     padding: 2%;
@@ -113,6 +113,10 @@
 .buttonsubmit:hover {
    background: #b15151;
    border: 1px solid #974646;
+}
+
+.buttonsubmit:hover .buttontext{
+    color: tomato;
 }
 
 .buttonsubmit:active {
@@ -242,4 +246,8 @@
   width: 50%;
   min-width: 500px;
   margin: 0 auto;
+}
+
+.form-control {
+    border-color: tomato;
 }

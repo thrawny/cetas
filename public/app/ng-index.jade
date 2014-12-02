@@ -20,7 +20,7 @@ html(ng-app='myApp' lang='sv')
             br
             //- If you are patient you should be able to edit your profile and fill in forms and change password
             div(ng-if="user.role == 0")
-              a.button(ui-sref="patientform" ui-sref-active="textcolor" ng-mouseenter="textcolor") #[span.buttontext(ng-bind="language.index.form")]
+              a.button(ui-sref="patientform" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.form")]
               a.button(ui-sref="profile" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.myprofile")]
               a.button(ui-sref="password" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.password")]
               a.buttonsign(href="/logout" ng-click="logout()" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.logout")]
