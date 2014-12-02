@@ -43,6 +43,7 @@ module.exports.create = function(req, res, next) {
             newUser.local.password = newUser.generateHash(req.body.password);
             newUser.firstname = req.body.firstname;
             newUser.lastname = req.body.lastname;
+            newUser.notes = req.body.notes;
             newUser.personal_number = req.body.personal_number;
             if (req.user.role == 1)
                 newUser.role = roles.patient;
