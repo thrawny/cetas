@@ -79,7 +79,7 @@
 
 .buttontext {
     vertical-align: middle;
-    margin-left: 2%;
+    margin-left: 5%;
     color:white;
 }
 
@@ -135,6 +135,7 @@
 
 #sidebar-wrapper {
     color: white;
+    padding-left: 10px;
     z-index: 1000;
     position: fixed;
     left: 250px;
@@ -239,7 +240,7 @@
 }
 
 .form-wrapper {
-  width: 80%;
+  width: 50%;
   min-width: 500px;
   margin: 0 auto;
 }
