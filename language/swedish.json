@@ -51,7 +51,7 @@
 	
 	"loginPage": {
 		"login": "Logga in",
-		"email": "Epost",
+		"username": "Användarnamn",
 		"password": "Lösenord"
 	},
 	
@@ -120,7 +120,9 @@
 		"occupation" : "Ockupation",
 		"email" :	"Email",
 		"password" : "Lösenord",
-		"skapakonto" : "Skapa Konto"
+		"skapakonto" : "Skapa Konto",
+		"personal_number" : "Personnummer",
+		"notes" : "Anteckningar"
 	},
 	
 	"formrecord" : {

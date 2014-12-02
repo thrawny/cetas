@@ -6,8 +6,29 @@ angular.module('myApp')
 	.success(function(response){
 		console.log("Patients loaded successfully");
 		
+		// Adding status to each patient
+		for (var i = 0; i < response.length; i++) {
+			// Get the last form the patient filled in:
+			var lastForm = response[i].formrecords[response[i].formrecords.length-1];
+			var status; 
+			// TODO: this is just dummy logic for determining a patients status
+			if (lastForm === undefined) {
+				status = "0"; // no status	
+			} else if (lastForm.pain < 20) {
+				status = "3"; // red
+			} else if (lastForm.pain < 50) {
+				status = "2"; // yellow
+			} else {
+				status = "1"; // green
+			}
+			
+			response[i].status = status;
+		}
+		$scope.patients = response;
+		
+		
 		//Building data-content for the popover
-		for(var i = 0; i<response.length; i++){
+		for(var i = 0; i < response.length; i++) {
 			var pID = response[i]._id;
 			var records = response[i].formrecords;
 			var recordStr = "";
@@ -22,6 +43,7 @@ angular.module('myApp')
 		}
 		
 		$scope.patientRecords = response;
+		//console.log($scope.patientRecords);
 	})
 	.error(function(data, status, header, config){
 		console.log("Error loading patients");
@@ -39,18 +61,17 @@ angular.module('myApp')
 		$state.go('patient', {patient_id: patient_id});
 	}
 	
+	// Returns a color code depending on the patients status
 	$scope.getStatusColor = function(patient_id) {
 		var patient = $scope.getPatient(patient_id);
-		var lastForm = patient.formrecords[patient.formrecords.length-1];
 
-		// TODO: this is just dummy logic for determining a patients status
-		if (lastForm === undefined) {
+		if (patient.status === undefined || patient.status === "0") {
 			return "white";	
-		} else if (lastForm.pain < 20) {
+		} else if (patient.status === "3") {
 			return "#ec5d57";
-		} else if (lastForm.pain < 50) {
+		} else if (patient.status === "2") {
 			return "#f5d329";
-		} else {
+		} else if (patient.status === "1") {
 			return "#70bf40";
 		}
 	}

@@ -1,5 +1,4 @@
-h3
-  span.fa.fa-sign-in {{language.patient.patientdata}} 
+h3 {{language.patient.patientdata}} 
 div
   p {{language.patient.name}}: {{patient.firstname}} {{patient.lastname}}
   p {{language.patient.personalnumber}}: {{patient.personal_number}}
@@ -9,30 +8,6 @@ div
   p {{language.patient.city}}: {{patient.city}}
   p {{language.patient.phone}}: {{patient.mobile}}
   p {{language.patient.email}}: {{patient.local.email}}
-  
-  
-  h3 {{language.surgeryInfo.operations}}
-  table#operationTable.table.table-hover
-    thead
-      tr  
-        th {{language.formrecord.date}}
-        th {{language.surgeryInfo.surgery}}
-        th {{language.surgeryInfo.hospital}}
-        th {{language.surgeryInfo.department}}
-        th {{language.surgeryInfo.notes}}
-    tbody
-      tr(ng-repeat="operation in patient.surgeries")
-       td 
-          | {{operation.date | date : 'yyyy-MM-dd HH:mm' }}
-       td 
-          | {{operation.operation}}
-       td 
-          | {{operation.hospital}}
-       td 
-          | {{operation.department}}
-       td 
-          | {{operation.comments}}
-  
   
   h3 {{language.formrecord.formdata}}
   table#formTable.table.table-hover
@@ -68,6 +43,7 @@ div
         th.formrecord-head(ng-click="predicate='assess'; reverse=!reverse")
           i.fa(ng-class="{'fa-sort-desc': predicate==='assess'&&reverse, 'fa-sort-asc': predicate==='assess'&&!reverse}")
           | {{language.formrecord.assess}}
+        th {{language.surgeryInfo.notes}}
       
     tbody
       tr(ng-repeat="form in patient.formrecords | orderBy:predicate:reverse")
@@ -91,3 +67,29 @@ div
           | {{form.worstThing}}
         td 
           | {{form.assess}}
+        td
+          | {{form.comments}}
+  
+  h3 {{language.surgeryInfo.operations}}
+  table#operationTable.table.table-hover
+    thead
+      tr  
+        th {{language.formrecord.date}}
+        th {{language.surgeryInfo.surgery}}
+        th {{language.surgeryInfo.hospital}}
+        th {{language.surgeryInfo.department}}
+        th {{language.surgeryInfo.notes}}
+    tbody
+      tr(ng-repeat="operation in patient.surgeries")
+       td 
+          | {{operation.date | date : 'yyyy-MM-dd HH:mm' }}
+       td 
+          | {{operation.operation}}
+       td 
+          | {{operation.hospital}}
+       td 
+          | {{operation.department}}
+       td 
+          | {{operation.comments}}
+  
+  

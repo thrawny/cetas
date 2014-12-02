@@ -1,11 +1,11 @@
 div#log
   div.col-sm-6.col-sm-offset-3
-    h3
-      span.fa.fa-sign-in  {{language.loginPage.login}}
+    h3.text-center
+      img(ng-src='/img/Logo_White.png', width="100")
     .alert.alert-danger(ng-if="message" ng-bind="message")
-    form(name="login")
+    form(name="login").text-center
       div.form-group
-        label.headertext {{language.loginPage.email}}
+        label.headertext {{language.loginPage.username}}
         input.form-control(type="email" ng-model="user.email" required)
       div.form-group
         label.headertext {{language.loginPage.password}}

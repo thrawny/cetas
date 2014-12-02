@@ -83,7 +83,7 @@
 
 .buttontext {
     vertical-align: middle;
-    margin-left: 2%;
+    margin-left: 5%;
     color:white;
 }
 
@@ -103,8 +103,6 @@
     background-color: #FD7575 ;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
-    /*float: right;*/
-    margin-left: 2%;
     border: 1px solid white;
     color: white;
     white-space: nowrap;
@@ -139,6 +137,7 @@
 
 #sidebar-wrapper {
     color: white;
+    padding-left: 10px;
     z-index: 1000;
     position: fixed;
     left: 250px;
@@ -250,16 +249,27 @@
 
 .form-control {
     border-color: #FD7575 ;
+    width: 40%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 p.statusBox {
 	width: 30px;
 	height: 30px;
+	-moz-border-radius: 15px;
 	border-radius: 15%;
 }
 
 .formrecord-head {
     cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
 }
 
 .login-page {
