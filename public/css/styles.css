@@ -235,3 +235,23 @@
   min-width: 500px;
   margin: 0 auto;
 }
+.formrecord-head {
+    cursor: pointer;
+}
+.login-page {
+    background-color: tomato;
+}
+.login-page #wrapper {
+    padding-left: 0;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+.login-page #sidebar-wrapper {
+    display: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+}
