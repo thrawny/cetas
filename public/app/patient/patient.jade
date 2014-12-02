@@ -1,49 +1,49 @@
-h3 {{language.patient.patientdata}} 
+h3
+  {{language.patient.patientdata}} 
 div
-  p {{language.patient.name}}: {{patient.firstname}} {{patient.lastname}}
-  p {{language.patient.personalnumber}}: {{patient.personal_number}}
-  p {{language.patient.address1}}: {{patient.address1}} 
-  p {{language.patient.address2}}: {{patient.address2}}
-  p {{language.patient.postalnumber}}: {{patient.postalno}} 
-  p {{language.patient.city}}: {{patient.city}}
-  p {{language.patient.phone}}: {{patient.mobile}}
-  p {{language.patient.email}}: {{patient.local.email}}
+  div {{language.patient.name}}: {{patient.firstname}} {{patient.lastname}}
+  div {{language.patient.personalnumber}}: {{patient.personal_number}}
+  div {{language.patient.address1}}: {{patient.address1}} 
+  div {{language.patient.address2}}: {{patient.address2}}
+  div {{language.patient.postalnumber}}: {{patient.postalno}} 
+  div {{language.patient.city}}: {{patient.city}}
+  div {{language.patient.phone}}: {{patient.mobile}}
+  div {{language.patient.email}}: {{patient.local.email}}
   
   h3 {{language.formrecord.formdata}}
   table#formTable.table.table-hover
     thead
       tr  
-        th.formrecord-head(ng-click="predicate='date'; reverse=!reverse") 
-          i.fa(ng-class="{'fa-sort-desc': predicate==='date'&&reverse, 'fa-sort-asc': predicate==='date'&&!reverse}")
-          | {{language.formrecord.date}}
-        th.formrecord-head(ng-click="predicate='pain'; reverse=!reverse")
+        th.clickable(ng-click="predicate='date'; reverse=!reverse")  
+          {{language.formrecord.date}}
+          i.fa(ng-class="{'fa-sort-desc': predicate==='date'&&reverse, 'fa-sort-asc': predicate==='date'&&!reverse}") 
+        th.clickable(ng-click="predicate='pain'; reverse=!reverse")
+          {{language.formrecord.pain}}
           i.fa(ng-class="{'fa-sort-desc': predicate==='pain'&&reverse, 'fa-sort-asc': predicate==='pain'&&!reverse}")
-          | {{language.formrecord.pain}}
-        th.formrecord-head(ng-click="predicate='painKillers'; reverse=!reverse")
+        th.clickable(ng-click="predicate='painKillers'; reverse=!reverse")
+          {{language.formrecord.painKillers}}
           i.fa(ng-class="{'fa-sort-desc': predicate==='painKillers'&&reverse, 'fa-sort-asc': predicate==='painKillers'&&!reverse}")
-          | {{language.formrecord.painKillers}}
-        th.formrecord-head(ng-click="predicate='nausea'; reverse=!reverse")
+        th.clickable(ng-click="predicate='nausea'; reverse=!reverse")
+          {{language.formrecord.nausea}}
           i.fa(ng-class="{'fa-sort-desc': predicate==='nausea'&&reverse, 'fa-sort-asc': predicate==='nausea'&&!reverse}")
-          | {{language.formrecord.nausea}}
-        th.formrecord-head(ng-click="predicate='narcosis'; reverse=!reverse")
+        th.clickable(ng-click="predicate='narcosis'; reverse=!reverse")
+          {{language.formrecord.narcosis}}
           i.fa(ng-class="{'fa-sort-desc': predicate==='narcosis'&&reverse, 'fa-sort-asc': predicate==='narcosis'&&!reverse}")
-          | {{language.formrecord.narcosis}}
-        th.formrecord-head(ng-click="predicate='dailyActivities'; reverse=!reverse")
+        th.clickable(ng-click="predicate='dailyActivities'; reverse=!reverse")
+          {{language.formrecord.dailyActivities}}
           i.fa(ng-class="{'fa-sort-desc': predicate==='dailyActivities'&&reverse, 'fa-sort-asc': predicate==='dailyActivities'&&!reverse}")
-          | {{language.formrecord.dailyActivities}}
-        th.formrecord-head(ng-click="predicate='routine'; reverse=!reverse")
+        th.clickable(ng-click="predicate='routine'; reverse=!reverse")
+          {{language.formrecord.routine}}
           i.fa(ng-class="{'fa-sort-desc': predicate==='routine'&&reverse, 'fa-sort-asc': predicate==='routine'&&!reverse}")
-          | {{language.formrecord.routine}}
-        th.formrecord-head(ng-click="predicate='satisfied'; reverse=!reverse")
+        th.clickable(ng-click="predicate='satisfied'; reverse=!reverse")
+          {{language.formrecord.satisfied}}
           i.fa(ng-class="{'fa-sort-desc': predicate==='satisfied'&&reverse, 'fa-sort-asc': predicate==='satisfied'&&!reverse}")
-          | {{language.formrecord.satisfied}}
-        th.formrecord-head(ng-click="predicate='worstThing'; reverse=!reverse")
+        th.clickable(ng-click="predicate='worstThing'; reverse=!reverse")
+          {{language.formrecord.worstThing}}
           i.fa(ng-class="{'fa-sort-desc': predicate==='worstThing'&&reverse, 'fa-sort-asc': predicate==='worstThing'&&!reverse}")
-          | {{language.formrecord.worstThing}}
-        th.formrecord-head(ng-click="predicate='assess'; reverse=!reverse")
+        th.clickable(ng-click="predicate='assess'; reverse=!reverse")
+          {{language.formrecord.assess}}
           i.fa(ng-class="{'fa-sort-desc': predicate==='assess'&&reverse, 'fa-sort-asc': predicate==='assess'&&!reverse}")
-          | {{language.formrecord.assess}}
-        th {{language.surgeryInfo.notes}}
       
     tbody
       tr(ng-repeat="form in patient.formrecords | orderBy:predicate:reverse")
@@ -67,8 +67,6 @@ div
           | {{form.worstThing}}
         td 
           | {{form.assess}}
-        td
-          | {{form.comments}}
   
   h3 {{language.surgeryInfo.operations}}
   table#operationTable.table.table-hover

@@ -1,23 +1,19 @@
-﻿h3 {{language.index.mypatients}}
-
+﻿h3
+  {{language.index.mypatients}}
+  
 table#patientTable.table.table-hover
   thead
     tr  
-      th.formrecord-head(ng-click="predicate='status'; reverse=!reverse") 
+      th.clickable(ng-click="predicate='status'; reverse=!reverse") Status
         i.fa(ng-class="{'fa-sort-desc': predicate==='status'&&reverse, 'fa-sort-asc': predicate==='status'&&!reverse}")
-        | Status
-      th.formrecord-head(ng-click="predicate='personal_number'; reverse=!reverse") 
-        i.fa(ng-class="{'fa-sort-desc': predicate==='personal_number'&&reverse, 'fa-sort-asc': predicate==='personal_number'&&!reverse}")
-        | {{language.patientListing.personalnumber}}
-      th.formrecord-head(ng-click="predicate='lastname'; reverse=!reverse") 
-        i.fa(ng-class="{'fa-sort-desc': predicate==='lastname'&&reverse, 'fa-sort-asc': predicate==='lastname'&&!reverse}")
-        | {{language.patientListing.name}}
-      th.formrecord-head(ng-click="predicate='formrecords.length'; reverse=!reverse") 
-        i.fa(ng-class="{'fa-sort-desc': predicate==='formrecords.length'&&reverse, 'fa-sort-asc': predicate==='formrecords.length'&&!reverse}")
-        | {{language.patientListing.completedforms}}
-      th.formrecord-head(ng-click="predicate='formrecords[0].date'; reverse=!reverse") 
-        i.fa(ng-class="{'fa-sort-desc': predicate==='formrecords[0].date'&&reverse, 'fa-sort-asc': predicate==='formrecords[0].date'&&!reverse}")
-        | {{language.patientListing.latestform}}
+      th.clickable(ng-click="predicate='personal_number'; reverse=!reverse") {{language.patientListing.personalnumber}}
+        i.fa(ng-class="{'fa-sort-desc': predicate==='personal_number'&&reverse, 'fa-sort-asc': predicate==='personal_number'&&!reverse}") 
+      th.clickable(ng-click="predicate='firstname'; reverse=!reverse") {{language.patientListing.name}}
+        i.fa(ng-class="{'fa-sort-desc': predicate==='firstname'&&reverse, 'fa-sort-asc': predicate==='firstname'&&!reverse}") 
+      th.clickable(ng-click="predicate='formrecords.length'; reverse=!reverse"){{language.patientListing.completedforms}}
+        i.fa(ng-class="{'fa-sort-desc': predicate==='formrecords.length'&&reverse, 'fa-sort-asc': predicate==='formrecords.length'&&!reverse}") 
+      th.clickable(ng-click="predicate='formrecords[0].date'; reverse=!reverse") {{language.patientListing.latestform}}
+        i.fa(ng-class="{'fa-sort-desc': predicate==='formrecords[0].date'&&reverse, 'fa-sort-asc': predicate==='formrecords[0].date'&&!reverse}") 
       th
 
   tbody
@@ -27,12 +23,10 @@ table#patientTable.table.table-hover
       td 
         a(href='/api/patients/{{patient._id}}') {{patient.personal_number}}
       td 
-        button.btn.btn-info(type="button" ng-click="viewPatient(patient._id)") {{patient.firstname + " " + patient.lastname}} 
+        button.btn.btn-info.name(type="button" ng-click="viewPatient(patient._id)") {{patient.firstname + " " + patient.lastname}} 
       td 
        button.btn.btn-info(type="button" data-trigger="focus" data-toggle="popover" data-placement="right" title="Ifyllda formulär" data-content="{{patient.displayRecords}}") {{patient.formrecords.length}}
       td 
         a( ng-click="formrecord(patient.formrecords[0]._id, patient._id)"  style="cursor: pointer") {{patient.formrecords[0].date | date : 'yyyy-MM-dd HH:mm'}}
       td
         button.btn.btn-info(type="button" ng-click="addOperation(patient._id)") + Operation
-      td
-        button.btn.btn-info(type="button" ui-sref="patientform({ patient_id: patient._id })") + Formulär
