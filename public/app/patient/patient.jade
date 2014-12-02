@@ -44,6 +44,7 @@ div
         th.formrecord-head(ng-click="predicate='assess'; reverse=!reverse")
           i.fa(ng-class="{'fa-sort-desc': predicate==='assess'&&reverse, 'fa-sort-asc': predicate==='assess'&&!reverse}")
           | {{language.formrecord.assess}}
+        th {{language.surgeryInfo.notes}}
       
     tbody
       tr(ng-repeat="form in patient.formrecords | orderBy:predicate:reverse")
@@ -67,6 +68,8 @@ div
           | {{form.worstThing}}
         td 
           | {{form.assess}}
+        td
+          | {{form.comments}}
   
   h3 {{language.surgeryInfo.operations}}
   table#operationTable.table.table-hover

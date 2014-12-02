@@ -4,15 +4,25 @@
 table#patientTable.table.table-hover
   thead
     tr  
-      th Status
-      th {{language.patientListing.personalnumber}}
-      th {{language.patientListing.name}}
-      th {{language.patientListing.completedforms}}
-      th {{language.patientListing.latestform}}
+      th.formrecord-head(ng-click="predicate='status'; reverse=!reverse") 
+        i.fa(ng-class="{'fa-sort-desc': predicate==='status'&&reverse, 'fa-sort-asc': predicate==='status'&&!reverse}")
+        | Status
+      th.formrecord-head(ng-click="predicate='personal_number'; reverse=!reverse") 
+        i.fa(ng-class="{'fa-sort-desc': predicate==='personal_number'&&reverse, 'fa-sort-asc': predicate==='personal_number'&&!reverse}")
+        | {{language.patientListing.personalnumber}}
+      th.formrecord-head(ng-click="predicate='lastname'; reverse=!reverse") 
+        i.fa(ng-class="{'fa-sort-desc': predicate==='lastname'&&reverse, 'fa-sort-asc': predicate==='lastname'&&!reverse}")
+        | {{language.patientListing.name}}
+      th.formrecord-head(ng-click="predicate='formrecords.length'; reverse=!reverse") 
+        i.fa(ng-class="{'fa-sort-desc': predicate==='formrecords.length'&&reverse, 'fa-sort-asc': predicate==='formrecords.length'&&!reverse}")
+        | {{language.patientListing.completedforms}}
+      th.formrecord-head(ng-click="predicate='formrecords[0].date'; reverse=!reverse") 
+        i.fa(ng-class="{'fa-sort-desc': predicate==='formrecords[0].date'&&reverse, 'fa-sort-asc': predicate==='formrecords[0].date'&&!reverse}")
+        | {{language.patientListing.latestform}}
       th
 
   tbody
-    tr(ng-repeat="patient in patientRecords" popover)
+    tr(ng-repeat="patient in patientRecords | orderBy:predicate:reverse" popover)
       td
         p(class="statusBox" style="background-color: {{getStatusColor(patient._id)}}") 
       td 
