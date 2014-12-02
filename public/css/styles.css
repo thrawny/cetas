@@ -247,6 +247,7 @@
 p.statusBox {
 	width: 30px;
 	height: 30px;
+	-moz-border-radius: 15px;
 	border-radius: 15%;
 }
 
