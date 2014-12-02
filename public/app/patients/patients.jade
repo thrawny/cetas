@@ -4,6 +4,7 @@
 table#patientTable.table.table-hover
   thead
     tr  
+      th Status
       th {{language.patientListing.personalnumber}}
       th {{language.patientListing.name}}
       th {{language.patientListing.completedforms}}
@@ -12,6 +13,8 @@ table#patientTable.table.table-hover
 
   tbody
     tr(ng-repeat="patient in patientRecords" popover)
+      td
+        p(class="statusBox" style="background-color: {{getStatusColor(patient._id)}}") 
       td 
         a(href='/api/patients/{{patient._id}}') {{patient.personal_number}}
       td 

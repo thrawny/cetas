@@ -43,7 +43,7 @@
     height: 50px;
     width: 100%;
     padding-top: 5%;
-    background-color: tomato;
+    background-color: #FD7575 ;
     border-top: 1px solid white;
     border-bottom: 1px solid white;
 }
@@ -61,7 +61,7 @@
     height: 50px;
     width: 100%;
     padding-top: 5%;
-    background-color: tomato;
+    background-color: #FD7575 ;
     border-top: 1px solid white;
 }
 
@@ -87,12 +87,12 @@
     color:white;
 }
 
-.textcolor {
+.textcolorbutton {
     background: white;
 }
 
-.textcolor .buttontext {
-    color:tomato;
+.textcolorbutton .buttontext {
+    color:#FD7575 ;
 }
 
 .buttonsubmit {
@@ -100,10 +100,10 @@
     padding: 2%;
     padding-right: 6%;
     padding-left: 6%;
-    background-color: tomato;
+    background-color: #FD7575 ;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
-    float: right;
+    /*float: right;*/
     margin-left: 2%;
     border: 1px solid white;
     color: white;
@@ -116,7 +116,7 @@
 }
 
 .buttonsubmit:hover .buttontext{
-    color: tomato;
+    color: #FD7575 ;
 }
 
 .buttonsubmit:active {
@@ -146,7 +146,7 @@
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
-    background: tomato;
+    background: #FD7575 ;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -249,5 +249,39 @@
 }
 
 .form-control {
-    border-color: tomato;
+    border-color: #FD7575 ;
+}
+
+p.statusBox {
+	width: 30px;
+	height: 30px;
+	border-radius: 15%;
+}
+
+.formrecord-head {
+    cursor: pointer;
+}
+
+.login-page {
+    background-color: #FD7575 ;
+}
+
+.login-page #wrapper {
+    padding-left: 0;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+
+.login-page #sidebar-wrapper {
+    display: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+
+.headertext {
+    color: white;
 }
