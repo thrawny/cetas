@@ -14,10 +14,10 @@ html(ng-app='myApp' lang='sv')
     div#wrapper
       div#sidebar-wrapper
           h1.text-center
-            span.fa.fa-medkit  eSana
+            img(ng-src='/img/Logo_White.png', width="100")
+           
           div(ng-if="user.firstname")
-            p(ng-bind="language.index.loggedInAs+': '+ user.firstname + ' ' + user.lastname + '  - ' +  user.local.email")
-            br
+            
             //- If you are patient you should be able to edit your profile and fill in forms and change password
             div(ng-if="user.role == 0")
               a.button(ui-sref="patientform" ui-sref-active="textcolor" ng-mouseenter="textcolor") #[span.buttontext(ng-bind="language.index.form")]
@@ -35,6 +35,9 @@ html(ng-app='myApp' lang='sv')
               a.button(ui-sref="signup" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.register")]
               a.button(ui-sref="password" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.password")]
               a.buttonsign(href="/logout" ng-click="logout()" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.logout")]
+
+            p(ng-bind="language.index.loggedInAs+': '+ user.firstname + ' ' + user.lastname + '  - ' +  user.local.email" style="position:absolute;bottom:0;")
+              
       div#page-content-wrapper
         .container-fluid
           .row
