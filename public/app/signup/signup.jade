@@ -1,22 +1,32 @@
-div.container
-  div.col-sm-6.col-sm-offset-3
-    h3
-      span.fa.fa-sign-in  {{language.index.register}}
-    form.form-wrapper(name="signupform")
-      div.form-group
-        label {{language.signup.firstname}}
-        input.form-control(type="text", name="firstname", ng-model="new_user.firstname" required)
-      div.form-group
-        label {{language.signup.lastname}}
-        input.form-control(type="text", name="lastname", ng-model="new_user.lastname" required) 
-      div.form-default(ng-if="user.role==2")
-          div.form-group
-            label {{language.signup.occupation}}
-            input.form-control(type="integer", name="role", ng-model="new_user.role")   
-      div.form-group
-        label {{language.signup.email}}
-        input.form-control(type="text", name="email", ng-model="new_user.email" required) 
-      div.form-group
-        label {{language.signup.password}}
-        input.form-control(type="password", name="password", ng-model="new_user.password" required)   
-      button.buttonsubmit(ng-click="submit(signupform)") {{language.signup.skapakonto}}
+form.form-wrapper(name="signupform")
+    table(width="100%")
+     tr
+      td
+       div.form-group
+         label {{language.signup.personal_number}}
+         input.form-control(type="text", name="personal_number", placeholder="ÅÅÅÅMMDD-XXXX", ng-model="new_user.personal_number" required)
+       div.form-group
+         label {{language.signup.firstname}}
+         input.form-control(type="text", name="firstname", placeholder="Förnam", ng-model="new_user.firstname" required)
+       div.form-group
+         label {{language.signup.lastname}}
+         input.form-control(type="text", name="lastname", placeholder="Efternam", ng-model="new_user.lastname" required) 
+       div.form-default(ng-if="user.role==2")
+           div.form-group
+             label {{language.signup.occupation}}
+             input.form-control(type="integer", name="role", placeholder="ÅÅÅÅMMDD-XXXX", ng-model="new_user.role")   
+       div.form-group
+         label {{language.signup.email}}
+         input.form-control(type="text", name="email", placeholder="exempel@mail.se", ng-model="new_user.email" required) 
+       div.form-group
+         label {{language.signup.password}}
+         input.form-control(type="password", name="password", placeholder="Minst 6 tecken, varav minst en bokstav och en siffra", ng-model="new_user.password" required)
+       button.buttonsubmit(ng-click="submit(signupform)") {{language.signup.skapakonto}}
+      td(width="5%")           
+      td(valign="top")    
+       div.form-group
+        label {{language.signup.notes}}
+        textarea.form-control(cols="40", rows="16", placeholder="Eventuella smärtor under operationsdagen med mera", name="notes", ng-model="new_user.notes")
+
+    
+    
