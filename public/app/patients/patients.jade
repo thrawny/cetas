@@ -1,6 +1,11 @@
 ﻿h3
   {{language.index.mypatients}}
-  
+
+div.input-group
+  input(type="text" ng-model="search.$")
+  button
+    i.glyphicon.glyphicon-search
+
 table#patientTable.table.table-hover
   thead
     tr  
@@ -17,7 +22,7 @@ table#patientTable.table.table-hover
       th
 
   tbody
-    tr(ng-repeat="patient in patientRecords | orderBy:predicate:reverse" popover)
+    tr(ng-repeat="patient in patientRecords | orderBy:predicate:reverse | filter:search" popover)
       td
         p(class="statusBox" style="background-color: {{getStatusColor(patient._id)}}") 
       td 
