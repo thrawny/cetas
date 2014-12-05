@@ -1,4 +1,9 @@
-﻿table#patientTable.table.table-hover
+div.input-group.searchbox
+  input(type="text" ng-model="search.$")
+  button
+    i.glyphicon.glyphicon-search
+
+table#patientTable.table.table-hover
   thead
     tr  
       th.clickable(ng-click="predicate='status'; reverse=!reverse") Status
@@ -14,7 +19,7 @@
       th
 
   tbody
-    tr(ng-repeat="patient in patientRecords | orderBy:predicate:reverse" popover)
+    tr(ng-repeat="patient in patientRecords | orderBy:predicate:reverse | filter:search" popover)
       td
         p(class="statusBox" style="background-color: {{getStatusColor(patient._id)}}" data-toggle="tooltip" data-placement="top" title="{{getStatusText(patient._id)}}") 
       td 

@@ -44,6 +44,7 @@ div
         th.clickable(ng-click="predicate='assess'; reverse=!reverse")
           {{language.formrecord.assess}}
           i.fa(ng-class="{'fa-sort-desc': predicate==='assess'&&reverse, 'fa-sort-asc': predicate==='assess'&&!reverse}")
+        th {{language.formrecord.comments}}
       
     tbody
       tr(ng-repeat="form in patient.formrecords | orderBy:predicate:reverse")
@@ -67,18 +68,30 @@ div
           | {{form.worstThing}}
         td 
           | {{form.assess}}
+        td
+          | {{form.comments}}
+  
+  
   
   h3 {{language.surgeryInfo.operations}}
   table#operationTable.table.table-hover
     thead
-      tr  
-        th {{language.formrecord.date}}
-        th {{language.surgeryInfo.surgery}}
-        th {{language.surgeryInfo.hospital}}
-        th {{language.surgeryInfo.department}}
+      tr 
+        th.clickable(ng-click="predicate='date'; reverse=!reverse")  
+          {{language.formrecord.date}}
+          i.fa(ng-class="{'fa-sort-desc': predicate==='date'&&reverse, 'fa-sort-asc': predicate==='date'&&!reverse}")  
+        th.clickable(ng-click="predicate='operation'; reverse=!reverse")  
+          {{language.surgeryInfo.surgery}}
+          i.fa(ng-class="{'fa-sort-desc': predicate==='operation'&&reverse, 'fa-sort-asc': predicate==='operation'&&!reverse}") 
+        th.clickable(ng-click="predicate='hospital'; reverse=!reverse")  
+          {{language.surgeryInfo.hospital}}
+          i.fa(ng-class="{'fa-sort-desc': predicate==='hospital'&&reverse, 'fa-sort-asc': predicate==='hospital'&&!reverse}")
+        th.clickable(ng-click="predicate='department'; reverse=!reverse")  
+          {{language.surgeryInfo.department}}
+          i.fa(ng-class="{'fa-sort-desc': predicate==='department'&&reverse, 'fa-sort-asc': predicate==='department'&&!reverse}")
         th {{language.surgeryInfo.notes}}
     tbody
-      tr(ng-repeat="operation in patient.surgeries")
+      tr(ng-repeat="operation in patient.surgeries | orderBy:predicate:reverse")
        td 
           | {{operation.date | date : 'yyyy-MM-dd HH:mm' }}
        td 

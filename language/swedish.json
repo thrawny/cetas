@@ -93,7 +93,7 @@
 	},
 
 	"surgeryInfo": {
-		"surgeryinfo" : "Information om Operation",
+		"surgeryinfo" : "Lägg till operation",
 		"surgery" : "Operation",
 		"department" : "Avdelning",
 		"hospital" : "Sjukhus",
@@ -137,6 +137,7 @@
 		"dailyActivities": "Vardagsaktivitet",
 		"narcosis": "Påverkan av narkos",
 		"nausea": "Illamående",
-		"painKillers": "Smärtstillande"
+		"painKillers": "Smärtstillande",
+		"comments": "Anteckningar"
 	}
  }

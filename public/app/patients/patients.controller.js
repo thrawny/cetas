@@ -14,9 +14,9 @@ angular.module('myApp')
 			// TODO: this is just dummy logic for determining a patients status
 			if (lastForm === undefined) {
 				status = "0"; // no status	
-			} else if (lastForm.pain < 20) {
+			} else if (lastForm.pain > 80) {
 				status = "3"; // red
-			} else if (lastForm.pain < 50) {
+			} else if (lastForm.pain > 50) {
 				status = "2"; // yellow
 			} else {
 				status = "1"; // green
@@ -35,7 +35,7 @@ angular.module('myApp')
 			for(var j = 0; j<records.length; j++){
 				var fID = records[j]._id;
 				var date = $filter('date')(records[j].date, 'yyyy-MM-dd HH:mm');
-				recordStr += "<a class='ng-binding' ng-click='formrecord("+fID+"," +pID+") href='/formrecords/"+fID+"/"+pID+"'>"+date+"</a>" + "<br/>";
+				recordStr += date+"<br/>";
 			}
 			if(recordStr == "")
 				recordStr = "<i>< inga formulär har fyllts i ></>"
