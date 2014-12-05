@@ -67,11 +67,26 @@ angular.module('myApp')
 		if (patient.status === undefined || patient.status === "0") {
 			return "white";	
 		} else if (patient.status === "3") {
-			return "#ec5d57";
+			return "#ec5d57"; // red
 		} else if (patient.status === "2") {
-			return "#f5d329";
+			return "#f5d329"; // yellow 
 		} else if (patient.status === "1") {
-			return "#70bf40";
+			return "#70bf40"; // green
+		}
+	}
+	
+	$scope.getStatusText = function(patient_id) {
+		var patient = $scope.getPatient(patient_id);
+
+		//TODO: hardcoded strings
+		if (patient.status === undefined || patient.status === "0") {
+			return "Inga formulär ifyllda";	
+		} else if (patient.status === "3") {
+			return "Dålig trend"; // red
+		} else if (patient.status === "2") {
+			return "Varning"; // yellow
+		} else if (patient.status === "1") {
+			return "Bra trend"; // green
 		}
 	}
 	
@@ -89,3 +104,6 @@ angular.module('myApp')
 		var popoverCandidate = $($element[0]).find("button").popover({html:true});
 	}
 });
+
+
+$(function () { $("[data-toggle='tooltip']").tooltip(); });
