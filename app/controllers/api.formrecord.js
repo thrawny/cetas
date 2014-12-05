@@ -63,7 +63,8 @@ module.exports.create = function(req, res, next) {
     routine : req.body.routine,
     satisfied : req.body.satisfied,
     worstThing : worstThing,
-    assess : req.body.assess
+    assess : req.body.assess,
+    comments : req.body.comments
   });
   if (pageError) {
     record["pageError"] = true;
@@ -95,12 +96,8 @@ module.exports.create = function(req, res, next) {
         	    text: 'Nu har någon fyll i ett formulär... Igen.'
         	});
 
-          return res.redirect('/');
         }
-        else if (req.user.role == roles.doctor) {
-          return res.redirect('/mypatients');
-        }
-      
+        return res.json({result: "Record added."})      
     });
   })
 
