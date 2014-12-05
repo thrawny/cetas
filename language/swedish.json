@@ -71,6 +71,7 @@
 	},
 	
 	"patient": {
+		"addPatient" : "Lägg till patient",
 		"patientdata": "Patientdata",
 		"email": "Email",
 		"name": "Namn",
