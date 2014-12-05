@@ -1,7 +1,4 @@
-﻿h3
-  {{language.index.mypatients}}
-  
-table#patientTable.table.table-hover
+﻿table#patientTable.table.table-hover
   thead
     tr  
       th.clickable(ng-click="predicate='status'; reverse=!reverse") Status
@@ -21,13 +18,13 @@ table#patientTable.table.table-hover
       td
         p(class="statusBox" style="background-color: {{getStatusColor(patient._id)}}" data-toggle="tooltip" data-placement="top" title="{{getStatusText(patient._id)}}") 
       td 
-        a(href='/api/patients/{{patient._id}}') {{patient.personal_number}}
+        a.patientlisttext(ng-click="viewPatient(patient._id)" style="cursor: pointer") {{patient.personal_number}}
       td 
-        button.btn.btn-info.name(type="button" ng-click="viewPatient(patient._id)") {{patient.firstname + " " + patient.lastname}} 
+        a.patientlisttext(ng-click="viewPatient(patient._id)" style="cursor: pointer") {{patient.firstname + " " + patient.lastname}} 
       td 
        button.btn.btn-info(type="button" data-trigger="focus" data-toggle="popover" data-placement="right" title="Ifyllda formulär" data-content="{{patient.displayRecords}}") {{patient.formrecords.length}}
       td 
-        a( ng-click="formrecord(patient.formrecords[0]._id, patient._id)"  style="cursor: pointer") {{patient.formrecords[patient.formrecords.length-1].date | date : 'yyyy-MM-dd HH:mm'}}
+        a.patientlisttext( ng-click="formrecord(patient.formrecords[0]._id, patient._id)"  style="cursor: pointer") {{patient.formrecords[patient.formrecords.length-1].date | date : 'yyyy-MM-dd HH:mm'}}
       td
         button.btn.btn-info(type="button" ng-click="addOperation(patient._id)") + Operation
       td

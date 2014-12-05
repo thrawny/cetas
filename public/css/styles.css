@@ -302,3 +302,15 @@ th .fa-sort-desc,th .fa-sort-asc{
 .titletext {
     margin-left: 25%;
 }
+
+.patientlisttext {
+    color:grey;
+}
+
+.patientlisttext:hover {
+    color: black;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
