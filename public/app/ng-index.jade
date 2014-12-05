@@ -14,7 +14,7 @@ html(ng-app='myApp' lang='sv')
     div#wrapper
       div#sidebar-wrapper
           h1.text-center
-            img(ng-src='/img/Logo_White.png', width="100")
+            img(ng-src='/img/Logo_White.png', width="100", ui-sref="index", style="cursor:pointer")
            
           div(ng-if="user.firstname")
             
