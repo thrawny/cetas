@@ -14,9 +14,9 @@ angular.module('myApp')
 			// TODO: this is just dummy logic for determining a patients status
 			if (lastForm === undefined) {
 				status = "0"; // no status	
-			} else if (lastForm.pain < 20) {
+			} else if (lastForm.pain > 80) {
 				status = "3"; // red
-			} else if (lastForm.pain < 50) {
+			} else if (lastForm.pain > 50) {
 				status = "2"; // yellow
 			} else {
 				status = "1"; // green
