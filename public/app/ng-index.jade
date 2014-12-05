@@ -27,7 +27,7 @@ html(ng-app='myApp' lang='sv')
             //- If you are a doctor you should be able to create patient accounts    
             div(ng-if="user.role == 1")
               a.button(ui-sref="signup" ui-sref-active="textcolorbutton") #[span.buttontext(ng-bind="language.index.register")]
-              a.button(ui-sref="patients" ui-sref-active="textcolorbutton") #[span.buttontext(ng-bind="language.index.mypatients")]
+              a.button(ui-sref="patients" ng-class="{'textcolorbutton': state.current.name==='patients' || state.current.name==='addoperation' || state.current.name==='patient' || state.current.name==='patientform'}") #[span.buttontext(ng-bind="language.index.mypatients")]
               a.button(ui-sref="password" ui-sref-active="textcolorbutton") #[span.buttontext(ng-bind="language.index.password")]
               a.buttonsign(href="logout" ng-click="logout()" ui-sref-active="textcolorbutton") #[span.buttontext(ng-bind="language.index.logout")]
             //- If you are an administrator you should be able to create all kinds of accounts

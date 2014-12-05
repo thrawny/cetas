@@ -19,7 +19,7 @@ table#patientTable.table.table-hover
   tbody
     tr(ng-repeat="patient in patientRecords | orderBy:predicate:reverse" popover)
       td
-        p(class="statusBox" style="background-color: {{getStatusColor(patient._id)}}") 
+        p(class="statusBox" style="background-color: {{getStatusColor(patient._id)}}" data-toggle="tooltip" data-placement="top" title="{{getStatusText(patient._id)}}") 
       td 
         a(href='/api/patients/{{patient._id}}') {{patient.personal_number}}
       td 
@@ -27,6 +27,8 @@ table#patientTable.table.table-hover
       td 
        button.btn.btn-info(type="button" data-trigger="focus" data-toggle="popover" data-placement="right" title="Ifyllda formulär" data-content="{{patient.displayRecords}}") {{patient.formrecords.length}}
       td 
-        a( ng-click="formrecord(patient.formrecords[0]._id, patient._id)"  style="cursor: pointer") {{patient.formrecords[0].date | date : 'yyyy-MM-dd HH:mm'}}
+        a( ng-click="formrecord(patient.formrecords[0]._id, patient._id)"  style="cursor: pointer") {{patient.formrecords[patient.formrecords.length-1].date | date : 'yyyy-MM-dd HH:mm'}}
       td
         button.btn.btn-info(type="button" ng-click="addOperation(patient._id)") + Operation
+      td
+        button.btn.btn-info(type="button" ui-sref="patientform({ patient_id: patient._id })") + Formulär
