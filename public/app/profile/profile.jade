@@ -2,6 +2,9 @@ h3.text-center {{language.index.myprofile}}
 
 form.form-wrapper(name="profileform")
   div.form-group
+    label {{language.signup.personal_number}}
+    input.form-control(type="text", name="personal_number", placeholder="ÅÅÅÅMMDD-XXXX", ng-model="new_user.personal_number")
+  div.form-group
     label {{language.myprofile.email}}
     input.form-control(type="text" name="email" ng-model="new_user.local.email" required)
   div.form-group           
