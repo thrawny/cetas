@@ -298,3 +298,7 @@ th .fa-sort-desc,th .fa-sort-asc{
 .headertext {
     color: white;
 }
+
+.titletext {
+    margin-left: 25%;
+}
