@@ -14,7 +14,7 @@ html(ng-app='myApp' lang='sv')
     div#wrapper(ng-controller="MainCtrl as main")
       div#sidebar-wrapper
           h1(align = "center")
-            span.fa.fa-medkit  eSana 
+            a(ui-sref="home")span.fa.fa-medkit  eSana 
           div(ng-if="user.firstname")
             p(ng-bind="language.index.loggedInAs+': '+ user.firstname + ' ' + user.lastname + '  - ' +  user.local.email")
             br

@@ -27,6 +27,7 @@ var userSchema = mongoose.Schema({
     role: { type: Number, min: 0, max: 2 },
     formrecords: [formrecordSchema],
     surgeries: [surgerySchema],
+    lastvisited: { type: Date, default: Date.now },
     date: { type: Date, default: Date.now }
 });
 
