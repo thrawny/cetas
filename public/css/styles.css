@@ -43,7 +43,7 @@
     height: 50px;
     width: 100%;
     padding-top: 5%;
-    background-color: tomato;
+    background-color: #FD7575 ;
     border-top: 1px solid white;
     border-bottom: 1px solid white;
 }
@@ -61,12 +61,20 @@
     height: 50px;
     width: 100%;
     padding-top: 5%;
-    background-color: tomato;
+    background-color: #FD7575 ;
     border-top: 1px solid white;
 }
 
 .button:hover {
    background: #b15151;
+}
+
+.button:hover .buttontext {
+    color: white; 
+}
+
+.button:active {
+    background: white;
 }
 
 .button:active {
@@ -79,16 +87,16 @@
 
 .buttontext {
     vertical-align: middle;
-    margin-left: 2%;
+    margin-left: 5%;
     color:white;
 }
 
-.textcolor {
+.textcolorbutton {
     background: white;
 }
 
-.textcolor .buttontext {
-    color:tomato;
+.textcolorbutton .buttontext {
+    color:#FD7575 ;
 }
 
 .button:hover .buttontext {
@@ -100,11 +108,9 @@
     padding: 2%;
     padding-right: 6%;
     padding-left: 6%;
-    background-color: tomato;
+    background-color: #FD7575 ;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
-    float: right;
-    margin-left: 2%;
     border: 1px solid white;
     color: white;
     white-space: nowrap;
@@ -115,6 +121,10 @@
    border: 1px solid #974646;
 }
 
+.buttonsubmit:hover .buttontext{
+    color: #FD7575 ;
+}
+
 .buttonsubmit:active {
    background: #974646;
    border: 1px solid #7e3a3a;
@@ -123,11 +133,11 @@
 
 #wrapper {
     font-family:   'Roboto', serif;
-    -webkit-transition: all 0.5s ease;
+/*    -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
-}
+*/}
 
 #wrapper.toggled {
     padding-left: 250px;
@@ -135,6 +145,7 @@
 
 #sidebar-wrapper {
     color: white;
+    padding-left: 10px;
     z-index: 1000;
     position: fixed;
     left: 250px;
@@ -142,12 +153,12 @@
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
-    background: tomato;
-    -webkit-transition: all 0.5s ease;
+    background: #FD7575 ;
+/*    -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
-}
+*/}
 
 #wrapper.toggled #sidebar-wrapper {
     width: 250px;
@@ -243,3 +254,75 @@
   min-width: 500px;
   margin: 0 auto;
 }
+
+.form-control {
+    border-color: #FD7575 ;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+p.statusBox {
+	width: 30px;
+	height: 30px;
+	-moz-border-radius: 15px;
+	border-radius: 15%;
+}
+
+.clickable{
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+th .fa-sort-desc,th .fa-sort-asc{
+	margin-left: 5px;
+}
+
+.login-page {
+    background-color: #FD7575 ;
+}
+
+.login-page #wrapper {
+    padding-left: 0;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+
+.login-page #sidebar-wrapper {
+    display: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+
+.headertext {
+    color: white;
+}
+
+.titletext {
+    margin-left: 25%;
+}
+
+.patientlisttext {
+    color:grey;
+}
+
+.patientlisttext:hover {
+    color: black;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.searchbox {
+   margin-left: 77%;
+}
+
+

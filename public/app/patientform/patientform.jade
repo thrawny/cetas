@@ -1,5 +1,4 @@
-h3.text-center
-  span.fa.fa-sign-in {{language.form.pleaseAnswer}} 
+h3.text-center {{language.form.pleaseAnswer}} 
 
 form.form-wrapper#patientform(name="patientform")
   
@@ -101,7 +100,7 @@ form.form-wrapper#patientform(name="patientform")
       .panel.panel-default(ng-if="user.role==1")
         .panel-heading 10. {{language.form.comments}}
         .panel-body
-          textarea.form-control(name="comments" rows="5" cols="50")
+          textarea.form-control(name="comments" rows="5" cols="50" ng-model="record.comments")
        
     p.text-right 
       button.buttonsubmit(ng-click="submit(patientform)") {{language.form.submit}}

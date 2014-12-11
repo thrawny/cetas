@@ -1,5 +1,5 @@
-h2  
-  span.fa.fa-sign-in  {{language.surgeryInfo.surgeryinfo}}  
+h3.text-center  
+  span {{language.surgeryInfo.surgeryinfo}}  
 
 form.form-wrapper(name="newOperationForm")
   div.form-group
@@ -17,4 +17,4 @@ form.form-wrapper(name="newOperationForm")
   div.form-group
     label {{language.surgeryInfo.notes}}
     textarea.form-control(name="comments", rows="5", cols="50", ng-model="patient.comments")
-  button.btn.btn-warning.btn-lg(style="float: right;  margin-left:2%", ng-click="addOperation(newOperationForm)") {{language.myprofile.save}}
+  button.buttonsubmit(ng-click="addOperation(newOperationForm)") {{language.myprofile.save}}

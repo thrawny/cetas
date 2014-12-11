@@ -24,6 +24,7 @@ var userSchema = mongoose.Schema({
     postalno: Number,
     city: String,
     mobile: String,
+    notes: String,
     role: { type: Number, min: 0, max: 2 },
     formrecords: [formrecordSchema],
     surgeries: [surgerySchema],

@@ -8,33 +8,43 @@ html(ng-app='myApp' lang='sv')
     link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap-theme.min.css')
     link(rel='stylesheet', href='/lib/font-awesome/css/font-awesome.min.css')  
     link(rel='stylesheet', href='/css/styles.css')
-    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Roboto:100')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Roboto:300')
     base(href='/')
-  body
-    div#wrapper(ng-controller="MainCtrl as main")
+  body(ng-controller="MainCtrl as main" ng-class="{'login-page': state.current.name==='login'}")
+    div#wrapper
       div#sidebar-wrapper
-          h1(align = "center")
-            a(ui-sref="home")span.fa.fa-medkit  eSana 
+          h1.text-center
+            img(ng-src='/img/Logo_White.png', width="100", ui-sref="index", style="cursor:pointer")
+           
           div(ng-if="user.firstname")
-            p(ng-bind="language.index.loggedInAs+': '+ user.firstname + ' ' + user.lastname + '  - ' +  user.local.email")
-            br
+            
             //- If you are patient you should be able to edit your profile and fill in forms and change password
             div(ng-if="user.role == 0")
+<<<<<<< HEAD
               a.button(ui-sref="patientform" ui-sref-active="textcolor" ng-mouseenter="textcolor") #[span.buttontext(ng-bind="language.index.form")]
               a.button(ui-sref="profile" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.myprofile")]
               a.button(ui-sref="password" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.password")]
               a.buttonsign(href="/logout" ng-click="logout()" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.logout")]
+=======
+              a.button(ui-sref="patientform" ui-sref-active="textcolorbutton") #[span.buttontext(ng-bind="language.index.form")]
+              a.button(ui-sref="profile" ui-sref-active="textcolorbutton") #[span.buttontext(ng-bind="language.index.myprofile")]
+              a.button(ui-sref="password" ui-sref-active="textcolorbutton") #[span.buttontext(ng-bind="language.index.password")]
+              a.buttonsign(href="/logout" ng-click="logout()" ui-sref-active="textcolorbutton") #[span.buttontext(ng-bind="language.index.logout")]
+>>>>>>> branch 'development' of https://github.com/thrawny/cetas.git
             //- If you are a doctor you should be able to create patient accounts    
             div(ng-if="user.role == 1")
-              a.button(ui-sref="signup" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.register")]
-              a.button(ui-sref="patients" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.mypatients")]
-              a.button(ui-sref="password" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.password")]
-              a.buttonsign(href="logout" ng-click="logout()" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.logout")]
+              a.button(ui-sref="signup" ui-sref-active="textcolorbutton") #[span.buttontext(ng-bind="language.index.register")]
+              a.button(ui-sref="patients" ng-class="{'textcolorbutton': state.current.name==='patients' || state.current.name==='addoperation' || state.current.name==='patient' || state.current.name==='patientform'}") #[span.buttontext(ng-bind="language.index.mypatients")]
+              a.button(ui-sref="password" ui-sref-active="textcolorbutton") #[span.buttontext(ng-bind="language.index.password")]
+              a.buttonsign(href="logout" ng-click="logout()" ui-sref-active="textcolorbutton") #[span.buttontext(ng-bind="language.index.logout")]
             //- If you are an administrator you should be able to create all kinds of accounts
             div(ng-if="user.role == 2")
-              a.button(ui-sref="signup" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.register")]
-              a.button(ui-sref="password" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.password")]
-              a.buttonsign(href="/logout" ng-click="logout()" ui-sref-active="textcolor") #[span.buttontext(ng-bind="language.index.logout")]
+              a.button(ui-sref="signup" ui-sref-active="textcolorbutton") #[span.buttontext(ng-bind="language.index.register")]
+              a.button(ui-sref="patients" ng-class="{'textcolorbutton': state.current.name==='patients' || state.current.name==='addoperation' || state.current.name==='patient' || state.current.name==='patientform'}") #[span.buttontext(ng-bind="language.index.mypatients")]
+              a.button(ui-sref="password" ui-sref-active="textcolorbutton") #[span.buttontext(ng-bind="language.index.password")]
+              a.buttonsign(href="logout" ng-click="logout()" ui-sref-active="textcolorbutton") #[span.buttontext(ng-bind="language.index.logout")]
+            p(ng-bind="language.index.loggedInAs+': '+ user.firstname + ' ' + user.lastname + '  - ' +  user.local.email" style="position:absolute;bottom:0;")
+              
       div#page-content-wrapper
         .container-fluid
           .row

@@ -51,7 +51,7 @@
 	
 	"loginPage": {
 		"login": "Logga in",
-		"email": "Epost",
+		"username": "Användarnamn",
 		"password": "Lösenord"
 	},
 	
@@ -71,6 +71,7 @@
 	},
 	
 	"patient": {
+		"addPatient" : "Lägg till patient",
 		"patientdata": "Patientdata",
 		"email": "Email",
 		"name": "Namn",
@@ -92,7 +93,7 @@
 	},
 
 	"surgeryInfo": {
-		"surgeryinfo" : "Information om Operation",
+		"surgeryinfo" : "Lägg till operation",
 		"surgery" : "Operation",
 		"department" : "Avdelning",
 		"hospital" : "Sjukhus",
@@ -120,7 +121,9 @@
 		"occupation" : "Ockupation",
 		"email" :	"Email",
 		"password" : "Lösenord",
-		"skapakonto" : "Skapa Konto"
+		"skapakonto" : "Skapa Konto",
+		"personal_number" : "Personnummer",
+		"notes" : "Anteckningar"
 	},
 	
 	"formrecord" : {
@@ -134,6 +137,7 @@
 		"dailyActivities": "Vardagsaktivitet",
 		"narcosis": "Påverkan av narkos",
 		"nausea": "Illamående",
-		"painKillers": "Smärtstillande"
+		"painKillers": "Smärtstillande",
+		"comments": "Anteckningar"
 	}
  }

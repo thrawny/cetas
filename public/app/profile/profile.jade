@@ -1,32 +1,32 @@
-
-h3.text-center
-  span.fa.fa-sign-in  {{language.index.myprofile}} 
-
-form.form-wrapper(name="profileform")
-  div.form-group
-    label {{language.myprofile.email}}
-    input.form-control(type="text" name="email" ng-model="new_user.local.email" required)
-  div.form-group           
-    label {{language.myprofile.firstname}}
-    input.form-control(type="text" name="firstname" ng-model="new_user.firstname" required)
-  div.form-group   
-    label {{language.myprofile.lastname}}
-    input.form-control(type="text" name="lastname" ng-model="new_user.lastname" required) 
-  div.form-group          
-    label {{language.myprofile.address1}}
-    input.form-control(type="text" name="address1" ng-model="new_user.address1")  
+form(name="profileform", width="80%")
+ table(width="100%")
+  td(valign="top")  
+   div.form-group
+     label {{language.myprofile.email}}
+     input.form-control(type="text" name="email" ng-model="new_user.local.email" required)
+   div.form-group           
+     label {{language.myprofile.firstname}}
+     input.form-control(type="text" name="firstname" ng-model="new_user.firstname" required)
+   div.form-group   
+     label {{language.myprofile.lastname}}
+     input.form-control(type="text" name="lastname" ng-model="new_user.lastname" required) 
+   div.form-group           
+     label {{language.myprofile.mobile}}
+     input.form-control(type="text" name="mobile" ng-model="new_user.mobile")
+  td(width="5%")      
+  td
+   div.form-group          
+     label {{language.myprofile.address1}}
+     input.form-control(type="text" name="address1" ng-model="new_user.address1")
    div.form-group 
-    label {{language.myprofile.address2}}
-    input.form-control(type="text" name="address2" ng-model="new_user.address2") 
-  div.form-group           
-    label {{language.myprofile.postalnumber}}
-    input.form-control(type="text" name="postalno" ng-model="new_user.postalno") 
-  div.form-group           
-    label {{language.myprofile.city}}
-    input.form-control(type="text" name="city" ng-model="new_user.city")       
-  div.form-group           
-    label {{language.myprofile.mobile}}
-    input.form-control(type="text" name="mobile" ng-model="new_user.mobile")
+     label {{language.myprofile.address2}}
+     input.form-control(type="text" name="address2" ng-model="new_user.address2") 
+   div.form-group           
+     label {{language.myprofile.postalnumber}}
+     input.form-control(type="text" name="postalno" ng-model="new_user.postalno") 
+   div.form-group           
+     label {{language.myprofile.city}}
+     input.form-control(type="text" name="city" ng-model="new_user.city")       
 
-  button.buttonsubmit(style="float: right;  margin-left:2%" ng-click="submit(profileform)") 
+   button.buttonsubmit(style="float: right;  margin-left:2%" ng-click="submit(profileform)") 
     | {{language.myprofile.save}}

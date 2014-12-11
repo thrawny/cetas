@@ -2,6 +2,7 @@ var home = require('../app/controllers/home');
 var user = require('../app/controllers/user');
 var mypatients = require('../app/controllers/mypatients');
 var auth = require('./auth');
+var logger = require('./logger');
 
 var patient_api = require('../app/controllers/api.patients');
 var formrecord_api = require('../app/controllers/api.formrecord');
@@ -19,6 +20,8 @@ module.exports = function(app, passport) {
 	});
 
 	app.use('/api', function(req, res, next) {
+		logger.log(req); // Print the request to the audit log
+
 		if (auth.checkAPI(req)) {
 			next();
 		} else {
