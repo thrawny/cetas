@@ -25,7 +25,7 @@ angular.module('myApp')
             	$state.go('index', {message: 'Du registrerade en ny användare'});
             })
             .error(function(data, status, headers, config) {
-
+              console.log(data);
             });
         }
       }

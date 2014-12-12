@@ -2,15 +2,6 @@ h3.text-center {{language.index.welcomeTitle}}
 
 .alert.alert-success(ng-if="message" ng-bind="message")
 
-div#wrapper(ng-controller="HomeCtrl")
-  div(ng-if="user.role == 1")
-    p Notisflöde - Sedan du senast besökte den här sidan har följande formulär fyllts i: 
-        
-    div(ng-repeat="patient in patients")
-      div(ng-repeat="record in patient.formrecords")
-        p(ng-if="lastvisited < record.date")
-          {{patient.firstname}} {{patient.lastname}} 
-          a(ng-click="formrecord(record._id, patient._id)") {{record.date | date : 'yyyy-MM-dd HH:mm'}}
           
         
        

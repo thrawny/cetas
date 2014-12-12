@@ -16,7 +16,7 @@ angular.module('myApp')
     $scope.addOperation = function(form) {
     	$http.post('/api/patients/:p_id/surgeries', $scope.patient)
 	    	.success(function(data, status, headers, config) {
-	        	$state.go('index', {message: 'OK'});
+	        	$state.go('index', {message: 'Operation tillagd.'});
 	        })
 	        .error(function(data, status, headers, config) {
 	        	//TODO: do something...
