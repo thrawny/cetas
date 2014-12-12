@@ -4,7 +4,7 @@ h3.text-center {{language.index.welcomeTitle}}
 
 div#wrapper(ng-controller="HomeCtrl")
   div(ng-if="user.role == 1")
-    p NotisFl�de - Sen du senast bes�kte den h�r sidan har f�ljande formul�r fyllts i: 
+    p Notisflöde - Sedan du senast besökte den här sidan har följande formulär fyllts i: 
         
     div(ng-repeat="patient in patients")
       div(ng-repeat="record in patient.formrecords")
