@@ -3,6 +3,7 @@ var User = mongoose.model('User');
 var roles = require('../models/enums').roles;
 var _ = require('lodash');
 // Lists all patients
+// GET /api/patients
 module.exports.list = function(req, res, next){
     var query = User.find({role: 0}, 'local.email firstname lastname formrecords personal_number');
     query.sort( { date: 1 } );
@@ -12,6 +13,7 @@ module.exports.list = function(req, res, next){
     });
 }
 
+// POST /api/patients/
 module.exports.create = function(req, res, next) {
 
   if (req.body.email === '' || req.body.password === '') {
@@ -62,6 +64,7 @@ module.exports.create = function(req, res, next) {
 }
 
 //Shows a specific patient
+// GET /api/patients/p_id
 module.exports.view = function(req, res, next) {
     User.findOne({_id: req.params.id, role: roles.patient}, function(err, user) {
       if (err) return next(err);
@@ -74,6 +77,7 @@ module.exports.view = function(req, res, next) {
     })    
 };
 
+// PUT /api/patients/p_id
 module.exports.update = function (req, res, next) {
   User.findById(req.params.id, function (err, user) {
     if (err) return next(err);

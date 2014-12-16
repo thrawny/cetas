@@ -3,6 +3,7 @@ var mongoose = require('mongoose'),
     Surgery = mongoose.model('Surgery');
 
 // Handle post request with new surgery data.
+// POST /api/patients/p_id/surgeries
 module.exports.create = function (req, res, next) {
   User.findOne({_id: req.body.patient_id}, function(err, user) {
     if (err) next(err);

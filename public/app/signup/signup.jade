@@ -17,7 +17,7 @@ form(width="80%" name="signupform")
              input.form-control(type="integer", name="role", placeholder="ÅÅÅÅMMDD-XXXX", ng-model="new_user.role")   
        div.form-group
          label {{language.signup.email}}
-         input.form-control(type="text", name="email", placeholder="exempel@mail.se", ng-model="new_user.email" required) 
+         input.form-control(type="email", name="email", placeholder="exempel@mail.se", ng-model="new_user.email" required) 
        div.form-group
          label {{language.signup.password}}
          input.form-control(type="password", name="password", placeholder="Minst 6 tecken, varav minst en bokstav och en siffra", ng-model="new_user.password" required)

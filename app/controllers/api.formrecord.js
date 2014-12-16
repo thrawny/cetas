@@ -16,6 +16,7 @@ var mongoose = require('mongoose'),
     //For password; Ask the almighty Mike
     
 // Handle post request with new form record.
+// POST /api/patients/p_id/formrecord
 module.exports.create = function(req, res, next) {
 
   var pageError = false;
@@ -103,6 +104,7 @@ module.exports.create = function(req, res, next) {
 
 };
 
+// GET /api/patients/p_id/formrecord/f_id
 module.exports.view = function(req, res, next) {
   User.findOne({ _id: req.params.p_id },  function(err, user) {
     res.json(user.formrecords.id(req.params.f_id));

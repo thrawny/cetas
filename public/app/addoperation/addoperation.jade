@@ -4,15 +4,15 @@ h3.text-center
 form.form-wrapper(name="newOperationForm")
   div.form-group
     label {{language.surgeryInfo.surgery}}
-    input.form-control(type="text", name="operation", ng-model="patient.operation") 
+    input.form-control(type="text", name="operation", ng-model="patient.operation" required) 
 
   div.form-group
     label {{language.surgeryInfo.department}}
-    input.form-control(type="text", name="department", ng-model="patient.department") 
+    input.form-control(type="text", name="department", ng-model="patient.department" required) 
 
   div.form-group
     label {{language.surgeryInfo.hospital}}
-    input.form-control(type="text", name="hospital", ng-model="patient.hospital") 
+    input.form-control(type="text", name="hospital", ng-model="patient.hospital" required) 
 
   div.form-group
     label {{language.surgeryInfo.notes}}
