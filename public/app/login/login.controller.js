@@ -9,6 +9,7 @@ angular.module('myApp')
     
     $scope.user = {};
 
+    // Call auth factory with credentials. 
     $scope.user_id;
     $scope.submit = function(login) {
       if (!login.$valid) return;

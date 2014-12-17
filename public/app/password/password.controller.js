@@ -14,6 +14,7 @@ angular.module('myApp')
 
     $scope.pass = { id: $scope.user._id };
 
+    // Perform request to backend if passwords match.
     $scope.submit = function (form) {
       if (form.$valid) {
         if ($scope.pass.password === $scope.pass.confirmpassword) {

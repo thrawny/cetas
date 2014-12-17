@@ -12,10 +12,12 @@ angular.module('myApp')
       $scope.new_user = angular.copy(data);
     })
 
+    // Keep user object in the form separate from rest of page.
     $scope.$on('user.update', function(event, args) {
       $scope.new_user = angular.copy(args);
     })
 
+    // Update user data via the api.
     $scope.submit = function(form) {
       if (!form.$valid) {
         return;

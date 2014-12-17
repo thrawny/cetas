@@ -32,7 +32,7 @@ User.findOne({'local.email': 'dr@esana.se'}, function(err, user) {
     drUser.local.password = drUser.generateHash('password123');
     drUser.role = 1;
     drUser.firstname = 'Doktor';
-    drUser.lastname = 'Doktorsson'
+    drUser.lastname = 'Doktorsson';
 
     drUser.save(function(err) {
       if (err) {

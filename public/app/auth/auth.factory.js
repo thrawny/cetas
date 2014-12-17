@@ -1,3 +1,4 @@
+// Service object that handles authentication via the node api backend.
 angular.module('myApp')
   .factory('Auth', ['$http', '$q', '$cookies', '$rootScope', function($http, $q, $cookies, $rootScope) {
 

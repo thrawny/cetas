@@ -12,6 +12,7 @@ angular.module('myApp')
     // Create dummy object for the new user
     $scope.new_user = {};
     
+    // Create new patient via the api.
     $scope.submit = function(form) {
         if (!form.$valid) {
         	console.log("Not valid");

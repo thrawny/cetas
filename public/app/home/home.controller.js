@@ -5,7 +5,7 @@ angular.module('myApp')
     $scope.message = $stateParams.message;
     console.log($scope.message);
     
-    
+// This stop is not working properly for now.    
 	// $http.get("/api/patients")
 	// .success(function(data){
 	// 	$scope.patients = data;
